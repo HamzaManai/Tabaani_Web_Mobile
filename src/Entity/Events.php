@@ -62,6 +62,18 @@ class Events
      */
     private $eventaddress;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Themes::class, inversedBy="events")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $eventtheme;
+
+    /**
+     * @ORM\OneToOne(targetEntity=EventProgram::class, inversedBy="events", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $eventprog;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +183,30 @@ class Events
     public function setEventaddress(?string $eventaddress): self
     {
         $this->eventaddress = $eventaddress;
+
+        return $this;
+    }
+
+    public function getEventtheme(): ?Themes
+    {
+        return $this->eventtheme;
+    }
+
+    public function setEventtheme(?Themes $eventtheme): self
+    {
+        $this->eventtheme = $eventtheme;
+
+        return $this;
+    }
+
+    public function getEventprog(): ?EventProgram
+    {
+        return $this->eventprog;
+    }
+
+    public function setEventprog(EventProgram $eventprog): self
+    {
+        $this->eventprog = $eventprog;
 
         return $this;
     }

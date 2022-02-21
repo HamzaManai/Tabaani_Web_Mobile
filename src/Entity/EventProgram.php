@@ -32,6 +32,11 @@ class EventProgram
      */
     private $timeend;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Events::class, mappedBy="eventprog", cascade={"persist", "remove"})
+     */
+    private $events;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,23 @@ class EventProgram
     public function setTimeend(\DateTimeInterface $timeend): self
     {
         $this->timeend = $timeend;
+
+        return $this;
+    }
+
+    public function getEvents(): ?Events
+    {
+        return $this->events;
+    }
+
+    public function setEvents(Events $events): self
+    {
+        // set the owning side of the relation if necessary
+        if ($events->getEventprog() !== $this) {
+            $events->setEventprog($this);
+        }
+
+        $this->events = $events;
 
         return $this;
     }
