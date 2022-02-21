@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Apollo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apollo.iml" afterDir="false" />
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="Adding Entity and Repository folders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,8 +185,23 @@
       <option name="presentableId" value="Default" />
       <updated>1645226334781</updated>
       <workItem from="1645226352246" duration="5000" />
-      <workItem from="1645449007715" duration="385000" />
+      <workItem from="1645449007715" duration="1150000" />
     </task>
+    <task id="LOCAL-00001" summary="Modif">
+      <created>1645449425018</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645449425018</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding Entity and Repository folders">
+      <created>1645449597134</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645449597134</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,5 +217,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modif" />
+    <MESSAGE value="Adding Entity and Repository folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Entity and Repository folders" />
   </component>
 </project>
