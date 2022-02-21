@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="Adding Entity and Repository folders">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="entities">
+      <change afterPath="$PROJECT_DIR$/src/Entity/EventProgram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +187,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645226334781</updated>
       <workItem from="1645226352246" duration="5000" />
-      <workItem from="1645449007715" duration="1150000" />
+      <workItem from="1645449007715" duration="1669000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -201,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645449597134</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="created entities">
+      <created>1645450428644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645450428644</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +230,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modif" />
     <MESSAGE value="Adding Entity and Repository folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Entity and Repository folders" />
+    <MESSAGE value="created entities" />
+    <MESSAGE value="entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="entities" />
   </component>
 </project>
