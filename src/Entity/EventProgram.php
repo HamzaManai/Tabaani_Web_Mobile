@@ -15,7 +15,7 @@ class EventProgram
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,6 +36,11 @@ class EventProgram
      * @ORM\OneToOne(targetEntity=Events::class, mappedBy="eventprog", cascade={"persist", "remove"})
      */
     private $events;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nbractivities;
 
     public function getId(): ?int
     {
@@ -91,6 +96,18 @@ class EventProgram
         }
 
         $this->events = $events;
+
+        return $this;
+    }
+
+    public function getNbractivities(): ?int
+    {
+        return $this->nbractivities;
+    }
+
+    public function setNbractivities(int $nbractivities): self
+    {
+        $this->nbractivities = $nbractivities;
 
         return $this;
     }

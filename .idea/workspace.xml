@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="repositories">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/EventProgram.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/EventProgram.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Themes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +191,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645226334781</updated>
       <workItem from="1645226352246" duration="5000" />
-      <workItem from="1645449007715" duration="2797000" />
+      <workItem from="1645449007715" duration="15104000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -231,7 +235,28 @@
       <option name="project" value="LOCAL" />
       <updated>1645450871903</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Entities Update">
+      <created>1645451843137</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1645451843137</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Controllers Added">
+      <created>1645451991327</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1645451991327</updated>
+    </task>
+    <task id="LOCAL-00009" summary="entities templates">
+      <created>1645452073231</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645452073231</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +279,10 @@
     <MESSAGE value="created entities" />
     <MESSAGE value="entities" />
     <MESSAGE value="repositories" />
-    <option name="LAST_COMMIT_MESSAGE" value="repositories" />
+    <MESSAGE value="Entities Update" />
+    <MESSAGE value="Controllers Added" />
+    <MESSAGE value="entities templates" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

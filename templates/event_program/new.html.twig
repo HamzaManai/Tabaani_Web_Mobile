@@ -1,11 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends'Front_Office/Header-Footer.html.twig' %}
 
-{% block title %}New EventProgram{% endblock %}
+ {% block title %}
+     New Program
+ {% endblock %}
 
-{% block body %}
+
+{% block Content %}
+    <br><br><br><br><br>
+
     <h1>Create new EventProgram</h1>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
 
     {{ include('event_program/_form.html.twig') }}
 
     <a href="{{ path('event_program_index') }}">back to list</a>
+
+    <br><br><br><br><br>
 {% endblock %}

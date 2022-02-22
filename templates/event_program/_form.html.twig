@@ -1,4 +1,7 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+
+    {{ form_start(form) }}
+        {{ form_row(form.nbractivities) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        <div class="alert alert-danger"> {{ form_rest (form) }} </div>
+    {{ form_end(form) }}
+

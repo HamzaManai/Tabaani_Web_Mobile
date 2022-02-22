@@ -9,16 +9,16 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Eventname</th>
-                <th>Nbrmaxpart</th>
-                <th>Nbrpart</th>
-                <th>Imageevent</th>
+                <th>Name</th>
+                <th>Maximum Number of Participants</th>
+                <th>Current Number of Participants</th>
+                <th>Image</th>
                 <th>Description</th>
                 <th>Format</th>
-                <th>Eventdate</th>
+                <th>Date</th>
                 <th>Link</th>
-                <th>Eventaddress</th>
-                <th>actions</th>
+                <th>Address</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +37,7 @@
                 <td>
                     <a href="{{ path('events_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('events_edit', {'id': event.id}) }}">edit</a>
+                    <a href="{{ path('events_delete', {'id': event.id}) }}">delete</a>
                 </td>
             </tr>
         {% else %}
