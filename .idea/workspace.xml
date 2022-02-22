@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/EventProgram.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/EventProgram.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_program/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +186,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645226334781</updated>
       <workItem from="1645226352246" duration="5000" />
-      <workItem from="1645449007715" duration="15104000" />
+      <workItem from="1645449007715" duration="15869000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -256,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645452073231</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <created>1645488927056</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1645488927056</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +285,7 @@
     <MESSAGE value="Controllers Added" />
     <MESSAGE value="entities templates" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
