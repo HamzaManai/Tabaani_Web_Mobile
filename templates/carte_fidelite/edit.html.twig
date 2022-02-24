@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CarteFidelite{% endblock %}
+
+{% block body %}
+    <h1>Edit CarteFidelite</h1>
+
+    {{ include('carte_fidelite/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('carte_fidelite_index') }}">back to list</a>
+
+    {{ include('carte_fidelite/_delete_form.html.twig') }}
+{% endblock %}
