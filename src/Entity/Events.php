@@ -150,12 +150,12 @@ class Events
         return $this;
     }*/
 
-    public function getImageevent(): ?string
+    public function getImageevent()
     {
         return $this->imageevent;
     }
 
-    public function setImageevent(string $imageevent): self
+    public function setImageevent($imageevent): self
     {
         $this->imageevent = $imageevent;
 
@@ -280,7 +280,7 @@ class Events
 
     public function getUploadRoot()
     {
-        return __DIR__.'/../../public/pics/'.$this->getUploadDir().'/';
+        return __DIR__.'/../../public/'.$this->getUploadDir().'/';
     }
 
     public function upload()

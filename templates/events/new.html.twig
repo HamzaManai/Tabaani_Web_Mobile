@@ -1,11 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends'Front_Office/Header-Footer.html.twig' %}
 
-{% block title %}New Events{% endblock %}
+ {% block title %}
+     Add Event
+ {% endblock %}
 
-{% block body %}
-    <h1>Create new Events</h1>
 
-    {{ include('events/_form.html.twig') }}
+    {% block Content %}
+    <section class="py-5">
+        <div class="container">
+            <p class="subtitle text-primary">Add a new event</p>
+            <h1 class="h2 mb-5"> Basic information <span class="text-muted float-right">Let's go!</span>      </h1>
+                {{ include('events/_form.html.twig') }}
 
-    <a href="{{ path('events_index') }}">back to list</a>
+            <div class="col text-center text-sm-left"><a class="btn btn-link text-muted" href="{{ path('events_index') }}">
+                    <i class="fa-chevron-left fa mr-2"></i> Cancel
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <br><br><br><br><br>
 {% endblock %}
