@@ -37,10 +37,6 @@ class Themes
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Length(
-     *      min = 2,
-     *      minMessage = "Your event's description must be at least {{ limit }} characters long"
-     * )
      */
     private $imagetheme;
 

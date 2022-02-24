@@ -48,7 +48,6 @@ class Events
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\File(mimeTypes={"image/jpeg"})
      */
     private $imageevent;
 
