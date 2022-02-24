@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 3.0">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 4.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Themes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/themes/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +192,7 @@
       <workItem from="1645564864633" duration="52000" />
       <workItem from="1645567799942" duration="132000" />
       <workItem from="1645624602991" duration="1086000" />
-      <workItem from="1645644115544" duration="9337000" />
+      <workItem from="1645644115544" duration="10960000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -281,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645669710348</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="updates 4.0">
+      <created>1645674458008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1645674458008</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +316,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="update 2.0" />
     <MESSAGE value="updates 3.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates 3.0" />
+    <MESSAGE value="updates 4.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates 4.0" />
   </component>
 </project>

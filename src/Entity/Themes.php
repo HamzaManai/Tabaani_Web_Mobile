@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity(repositoryClass=ThemesRepository::class)
@@ -46,6 +48,8 @@ class Themes
      * @ORM\OneToMany(targetEntity=Events::class, mappedBy="eventtheme", cascade={"all"}, orphanRemoval=true)
      */
     private $events;
+
+    private $file;
 
     public function __construct()
     {
@@ -113,5 +117,59 @@ class Themes
 
     public function __toString(): string {
         return $this->getThemename();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(UploadedFile $file)
+    {
+        $this->file = $file;
+    }
+
+    public function getUploadDir()
+    {
+        return 'imagesThemes';
+    }
+
+    public function getAbsolutRoot()
+    {
+        return $this->getUploadRoot().$this->imagetheme ;
+    }
+
+    public function getWebPath()
+    {
+        return $this->getUploadDir().'/'.$this->imagetheme;
+    }
+
+    public function getUploadRoot()
+    {
+        return __DIR__.'/../../public/pics/'.$this->getUploadDir().'/';
+    }
+
+    public function upload()
+    {
+
+        if($this->file === null){
+            return;
+
+        }
+        $this->imagetheme = $this->file->getClientOriginalName();
+        if(!is_dir($this->getUploadRoot()))
+        {
+            mkdir($this->getUploadRoot(),'0777',true);
+        }
+
+        $this->file->move($this->getUploadRoot(),$this->imagetheme);
+        unset($this->file);
     }
 }

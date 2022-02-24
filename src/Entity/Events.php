@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EventsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=EventsRepository::class)
@@ -20,7 +21,7 @@ class Events
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Please Write Event Name")
      * @Assert\Length(
      *      min = 2,
      *      max = 50,
@@ -47,6 +48,7 @@ class Events
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Assert\File(mimeTypes={"image/jpeg"})
      */
     private $imageevent;
 
@@ -68,8 +70,13 @@ class Events
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
-     * @Assert\Date
-     * @var string A "Y-m-d" formatted value
+     * @Assert\Type(
+     *      type = "\DateTime",
+     *      message = "Event date is not valid",
+     * )
+     * @Assert\GreaterThanOrEqual(
+     *      value = "today",
+     *     )
      */
     private $eventdate;
 
@@ -94,6 +101,8 @@ class Events
      * @Assert\NotBlank
      */
     private $eventtheme;
+
+    private $file;
 
     /*/**
      * @ORM\OneToOne(targetEntity=EventProgram::class, inversedBy="events", cascade={"persist", "remove"})
@@ -237,4 +246,58 @@ class Events
 
         return $this;
     }*/
+
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(UploadedFile $file)
+    {
+        $this->file = $file;
+    }
+
+    public function getUploadDir()
+    {
+        return 'imagesEvent';
+    }
+
+    public function getAbsolutRoot()
+    {
+        return $this->getUploadRoot().$this->imageevent ;
+    }
+
+    public function getWebPath()
+    {
+        return $this->getUploadDir().'/'.$this->imageevent;
+    }
+
+    public function getUploadRoot()
+    {
+        return __DIR__.'/../../public/pics/'.$this->getUploadDir().'/';
+    }
+
+    public function upload()
+    {
+
+        if($this->file === null){
+            return;
+
+        }
+        $this->imageevent = $this->file->getClientOriginalName();
+        if(!is_dir($this->getUploadRoot()))
+        {
+            mkdir($this->getUploadRoot(),'0777',true);
+        }
+
+        $this->file->move($this->getUploadRoot(),$this->imageevent);
+        unset($this->file);
+    }
 }
