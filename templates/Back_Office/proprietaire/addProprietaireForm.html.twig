@@ -1,0 +1,112 @@
+ {% extends'Back_Office/AdminMain.html.twig' %}
+
+ {% block title %}
+    List Props
+{% endblock %}
+
+{% block menu %}
+	Add Proprietaire						
+{% endblock %}
+
+
+{% block Entry %}
+  <div class="container">
+
+
+  <div class="card card-custom" >
+  <!--begin::Form-->
+  {{ form_start (formProprietaire, {'attr' : {'novalidate' : 'novaliate ','width' : '600px'}})  }}
+  <form>
+    <div class="card-body">
+     <div class="form-group mb-8">
+      <div class="alert alert-custom alert-default" role="alert">
+        <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
+          <div class="alert-text">
+            Fill the inputs with the owner details.
+          </div>
+         </div>
+      </div>
+      <div class="form-group">
+        <label>{{ form_label(formProprietaire.nom_prop,"nom Proprietaire : ") }}<span class="text-danger">*</span></label>
+        {{ form_widget(formProprietaire.nom_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter nom prop','type':'text'}}) }}
+        <span class="form-text text-muted">nom propreteraire.</span>
+      </div>
+
+          <div class="form-group">
+            <label>{{ form_label(formProprietaire.prenom_prop,"prenom Proprietaire : ") }}<span class="text-danger">*</span></label>
+        {{ form_widget(formProprietaire.prenom_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter prenom prop','type':'text'}}) }}
+            <span class="form-text text-muted">prenom proprietaire.</span>
+           </div>
+
+        <div class="form-group">
+      <label>{{ form_label(formProprietaire.email_prop,"email Proprietaire : ") }}<span class="text-danger">*</span></label>
+      {{ form_widget(formProprietaire.email_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter email','type':'email'}}) }}
+      <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+    </div>
+
+    <div class="form-group">
+      <label>{{ form_label(formProprietaire.num_tlf_prop,"Phone Proprietaire : ") }}<span class="text-danger">*</span></label>
+      {{ form_widget(formProprietaire.num_tlf_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Phone number','type':'number'}}) }}
+      <span class="form-text text-muted">Phone Number.</span>
+    </div>
+
+    <div class="form-group">
+        <label>{{ form_label(formProprietaire.img_prop,"Image Proprietaire : ") }}</label>
+        <div></div>
+        <div class="custom-file">
+          {{ form_widget(formProprietaire.img_prop , {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
+        <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+      </div>
+
+{% if not formProprietaire.vars.valid %}
+            <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning" hide="true"></i>
+                </div>
+                <div class="alert-text" >
+       {{form_errors (formProprietaire.nom_prop) }}
+        {{ form_errors (formProprietaire.prenom_prop) }}
+        {{ form_errors (formProprietaire.email_prop) }}
+        {{ form_errors (formProprietaire.num_tlf_prop) }}
+        {{ form_errors (formProprietaire.img_prop) }}
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                        </button>
+                    </div>
+                 </div>
+            </div>
+{% endif %}
+<!-- 
+    <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+        <div class="alert-icon"><i class="flaticon-warning" hide="true"></i></div>
+        <div class="alert-text" >
+       form_errors (formProprietaire.nom_prop) }}
+        { form_errors (formProprietaire.prenom_prop) }}
+        { form_errors (formProprietaire.email_prop) }}
+        { form_errors (formProprietaire.num_tlf_prop) }}
+        { form_errors (formProprietaire.img_prop) }}
+
+        </div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+            </button>
+        </div>
+    </div>
+-->
+      <div class="card-footer">
+      <button type="Submit" class="btn btn-primary mr-2">Submit</button>
+      <button type="reset" class="btn btn-secondary">Cancel</button>
+      </div>
+  </form>
+  {{ form_end (formProprietaire) }}
+  <!--end::Form-->
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}

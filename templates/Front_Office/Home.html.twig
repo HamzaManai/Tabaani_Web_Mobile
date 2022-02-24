@@ -494,51 +494,70 @@ Home
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-8">
-            <p class="subtitle text-secondary">Here you can book your accomdation     </p>
+            <p class="subtitle text-secondary">Here you can book your accomdation </p>
             <h2>Accomadations</h2>
           </div>
-          <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
+          <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="{{ url('ListHebergementFront') }}">
                See all deals<i class="fas fa-angle-double-right ml-2"></i></a></div>
         </div>
         <!-- Slider main container-->
+
         <div class="swiper-container swiper-container-mx-negative swiper-init pt-3" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
           <!-- Additional required wrapper-->
           <div class="swiper-wrapper pb-5">
-            <!-- Slides-->
-            <div class="swiper-slide h-auto px-2">
+
+            <div class="row">
               <!-- place item-->
-              <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                <div class="card h-100 border-0 shadow">
-                  <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
-                    <div class="card-img-overlay-bottom z-index-20">
-                      <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="Pamela"/>
-                        <div class="media-body">Pamela</div>
+              {% for h in hebergement %}
+                <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                  <div class="card h-100 border-0 shadow">
+                    <div class="card-img-top overflow-hidden gradient-overlay">
+                      <img class="img-fluid"  src="{{ asset('/uploads/hebergements/'~ h.getImgHbrg()) }}"  alt="Hebergement Picture"/>
+                      <a class="tile-link" href="detail-rooms.html"></a>
+                      <div class="card-img-overlay-bottom z-index-20">
+                        <div class="media text-white text-sm align-items-center">
+                          {% if h.proprietaire is null %}
+                            <img class="avatar avatar-border-white mr-2" src="{{ asset ('DefaultProp.png')}}"  alt="John"/>
+                          {% else %}
+                            <img class="avatar avatar-border-white mr-2" src="{{ asset('/uploads/proprietaires/'~ h.proprietaire.getImgProp())}}"  alt="Pamela"/>
+                          {% endif %}                                        <div class="media-body">
+                            {% if h.proprietaire is null %}
+                            {% else %}
+                              {{ h.proprietaire.getNomProp() }}
+                            {% endif %}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="card-img-overlay-top text-right"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
-                        <svg class="svg-icon text-white">
-                          <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
-                  </div>
-                  <div class="card-body d-flex align-items-center">
-                    <div class="w-100">
-                      <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Modern, Well-Appointed Room</a></h6>
-                      <div class="d-flex card-subtitle mb-3">
-                        <p class="flex-grow-1 mb-0 text-muted text-sm">Private room</p>
-                        <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                        </p>
+                    <div class="card-body d-flex align-items-center">
+                      <div class="w-100">
+                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">{{ h.getNomHbrg()}} </a></h6>
+                        <div class="d-flex card-subtitle mb-3">
+                          <p class="flex-grow-1 mb-0 text-muted text-sm">{{h.TypeHbrg.getNomTypeHbrg() }}
+                            <br>
+                            {{ h.getAdresseHbrg() }}
+                          </p>
+                        </div>
+                        <p class="card-text text-muted"><span class="h4 text-danger">{{h.getNbrPlaceHbrg() }} places still Available </p>
+                        <p class="card-text text-muted"><span class="h4 text-primary">{{h.getPrixHbrg()}} TND</span> per night</p>
                       </div>
-                      <p class="card-text text-muted"><span class="h4 text-primary">$80</span> per night</p>
                     </div>
                   </div>
                 </div>
-              </div>
+              {% else %}
+                No Accomadation Available
+              {% endfor %}
             </div>
-            </div>
-          </div>
+
+
+
+
+             </div>
           <!-- If we need pagination-->
           <div class="swiper-pagination"></div>
         </div>
+
+
       </div>
     </section>
 

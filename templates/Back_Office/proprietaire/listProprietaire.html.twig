@@ -1,0 +1,111 @@
+ {% extends'Back_Office/AdminMain.html.twig' %}
+
+ {% block title %}
+    List Props
+{% endblock %}
+
+{% block menu %}
+	Liste des Proprietaires						
+{% endblock %}
+
+
+{% block Entry %}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Image Proprietaire</th>
+        <th>Nom Proprietaire</th>
+        <th>Prenom Proprietaire</th>
+        <th>Email Proprietaire</th>
+        <th>Numero Telephone Proprietaire</th>
+        <th>Hebergements</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr {% for p in proprietaire %}>
+        <td>{{ p.getId() }}</td>
+        <td><img src="{{ asset('/uploads/proprietaires/'~ p.getImgProp()) }}" alt="" width="150"></td>
+        <td>{{ p.getNomProp() }}</td>
+        <td>{{ p.getPrenomProp() }}</td>
+        <td>{{ p.getEmailProp() }}</td>
+        <td>{{ p.getNumTlfProp() }}</td>
+        <td>
+                {% for h in  p.getHebergements() %}
+                   - {{ h.getNomHbrg() }} -
+                    {% else %} pas de hebergements
+                {% endfor %}
+        </td>
+        <td> 
+<!-- Button trigger modal-->
+ <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    Update
+</button>
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure ? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light-dark font-weight-bold"> 
+                <a href="{{ path('UpdateProp',{'id':p.getId()}) }}">Update</a>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </td>
+
+      <td > 
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete">Delete  </button>
+
+<!-- Modal-->
+<div class="modal fade" id="Delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure ? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">
+                Close
+                </button>
+                <button type="button" class="btn btn-primary font-weight-bold">
+                <a href="{{ path('DeleteProprietaire',{'id':p.getId()}) }}">Delete</a> 
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+      </td>
+    </tr>
+
+        {% else %}
+    <tr>
+        <td colspan="9" align="center">Pas de Proprietaire</td>
+    </tr>
+     {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+
+
