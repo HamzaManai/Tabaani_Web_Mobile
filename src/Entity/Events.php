@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EventsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventsRepository::class)
@@ -19,60 +20,86 @@ class Events
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your event's name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your event's name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $eventname;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\NotEqualTo(
+     *     value = 0
+     * )
      */
     private $nbrmaxpart;
 
-    /**
+    /*/**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbrpart;
+    //private $nbrpart;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $imageevent;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "Your event's description must be at least {{ limit }} characters long"
+     * )
      */
     private $description;
 
-    /**
+    /*/**
      * @ORM\Column(type="string", length=255)
      */
-    private $format;
+    //private $format;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $eventdate;
 
-    /**
+    /*/**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $link;
+    //private $link;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "Your event's address must be at least {{ limit }} characters long"
+     * )
      */
     private $eventaddress;
 
     /**
      * @ORM\ManyToOne(targetEntity=Themes::class, inversedBy="events")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $eventtheme;
 
-    /**
+    /*/**
      * @ORM\OneToOne(targetEntity=EventProgram::class, inversedBy="events", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $eventprog;
+    //private $eventprog;
 
     public function getId(): ?int
     {
@@ -103,7 +130,7 @@ class Events
         return $this;
     }
 
-    public function getNbrpart(): ?int
+    /*public function getNbrpart(): ?int
     {
         return $this->nbrpart;
     }
@@ -113,7 +140,7 @@ class Events
         $this->nbrpart = $nbrpart;
 
         return $this;
-    }
+    }*/
 
     public function getImageevent(): ?string
     {
@@ -139,7 +166,7 @@ class Events
         return $this;
     }
 
-    public function getFormat(): ?string
+    /*public function getFormat(): ?string
     {
         return $this->format;
     }
@@ -149,7 +176,7 @@ class Events
         $this->format = $format;
 
         return $this;
-    }
+    }*/
 
     public function getEventdate(): ?\DateTimeInterface
     {
@@ -163,7 +190,7 @@ class Events
         return $this;
     }
 
-    public function getLink(): ?string
+    /*public function getLink(): ?string
     {
         return $this->link;
     }
@@ -173,7 +200,7 @@ class Events
         $this->link = $link;
 
         return $this;
-    }
+    }*/
 
     public function getEventaddress(): ?string
     {
@@ -199,7 +226,7 @@ class Events
         return $this;
     }
 
-    public function getEventprog(): ?EventProgram
+    /*public function getEventprog(): ?EventProgram
     {
         return $this->eventprog;
     }
@@ -209,5 +236,5 @@ class Events
         $this->eventprog = $eventprog;
 
         return $this;
-    }
+    }*/
 }

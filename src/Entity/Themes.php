@@ -21,11 +21,23 @@ class Themes
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your event's name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your event's name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $themename;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "Your event's description must be at least {{ limit }} characters long"
+     * )
      */
     private $imagetheme;
 

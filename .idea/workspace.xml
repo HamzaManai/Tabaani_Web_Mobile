@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="update">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="update 2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/Apollo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apollo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventProgramController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/EventProgram.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Themes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/EventProgramRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event_program/show.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -165,15 +177,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ArtBox-CrashTest-WEB" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
-      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
   </component>
@@ -186,7 +198,12 @@
       <option name="presentableId" value="Default" />
       <updated>1645226334781</updated>
       <workItem from="1645226352246" duration="5000" />
-      <workItem from="1645449007715" duration="15869000" />
+      <workItem from="1645449007715" duration="21348000" />
+      <workItem from="1645516183929" duration="3461000" />
+      <workItem from="1645564864633" duration="52000" />
+      <workItem from="1645567799942" duration="132000" />
+      <workItem from="1645624602991" duration="1086000" />
+      <workItem from="1645644115544" duration="4734000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -258,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645488927056</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update 2.0">
+      <created>1645489718013</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1645489718013</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +298,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modif" />
@@ -286,6 +311,7 @@
     <MESSAGE value="entities templates" />
     <MESSAGE value="updates" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2.0" />
   </component>
 </project>
