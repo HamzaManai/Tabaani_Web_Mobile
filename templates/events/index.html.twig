@@ -11,13 +11,11 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Maximum Number of Participants</th>
-                <th>Current Number of Participants</th>
                 <th>Image</th>
                 <th>Description</th>
-                <th>Format</th>
                 <th>Date</th>
-                <th>Link</th>
                 <th>Address</th>
+                <th>Theme</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,13 +25,11 @@
                 <td>{{ event.id }}</td>
                 <td>{{ event.eventname }}</td>
                 <td>{{ event.nbrmaxpart }}</td>
-                <td>{{ event.nbrpart }}</td>
                 <td>{{ event.imageevent }}</td>
                 <td>{{ event.description }}</td>
-                <td>{{ event.format }}</td>
                 <td>{{ event.eventdate ? event.eventdate|date('Y-m-d') : '' }}</td>
-                <td>{{ event.link }}</td>
                 <td>{{ event.eventaddress }}</td>
+                <td>{{ event.eventtheme }}</td>
                 <td>
                     <a href="{{ path('events_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('events_edit', {'id': event.id}) }}">edit</a>

@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="update 2.0">
-      <change beforePath="$PROJECT_DIR$/.idea/Apollo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apollo.iml" afterDir="false" />
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 3.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventProgramController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/EventProgram.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Themes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/EventProgramRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_program/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/themes/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +172,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -203,7 +195,7 @@
       <workItem from="1645564864633" duration="52000" />
       <workItem from="1645567799942" duration="132000" />
       <workItem from="1645624602991" duration="1086000" />
-      <workItem from="1645644115544" duration="4734000" />
+      <workItem from="1645644115544" duration="9337000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -282,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645489718013</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="updates 3.0">
+      <created>1645669710348</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1645669710348</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +311,7 @@
     <MESSAGE value="updates" />
     <MESSAGE value="update" />
     <MESSAGE value="update 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 2.0" />
+    <MESSAGE value="updates 3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates 3.0" />
   </component>
 </project>

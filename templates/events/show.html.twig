@@ -12,19 +12,15 @@
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>Eventname</th>
+                <th>Event Name</th>
                 <td>{{ event.eventname }}</td>
             </tr>
             <tr>
-                <th>Nbrmaxpart</th>
+                <th>Max Participants</th>
                 <td>{{ event.nbrmaxpart }}</td>
             </tr>
             <tr>
-                <th>Nbrpart</th>
-                <td>{{ event.nbrpart }}</td>
-            </tr>
-            <tr>
-                <th>Imageevent</th>
+                <th>Image Event</th>
                 <td>{{ event.imageevent }}</td>
             </tr>
             <tr>
@@ -32,20 +28,16 @@
                 <td>{{ event.description }}</td>
             </tr>
             <tr>
-                <th>Format</th>
-                <td>{{ event.format }}</td>
-            </tr>
-            <tr>
-                <th>Eventdate</th>
+                <th>Event Date</th>
                 <td>{{ event.eventdate ? event.eventdate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Link</th>
-                <td>{{ event.link }}</td>
+                <th>Event Address</th>
+                <td>{{ event.eventaddress }}</td>
             </tr>
             <tr>
-                <th>Eventaddress</th>
-                <td>{{ event.eventaddress }}</td>
+                <th>Event Theme</th>
+                <td>{{ event.eventtheme }}</td>
             </tr>
         </tbody>
     </table>
