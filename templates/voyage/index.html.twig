@@ -1,0 +1,50 @@
+{% extends 'Back_Office/AdminMain.html.twig' %}
+
+{% block title %}Voyage index{% endblock %}
+
+{% block Entry %}
+    <h1>List Trips</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_voyage</th>
+                <th>Ville_depart</th>
+                <th>Ville_destination</th>
+                <th>Date_depart</th>
+                <th>Date_retour</th>
+                <th>Numero_voyage</th>
+                <th>Nom_agence</th>
+                <th>Prix_voyage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voyage in voyages %}
+            <tr>
+                <td>{{ voyage.id }}</td>
+                <td>{{ voyage.nomVoyage }}</td>
+                <td>{{ voyage.VilleDepart }}</td>
+                <td>{{ voyage.villeDestination }}</td>
+                <td>{{ voyage.dateDepart ? voyage.dateDepart|date('Y-m-d') : '' }}</td>
+                <td>{{ voyage.dateRetour ? voyage.dateRetour|date('Y-m-d') : '' }}</td>
+                <td>{{ voyage.numeroVoyage }}</td>
+                <td>{{ voyage.nomAgence }}</td>
+                <td>{{ voyage.prixVoyage }}</td>
+                <td>
+                    <a href="{{ path('voyage_show', {'id': voyage.id}) }}">show</a>
+                    <a href="{{ path('voyage_edit', {'id': voyage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('voyage_new') }}">Create new</a>
+{% endblock %}
+

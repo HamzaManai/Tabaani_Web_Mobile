@@ -1,0 +1,10 @@
+{% extends 'Back_Office/AdminMain.html.twig' %}
+{% block title %}New Promotion{% endblock %}
+
+{% block Entry %}
+    <h1>Create new Promotion</h1>
+
+    {{ include('promotion/_form.html.twig') }}
+
+    <a href="{{ path('promotion_index') }}">back to list</a>
+{% endblock %}

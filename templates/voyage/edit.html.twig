@@ -1,0 +1,13 @@
+{% extends 'Back_Office/AdminMain.html.twig' %}
+
+{% block title %}Edit Trip{% endblock %}
+
+{% block Entry %}
+    <h1>Edit Voyage</h1>
+
+    {{ include('voyage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('voyage_index') }}">back to list</a>
+
+    {{ include('voyage/_delete_form.html.twig') }}
+{% endblock %}
