@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 6.0">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 7.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/events/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +191,10 @@
       <workItem from="1645564864633" duration="52000" />
       <workItem from="1645567799942" duration="132000" />
       <workItem from="1645624602991" duration="1086000" />
-      <workItem from="1645644115544" duration="28438000" />
+      <workItem from="1645644115544" duration="29310000" />
+      <workItem from="1646009181961" duration="631000" />
+      <workItem from="1646036898492" duration="1605000" />
+      <workItem from="1646140354531" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -308,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645677086935</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="updates 7.0">
+      <created>1645700126387</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1645700126387</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,6 +341,7 @@
     <MESSAGE value="updates 3.0" />
     <MESSAGE value="updates 4.0" />
     <MESSAGE value="updates 5.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates 5.0" />
+    <MESSAGE value="updates 7.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates 7.0" />
   </component>
 </project>

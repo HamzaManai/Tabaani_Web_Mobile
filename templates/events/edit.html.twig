@@ -1,12 +1,8 @@
-{% extends'Front_Office/Header-Footer.html.twig' %}
+{% extends 'base.html.twig' %}
 
- {% block title %}
-     New Event
- {% endblock %}
+{% block title %}Edit Events{% endblock %}
 
-
-    {% block Content %}
-        <br><br><br><br><br>
+{% block body %}
     <h1>Edit Events</h1>
 
     {{ include('events/_form.html.twig', {'button_label': 'Update'}) }}
