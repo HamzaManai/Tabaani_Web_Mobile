@@ -39,8 +39,14 @@
                         <p class="subtitle text-primary">The latest events</p>
                         <h2>What's new on Tabaani</h2>
                     </div>
-                </div>
 
+                    <div class="text-center">
+                        <a class="btn btn-outline-primary btn-block" href="{{ path('events_new') }}">
+                            <i class="far fa-paper-plane mr-2"></i>
+                            Add a new event
+                        </a>
+                    </div>
+                </div>
 
               <div class="row">
                   {% for event in events %}
@@ -75,14 +81,6 @@
                   {% else %}
                       <h2> No records found </h2>
                   {% endfor %}
-
-                  <div class="text-center">
-                      <a class="btn btn-outline-primary btn-block" href="{{ path('events_new') }}">
-                          <i class="far fa-paper-plane mr-2"></i>
-                          Add a new event
-                      </a>
-                  </div>
-
 
               </div>
                   <!--<table class="table">

@@ -21,6 +21,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<title>Admin {% block title %} {% endblock %}</title>
 		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		{% block css %}
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
 
 		<!--begin::Fonts-->
@@ -48,10 +50,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{ asset ('logo.png')}}" />
+
+		{% endblock %}
 	</head>
 
 	<!--end::Head-->
-
+	{% block body %}
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 		
@@ -59,7 +63,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Main-->
 			<!--begin::Page-->
 			<div class="d-flex flex-row flex-column-fluid page">
-			
 				<!--begin::Aside-->
 				<div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
 					<!--begin::Brand-->
@@ -141,7 +144,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">To Modify</span>
+													<span class="menu-text">Events</span>
 													<i class="menu-arrow"></i>
 												</a>
 												<div class="menu-submenu">
@@ -152,7 +155,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">To Modify</span>
+																<span class="menu-text">Table Events</span>
 															</a>
 														</li>
 														<li class="menu-item" aria-haspopup="true">
@@ -160,7 +163,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">To Modify</span>
+																<span class="menu-text">Form Events</span>
 															</a>
 														</li>
 													</ul>
@@ -171,51 +174,29 @@ License: You must have a valid license purchased only from themeforest(the above
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">To Modify</span>
+													<span class="menu-text">Themes</span>
 													<i class="menu-arrow"></i>
 												</a>
 												<div class="menu-submenu">
 													<i class="menu-arrow"></i>
 													<ul class="menu-subnav">
-														<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-															<a href="javascript:;" class="menu-link menu-toggle">
+														<li class="menu-item" aria-haspopup="true">
+															<a href="custom/apps/user/list-default.html" class="menu-link">
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">To Modify</span>
-																<i class="menu-arrow"></i>
+																<span class="menu-text">Table Themes</span>
 															</a>
-															<div class="menu-submenu">
-																<i class="menu-arrow"></i>
-																<ul class="menu-subnav">
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/apps/profile/profile-1/overview.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">To Modify</span>
-																		</a>
-																	</li>
-																	<li class="menu-item" aria-haspopup="true">
-																		<a href="custom/apps/profile/profile-1/personal-information.html" class="menu-link">
-																			<i class="menu-bullet menu-bullet-line">
-																				<span></span>
-																			</i>
-																			<span class="menu-text">To Modify</span>
-																		</a>
-																	</li>
-																</ul>
-															</div>
 														</li>
 														<li class="menu-item" aria-haspopup="true">
-															<a href="custom/apps/profile/profile-2.html" class="menu-link">
+															<a href="custom/apps/user/list-datatable.html" class="menu-link">
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">To Modify</span>
+																<span class="menu-text">Form Themes</span>
 															</a>
 														</li>
-
+													</ul>
 												</div>
 											</li>
 										</ul>
@@ -1096,6 +1077,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Page Scripts-->
 	</body>
+	{% endblock %}
 
 	<!--end::Body-->
 </html>

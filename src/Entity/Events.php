@@ -103,6 +103,16 @@ class Events
 
     private $file;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="events")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $org;
+
+
+
+
+
     /*/**
      * @ORM\OneToOne(targetEntity=EventProgram::class, inversedBy="events", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
@@ -234,6 +244,7 @@ class Events
         return $this;
     }
 
+
     /*public function getEventprog(): ?EventProgram
     {
         return $this->eventprog;
@@ -245,7 +256,6 @@ class Events
 
         return $this;
     }*/
-
 
     /**
      * @return mixed
@@ -299,4 +309,17 @@ class Events
         $this->file->move($this->getUploadRoot(),$this->imageevent);
         unset($this->file);
     }
+
+    public function getOrg(): ?User
+    {
+        return $this->org;
+    }
+
+    public function setOrg(?User $org): self
+    {
+        $this->org = $org;
+
+        return $this;
+    }
+
 }
