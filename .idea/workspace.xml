@@ -6,14 +6,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/themes/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/themes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/themes/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/themes/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +166,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/captcha-com/captcha" />
+      <path value="$PROJECT_DIR$/vendor/captcha-com/symfony-captcha-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="25ItFBII9KThQJkkaLicF9ddcdK" />
@@ -175,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ArtBox-CrashTest-WEB" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -214,7 +221,7 @@
       <workItem from="1646140354531" duration="9000" />
       <workItem from="1646157120361" duration="9387000" />
       <workItem from="1646230993665" duration="30886000" />
-      <workItem from="1646276597705" duration="374000" />
+      <workItem from="1646276597705" duration="13988000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -342,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646261755402</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="updates 10.0">
+      <created>1646277053688</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1646277053688</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

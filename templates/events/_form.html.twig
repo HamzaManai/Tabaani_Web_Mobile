@@ -35,6 +35,15 @@
         <td>{{ form_widget(form.eventtheme) }}</td>
         <td>{{ form_errors(form.eventtheme) }}</td>
     </tr>
+    <tr>
+        <td>{{ form_label(form.org, "Event Organizer") }}</td>
+        <td>{{ form_widget(form.org) }}</td>
+        <td>{{ form_errors(form.org) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.captchaCode, "Are you a robot ?") }}</td>
+        <td>{{ form_row(form.captchaCode) }}</td>
+    </tr>
 </table>
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
