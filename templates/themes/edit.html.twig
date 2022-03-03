@@ -1,13 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends'Back_Office/AdminMain.html.twig' %}
 
-{% block title %}Edit Themes{% endblock %}
+ {% block title %}
+     Edit Event
+ {% endblock %}
 
-{% block body %}
-    <h1>Edit Themes</h1>
 
-    {{ include('themes/_form.html.twig', {'button_label': 'Update'}) }}
+    {% block Entry %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card card-custom gutter-b example example-compact">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit a Theme</h3>
+                    </div>
 
-    <a href="{{ path('themes_index') }}">back to list</a>
+                    <div class="card-body">
 
-    {{ include('themes/_delete_form.html.twig') }}
-{% endblock %}
+                        {{ include('themes/_form.html.twig', {'button_label': 'Update'}) }}
+
+                        <a href="{{ path('themes_index') }}">back to list</a>
+
+                        {{ include('themes/_delete_form.html.twig') }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,11 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends'Back_Office/AdminMain.html.twig' %}
 
-{% block title %}New Themes{% endblock %}
+ {% block title %}
+     Add Event
+ {% endblock %}
 
-{% block body %}
-    <h1>Create new Themes</h1>
 
-    {{ include('themes/_form.html.twig') }}
+    {% block Entry %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card card-custom gutter-b example example-compact">
+                        <div class="card-header">
+                            <h3 class="card-title">Add a Theme</h3>
+                        </div>
 
-    <a href="{{ path('themes_index') }}">back to list</a>
-{% endblock %}
+                        <div class="card-body">
+                            {{ include('themes/_form.html.twig') }}
+
+                            <a href="{{ path('themes_index') }}">back to list</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

@@ -98,14 +98,13 @@ class EventsController extends AbstractController
     }
 
     //************************* BACK *********************************//
-
     /**
-     * @Route("/events_index_back", name="events_index_back", methods={"GET"})
+     * @Route("/back/index", name="events_index_back", methods={"GET"})
      */
     public function indexBack(EventsRepository $eventsRepository): Response
     {
         return $this->render('events/index_back.html.twig', [
-            'events' => $eventsRepository->findAll(),
+            'events' => $eventsRepository->findAll()
         ]);
     }
 

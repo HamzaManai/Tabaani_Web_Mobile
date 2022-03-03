@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 8.0">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 10.0">
+      <change beforePath="$PROJECT_DIR$/.idea/Apollo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apollo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Themes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Themes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Back_Office/AdminMain.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Header-Footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/themes/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/themes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/themes/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/themes/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/themes/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +162,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="ProjectId" id="25ItFBII9KThQJkkaLicF9ddcdK" />
@@ -171,12 +175,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ArtBox-CrashTest-WEB" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\3ème_TIC_ESPRIT\2eme_Semestre\PIDEV\Code\Apollo\templates\events" />
+      <recent name="D:\3ème_TIC_ESPRIT\2eme_Semestre\PIDEV\Code\Apollo\src\Controller" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -203,7 +213,8 @@
       <workItem from="1646036898492" duration="1605000" />
       <workItem from="1646140354531" duration="9000" />
       <workItem from="1646157120361" duration="9387000" />
-      <workItem from="1646230993665" duration="17400000" />
+      <workItem from="1646230993665" duration="30886000" />
+      <workItem from="1646276597705" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -324,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646157853512</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="updates 9.0">
+      <created>1646261755402</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1646261755402</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +377,8 @@
     <MESSAGE value="updates 5.0" />
     <MESSAGE value="updates 7.0" />
     <MESSAGE value="updates 8.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates 8.0" />
+    <MESSAGE value="updates 9.0" />
+    <MESSAGE value="updates 10.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates 10.0" />
   </component>
 </project>
