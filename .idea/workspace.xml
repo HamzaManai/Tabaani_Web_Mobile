@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Back-Office/crud/forms/widgets/book.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Front-Office/img/photo/trip.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Front-Office/img/photo/trip1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Front_Office/book.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reservation/listres.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/voyage/listtrip.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Apollo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apollo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PromotionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VoyageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VoyageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Voyage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Voyage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/VoyageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/VoyageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/promotion/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/promotion/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/promotion/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/promotion/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/promotion/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/promotion/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/promotion/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/promotion/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voyage/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/backajout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Back_Office/backajout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voyage/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voyage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voyage/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voyage/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voyage/show.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="gestion voyage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -237,8 +208,16 @@
       <workItem from="1645632395567" duration="35897000" />
       <workItem from="1645876363158" duration="8344000" />
       <workItem from="1646000241078" duration="24393000" />
-      <workItem from="1646480361394" duration="42353000" />
+      <workItem from="1646480361394" duration="42684000" />
     </task>
+    <task id="LOCAL-00001" summary="gestion voyage">
+      <created>1646740064681</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646740064681</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,5 +237,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="gestion voyage" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestion voyage" />
   </component>
 </project>
