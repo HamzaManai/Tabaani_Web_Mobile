@@ -3,10 +3,23 @@
 {% block title %}New Voyage{% endblock %}
 
 {% block Entry %}
-    <h1>Ajouter Voyage</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Add a Trip </h3>
+                </div>
+
+                <div class="card-body">
 
     {{ include('voyage/_form.html.twig') }}
 
     <a href="{{ path('voyage_index') }}">back to list</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

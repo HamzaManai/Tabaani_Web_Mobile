@@ -3,20 +3,61 @@
 {% block title %}Voyage index{% endblock %}
 
 {% block Entry %}
-    <h1>List Trips</h1>
+<div class="container">
 
+    <div class="card card-custom gutter-b">
+        <div class="card-header flex-wrap py-3">
+            <div class="card-title">
+                <h3 class="card-label">Trips Details
+                    <span class="d-block text-muted pt-2 font-size-sm">The list of trips</span></h3>
+            </div>
+            <a href="{{ path('voyage_new') }}" class="btn btn-primary font-weight-bolder">
+						<span class="svg-icon svg-icon-md">
+							<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<rect x="0" y="0" width="24" height="24" />
+										<circle fill="#000000" cx="9" cy="15" r="6" />
+											<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
+								</g>
+							</svg>
+                            <!--end::Svg Icon-->
+						</span>New Trip</a>
+            <!--end::Add trip-->
+            <a href="{{ path('voyage_list') }}" class="btn btn-primary font-weight-bolder">
+						<span class="svg-icon svg-icon-md">
+							<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<rect x="0" y="0" width="24" height="24" />
+										<circle fill="#000000" cx="9" cy="15" r="6" />
+											<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
+								</g>
+							</svg>
+                            <!--end::Svg Icon-->
+						</span>Print</a>
+            <!--end::Add Event-->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-template d-flex justify-content-center">
+                    <li class="page-item">
+                        {{ knp_pagination_render(voyages) }}
+                    </li>
+                </ul>
+            </nav>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom_voyage</th>
-                <th>Ville_depart</th>
-                <th>Ville_destination</th>
-                <th>Date_depart</th>
-                <th>Date_retour</th>
-                <th>Numero_voyage</th>
-                <th>Nom_agence</th>
-                <th>Prix_voyage</th>
+                <th>Trip Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departure</th>
+                <th>Return</th>
+                <th>Trip Number</th>
+                <th>Agency </th>
+
+                <th>Price</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,11 +72,35 @@
                 <td>{{ voyage.dateRetour ? voyage.dateRetour|date('Y-m-d') : '' }}</td>
                 <td>{{ voyage.numeroVoyage }}</td>
                 <td>{{ voyage.nomAgence }}</td>
+
                 <td>{{ voyage.prixVoyage }}</td>
-                <td>
-                    <a href="{{ path('voyage_show', {'id': voyage.id}) }}">show</a>
-                    <a href="{{ path('voyage_edit', {'id': voyage.id}) }}">edit</a>
+
+
+                <td nowrap="nowrap">
+                    <a class="btn btn-sm btn-clean btn-icon mr-2"
+                       href="{{ path('voyage_edit', {'id': voyage.id}) }}">
+                                                    <span class="svg-icon svg-icon-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                             height="24px"viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <rect x="0" y="0" height="24" width="24"> </rect>
+                                                                <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z"
+                                                                      fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) ">
+                                                                </path>
+                                                                <rect height="2" width="15" fill="#000000" opacity="0.3" x="5" y="20"rx="1"> </rect>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+
+                    </a>
+
+                    <a class="btn btn-clean ">
+                        {{ include('voyage/_delete_form.html.twig') }}
+                    </a>
+
                 </td>
+
             </tr>
         {% else %}
             <tr>
@@ -45,6 +110,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('voyage_new') }}">Create new</a>
+
+
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 

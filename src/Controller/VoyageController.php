@@ -10,7 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Knp\Component\Pager\PaginatorInterface;
 /**
  * @Route("/voyage")
  */
@@ -18,13 +20,61 @@ class VoyageController extends AbstractController
 {
     /**
      * @Route("/", name="voyage_index", methods={"GET"})
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @param $voyage
+     * @return Response
      */
-    public function index(VoyageRepository $voyageRepository): Response
+    public function index(VoyageRepository $voyageRepository, Request $request, PaginatorInterface $paginator): Response
     {
+        // Méthode findBy qui permet de récupérer les données avec des critères de filtre et de tri
+        $donnees = $this->getDoctrine()->getRepository(Voyage::class)->findBy([],['nom_voyage' => 'desc']);
+
+        $voyage = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            3
+        );
+
         return $this->render('voyage/index.html.twig', [
-            'voyages' => $voyageRepository->findAll(),
+            'voyages' => $voyage,
         ]);
     }
+
+    /**
+     * @Route("/listtrip", name="voyage_list", methods={"GET"})
+     */
+    public function listtrip(VoyageRepository $voyageRepository): Response
+    {
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('voyage/listtrip.html.twig', [
+            'voyages' => $voyageRepository->findAll(),
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A3', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+    }
+
+    
+
 
     /**
      * @Route("/new", name="voyage_new", methods={"GET", "POST"})
@@ -90,4 +140,20 @@ class VoyageController extends AbstractController
 
         return $this->redirectToRoute('voyage_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @param VoyageRepository $repository
+     * @param Request $request
+     * @return Response
+     * @Route ("voyage/searchdate", name="searchd" )
+     */
+    function searchdate(VoyageRepository $repository,Request  $request){
+        $nom_voyage=$request->get('search');
+
+        $voyage=$repository->searchdate($nom_voyage);
+        return $this->render('voyage/index.html.twig', [
+            'voyages' => $voyage,
+        ]);
+    }
+
 }

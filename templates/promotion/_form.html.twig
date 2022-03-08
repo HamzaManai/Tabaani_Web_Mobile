@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<table>
+    <tr>
+        <td>{{ form_label(form.pourcent_prom, "Trip Name") }}</td>
+        <td>{{ form_widget(form.pourcent_prom) }}</td>
+        <td>{{ form_errors(form.pourcent_prom) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.voyage, "Trip Name") }}</td>
+        <td>{{ form_widget(form.voyage) }}</td>
+        <td>{{ form_errors(form.voyage) }}</td>
+    </tr>
+
+</table>
+{{ form_widget(form) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

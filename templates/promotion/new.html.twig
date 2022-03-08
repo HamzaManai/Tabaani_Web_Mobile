@@ -1,10 +1,27 @@
 {% extends 'Back_Office/AdminMain.html.twig' %}
 {% block title %}New Promotion{% endblock %}
 
-{% block Entry %}
-    <h1>Create new Promotion</h1>
 
-    {{ include('promotion/_form.html.twig') }}
+   {% block Entry %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Add a promotion</h3>
+                </div>
 
-    <a href="{{ path('promotion_index') }}">back to list</a>
+                <div class="card-body">
+
+                    {{ include('promotion/_form.html.twig') }}
+
+                    <a href="{{ path('promotion_index') }}">back to list</a>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <br><br><br><br><br>
 {% endblock %}
+

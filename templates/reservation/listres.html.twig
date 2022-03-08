@@ -1,0 +1,42 @@
+
+
+
+    {% block Content %}
+
+                <h1>Reservation index</h1>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>FLYING FROM</th>
+                        <th>FLYING TO</th>
+                        <th>DEPARTING</th>
+                        <th>Return</th>
+                        <th>Adults</th>
+                        <th>Children</th>
+                        <th>Phone</th>
+                        <th>Travel Class</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for reservation in reservations %}
+                        <tr>
+                            <td>{{ reservation.id }}</td>
+                            <td>{{ reservation.FLYINGFROM }}</td>
+                            <td>{{ reservation.FLYINGTO }}</td>
+                            <td>{{ reservation.DEPARTING ? reservation.DEPARTING|date('Y-m-d') : '' }}</td>
+                            <td>{{ reservation.Retour ? reservation.Retour|date('Y-m-d') : '' }}</td>
+                            <td>{{ reservation.adults }}</td>
+                            <td>{{ reservation.children }}</td>
+                            <td>{{ reservation.phone }}</td>
+                            <td>{{ reservation.travelClass }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
+    {% endblock %}

@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/promotion")
@@ -19,10 +20,19 @@ class PromotionController extends AbstractController
     /**
      * @Route("/", name="promotion_index", methods={"GET"})
      */
-    public function index(PromotionRepository $promotionRepository): Response
+    public function index(PromotionRepository $promotionRepository, Request $request, PaginatorInterface $paginator): Response
     {
+        // Méthode findBy qui permet de récupérer les données avec des critères de filtre et de tri
+        $donnees = $this->getDoctrine()->getRepository(Promotion::class)->findBy([],['pourcent_prom' => 'desc']);
+
+        $promotion = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            3
+        );
+
         return $this->render('promotion/index.html.twig', [
-            'promotions' => $promotionRepository->findAll(),
+            'promotions' => $promotion,
         ]);
     }
 

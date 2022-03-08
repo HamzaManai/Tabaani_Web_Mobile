@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\VoyageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=VoyageRepository::class)
@@ -25,29 +28,36 @@ class Voyage
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="the name is required")
-     * @Assert\Length(
-     *       min= 2,
-     *      max=200,
-     *     minMessage=" 'nom' must be at least {{ limit}} characters long ",
-     *     minMessage=" 'nom' must be longer than  {{ limit}} characters " )
+     *
      */
     private $nom_voyage;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
+     *
      */
     private $Ville_depart;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 26,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $ville_destination;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message="la date doit etre au format "jj/mm/aaaa" " )
-     * @Assert\GreaterThan("today")
+     *
      *
      */
     private $date_depart;
@@ -64,6 +74,13 @@ class Voyage
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 26,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
+     *
      */
     private $nom_agence;
 
@@ -76,6 +93,16 @@ class Voyage
      * @ORM\OneToOne(targetEntity=Promotion::class, mappedBy="voyage", cascade={"persist", "remove"})
      */
     private $promotion;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Reservation::class, mappedBy="voyage")
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -191,6 +218,33 @@ class Voyage
         }
 
         $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->addVoyage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            $reservation->removeVoyage($this);
+        }
 
         return $this;
     }

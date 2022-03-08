@@ -1,4 +1,50 @@
+
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<table>
+    <tr>
+        <td>{{ form_label(form.nom_voyage, "Trip Name") }}</td>
+        <td>{{ form_widget(form.nom_voyage) }}</td>
+        <td>{{ form_errors(form.nom_voyage) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Ville_depart, "From") }}</td>
+        <td>{{ form_widget(form.Ville_depart) }}</td>
+        <td>{{ form_errors(form.Ville_depart) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.ville_destination, "TO ") }}</td>
+        <td>{{ form_widget(form.ville_destination) }}</td>
+        <td>{{ form_errors(form.ville_destination) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.date_depart, "Departure ") }}</td>
+        <td>{{ form_widget(form.date_depart) }}</td>
+        <td>{{ form_errors(form.date_depart) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.date_retour, "Return ") }}</td>
+        <td>{{ form_widget(form.date_retour) }}</td>
+        <td>{{ form_errors(form.date_retour) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.numero_voyage, "Trip Number ") }}</td>
+        <td>{{ form_widget(form.numero_voyage) }}</td>
+        <td>{{ form_errors(form.numero_voyage) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.nom_agence, "Agency  ") }}</td>
+        <td>{{ form_widget(form.nom_agence) }}</td>
+        <td>{{ form_errors(form.nom_agence) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.prix_voyage, "Price ") }}</td>
+        <td>{{ form_widget(form.prix_voyage) }}</td>
+        <td>{{ form_errors(form.prix_voyage) }}</td>
+    </tr>
+
+
+</table>
+{{ form_widget(form) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -46,5 +46,16 @@ class VoyageRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
     */
+    public function searchdate($nom_voyage)
+    {
+        return $this->createQueryBuilder('Voyage')
+            ->andWhere('Voyage.nom_voyage LIKE :nom_voyage ')
+            ->setParameter('nom_voyage', '%' .$nom_voyage. '%')
+            ->getQuery()->getResult();
+            ;
+    }
+
+
 }

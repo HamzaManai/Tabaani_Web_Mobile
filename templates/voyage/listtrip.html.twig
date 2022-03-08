@@ -1,0 +1,42 @@
+
+
+{% block Entry %}
+    <h1 align="center">    List Trips</h1> <hr>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom_voyage</th>
+            <th>Ville_depart</th>
+            <th>Ville_destination</th>
+            <th>Date_depart</th>
+            <th>Date_retour</th>
+            <th>Numero_voyage</th>
+            <th>Nom_agence</th>
+            <th>Prix_voyage</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for voyage in voyages %}
+            <tr>
+                <td>{{ voyage.id }}</td>
+                <td>{{ voyage.nomVoyage }}</td>
+                <td>{{ voyage.VilleDepart }}</td>
+                <td>{{ voyage.villeDestination }}</td>
+                <td>{{ voyage.dateDepart ? voyage.dateDepart|date('Y-m-d') : '' }}</td>
+                <td>{{ voyage.dateRetour ? voyage.dateRetour|date('Y-m-d') : '' }}</td>
+                <td>{{ voyage.numeroVoyage }}</td>
+                <td>{{ voyage.nomAgence }}</td>
+                <td>{{ voyage.prixVoyage }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
