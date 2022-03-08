@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Events;
 use App\Form\EventsType;
 use App\Repository\EventsRepository;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +26,7 @@ class EventsController extends AbstractController
     {
         //tri date
         $data = $this->getDoctrine()->getRepository(Events::class)->findBy([],
-        ['eventdate' => 'desc']
+        ['eventdate' => 'asc']
         );
 
         $events = $paginator->paginate(
@@ -45,6 +47,14 @@ class EventsController extends AbstractController
     {
         $event = new Events();
         $form = $this->createForm(EventsType::class, $event);
+        $form->add('captchaCode', CaptchaType::class, array(
+            'captchaConfig' => 'ExampleCaptchaUserRegistration',
+            'constraints' => [
+                new ValidCaptcha([
+                    'message' => 'Invalid captcha, please try again',
+                ]),
+            ],
+        ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

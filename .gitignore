@@ -23,3 +23,7 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

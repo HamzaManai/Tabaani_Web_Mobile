@@ -32,6 +32,22 @@
     "doctrine/deprecations": {
         "version": "v0.5.3"
     },
+    "doctrine/doctrine-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "52eabf77a390fe5a12a589d74d8f2a31f60ad013"
+        },
+        "files": [
+            "./config/packages/doctrine.yaml",
+            "./config/packages/prod/doctrine.yaml",
+            "./config/packages/test/doctrine.yaml",
+            "./src/Entity/.gitignore",
+            "./src/Repository/.gitignore"
+        ]
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "3.2",
         "recipe": {
@@ -75,6 +91,12 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "gregwar/captcha": {
+        "version": "v1.1.9"
+    },
+    "imagine/imagine": {
+        "version": "1.2.4"
+    },
     "knplabs/knp-components": {
         "version": "v3.4.0"
     },
@@ -83,6 +105,19 @@
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
+    },
+    "liip/imagine-bundle": {
+        "version": "2.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "d1227d002b70d1a1f941d91845fcd7ac7fbfc929"
+        },
+        "files": [
+            "./config/packages/liip_imagine.yaml",
+            "./config/routes/liip_imagine.yaml"
+        ]
     },
     "monolog/monolog": {
         "version": "1.26.1"
@@ -383,6 +418,21 @@
     },
     "symfony/monolog-bridge": {
         "version": "v4.4.37"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "2120e71a370db3a494b8afcc42d7cfb2cff6f910"
+        },
+        "files": [
+            "./config/packages/dev/monolog.yaml",
+            "./config/packages/prod/deprecations.yaml",
+            "./config/packages/prod/monolog.yaml",
+            "./config/packages/test/monolog.yaml"
+        ]
     },
     "symfony/options-resolver": {
         "version": "v4.4.37"
