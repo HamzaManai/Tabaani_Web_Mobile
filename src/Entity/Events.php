@@ -40,14 +40,10 @@ class Events
      */
     private $nbrmaxpart;
 
-    /*/**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    //private $nbrpart;
-
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Please upload image ")
+     * @Assert\File
      */
     private $imageevent;
 
@@ -61,10 +57,6 @@ class Events
      */
     private $description;
 
-    /*/**
-     * @ORM\Column(type="string", length=255)
-     */
-    //private $format;
 
     /**
      * @ORM\Column(type="date")
@@ -79,10 +71,6 @@ class Events
      */
     private $eventdate;
 
-    /*/**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    //private $link;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -109,15 +97,21 @@ class Events
      */
     private $org;
 
-
-
-
-
-    /*/**
-     * @ORM\OneToOne(targetEntity=EventProgram::class, inversedBy="events", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      */
-    //private $eventprog;
+    private $nbr_going=0;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nbr_likes=0;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nbr_dislikes=0;
+
 
     public function getId(): ?int
     {
@@ -148,24 +142,12 @@ class Events
         return $this;
     }
 
-    /*public function getNbrpart(): ?int
-    {
-        return $this->nbrpart;
-    }
-
-    public function setNbrpart(?int $nbrpart): self
-    {
-        $this->nbrpart = $nbrpart;
-
-        return $this;
-    }*/
-
     public function getImageevent()
     {
         return $this->imageevent;
     }
 
-    public function setImageevent($imageevent): self
+    public function setImageevent($imageevent)
     {
         $this->imageevent = $imageevent;
 
@@ -184,17 +166,6 @@ class Events
         return $this;
     }
 
-    /*public function getFormat(): ?string
-    {
-        return $this->format;
-    }
-
-    public function setFormat(string $format): self
-    {
-        $this->format = $format;
-
-        return $this;
-    }*/
 
     public function getEventdate(): ?\DateTimeInterface
     {
@@ -208,17 +179,6 @@ class Events
         return $this;
     }
 
-    /*public function getLink(): ?string
-    {
-        return $this->link;
-    }
-
-    public function setLink(?string $link): self
-    {
-        $this->link = $link;
-
-        return $this;
-    }*/
 
     public function getEventaddress(): ?string
     {
@@ -244,18 +204,6 @@ class Events
         return $this;
     }
 
-
-    /*public function getEventprog(): ?EventProgram
-    {
-        return $this->eventprog;
-    }
-
-    public function setEventprog(EventProgram $eventprog): self
-    {
-        $this->eventprog = $eventprog;
-
-        return $this;
-    }*/
 
     /**
      * @return mixed
@@ -318,6 +266,42 @@ class Events
     public function setOrg(?User $org): self
     {
         $this->org = $org;
+
+        return $this;
+    }
+
+    public function getNbrGoing(): ?int
+    {
+        return $this->nbr_going;
+    }
+
+    public function setNbrGoing(?int $nbr_going): self
+    {
+        $this->nbr_going = $nbr_going;
+
+        return $this;
+    }
+
+    public function getNbrLikes(): ?int
+    {
+        return $this->nbr_likes;
+    }
+
+    public function setNbrLikes(?int $nbr_likes): self
+    {
+        $this->nbr_likes = $nbr_likes;
+
+        return $this;
+    }
+
+    public function getNbrDislikes(): ?int
+    {
+        return $this->nbr_dislikes;
+    }
+
+    public function setNbrDislikes(?int $nbr_dislikes): self
+    {
+        $this->nbr_dislikes = $nbr_dislikes;
 
         return $this;
     }

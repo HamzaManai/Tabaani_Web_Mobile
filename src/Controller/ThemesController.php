@@ -36,6 +36,21 @@ class ThemesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file=$theme->getImagetheme();
+            $fileName=md5(uniqid()).'.'.$file->guessExtension();
+            $entityManager=$this->getDoctrine()->getManager();
+            try {
+                $file->move(
+                    $this->getParameter('uploads_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $theme->setImagetheme($fileName);
+
+
             $entityManager->persist($theme);
             $entityManager->flush();
 

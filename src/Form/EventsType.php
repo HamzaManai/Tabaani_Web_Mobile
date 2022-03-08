@@ -29,18 +29,15 @@ class EventsType extends AbstractType
         $builder
             ->add('eventname')
             ->add('nbrmaxpart')
-            ->add('imageevent', FileType::class ,array('label' => 'Choose an Image for your Event      '))
+            ->add('imageevent', FileType::class ,array('data_class'=> null,'label' => 'Choose an Image for your Event'))
+            //->add('img_hbrg', FileType::class,array('data_class'=> null, 'label' => 'Image'))
             //->add('imageevent', FileType::class, array('data_class' => null))
             //->add('imageevent', FileType::class, array('data_class' => null,'required' => false))
             //->add('file',FileType::class ,array('attr' => array('class' => 'form-control'), 'label' => 'Choose an Image for your Event      '))
             ->add('description')
             ->add('eventdate')
             ->add('eventaddress')
-            ->add('eventtheme',
-                EntityType::class,[
-                    'class'=>Themes::class
-                ]
-            )
+            ->add('eventtheme', EntityType::class,['class'=>Themes::class])
 
             ->add('org',  null ,array('attr' => array('class' => 'form-control')))
 

@@ -52,7 +52,7 @@
                   {% for event in events %}
                   <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
                           <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
-                               style="background: center center url('{{ asset('pics/photo-1523430410476-0185cb1f6ff9.jpg') }}') no-repeat;
+                               style="background: center center url('{{ asset('uploads/' ~ event.imageevent) }}') no-repeat;
                                        background-size: cover;"><a class="tile-link" href="{{ path('events_show', {'id': event.id}) }}"> </a>
                               <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
                                   <h3 class="text-shadow text-uppercase mb-0">{{ event.eventname }}</h3>
@@ -81,6 +81,13 @@
                   {% else %}
                       <h2> No records found </h2>
                   {% endfor %}
+                  <nav aria-label="Page navigation" >
+                      <ul class="pagination" >
+                        <li class="page-item">
+                                {{ knp_pagination_render(events) }}
+                        </li>
+                      </ul>
+                  </nav>
 
               </div>
                   <!--<table class="table">

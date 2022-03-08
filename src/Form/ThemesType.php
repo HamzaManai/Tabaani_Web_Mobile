@@ -14,7 +14,8 @@ class ThemesType extends AbstractType
     {
         $builder
             ->add('themename')
-            ->add('file', FileType::class ,array('attr' => array('class' => 'form-control'), 'label' => 'Choose an Image for your Event      '))
+            ->add('imagetheme', FileType::class ,array('data_class'=> null,'label' => 'Choose an Image for your Theme'))
+
         ;
     }
 

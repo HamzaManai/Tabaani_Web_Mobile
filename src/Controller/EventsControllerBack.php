@@ -42,9 +42,16 @@ class EventsControllerBack extends AbstractController
 
             $file=$event->getImageevent();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory', $fileName));
+            $entityManager=$this->getDoctrine()->getManager();
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
             $event->setImageevent($fileName);
-            //$event->upload();
             $entityManager->persist($event);
             $entityManager->flush();
 

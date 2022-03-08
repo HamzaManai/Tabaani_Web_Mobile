@@ -68,12 +68,12 @@ class Themes
         return $this;
     }
 
-    public function getImagetheme(): ?string
+    public function getImagetheme()
     {
         return $this->imagetheme;
     }
 
-    public function setImagetheme(string $imagetheme): self
+    public function setImagetheme($imagetheme)
     {
         $this->imagetheme = $imagetheme;
 

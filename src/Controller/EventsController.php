@@ -6,6 +6,7 @@ use App\Entity\Events;
 use App\Form\EventsType;
 use App\Repository\EventsRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,10 +20,19 @@ class EventsController extends AbstractController
     /**
      * @Route("/", name="events_index", methods={"GET"})
      */
-    public function index(EventsRepository $eventsRepository): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
+        $data = $this->getDoctrine()->getRepository(Events::class)->findBy([],
+        ["eventdate"=>'asc']);
+
+        $events = $paginator->paginate(
+            $data,
+            $request->query->getInt('page',1),
+            3
+        );
+
         return $this->render('events/index.html.twig', [
-            'events' => $eventsRepository->findAll(),
+            'events' => $events,
         ]);
     }
 
@@ -39,9 +49,16 @@ class EventsController extends AbstractController
 
             $file=$event->getImageevent();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory', $fileName));
+            $entityManager=$this->getDoctrine()->getManager();
+            try {
+                $file->move(
+                    $this->getParameter('uploads_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
             $event->setImageevent($fileName);
-            //$event->upload();
             $entityManager->persist($event);
             $entityManager->flush();
 
@@ -72,7 +89,16 @@ class EventsController extends AbstractController
         $form = $this->createForm(EventsType::class, $event);
         $form->handleRequest($request);
 
+        /*$imageEvent=$event->getImageevent();
+        $ImageName = md5(uniqid()).'.'.$imageEvent->guessExtension();
+        $imageEvent->move(
+            $this->getParameter('uploads_directory'),
+            $ImageName
+        );*/
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+
             $entityManager->flush();
 
             return $this->redirectToRoute('events_index', [], Response::HTTP_SEE_OTHER);
@@ -97,87 +123,6 @@ class EventsController extends AbstractController
         return $this->redirectToRoute('events_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    //************************* BACK *********************************//
-    /**
-     * @Route("/back/index", name="events_index_back", methods={"GET"})
-     */
-    public function indexBack(EventsRepository $eventsRepository): Response
-    {
-        return $this->render('events/index_back.html.twig', [
-            'events' => $eventsRepository->findAll()
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="events_new_back", methods={"GET", "POST"})
-     */
-    public function newBack(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $event = new Events();
-        $form = $this->createForm(EventsType::class, $event);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $file=$event->getImageevent();
-            $fileName=md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory', $fileName));
-            $event->setImageevent($fileName);
-            //$event->upload();
-            $entityManager->persist($event);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('events_index_back', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('events/new_back.html.twig', [
-            'event' => $event,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="events_show_back", methods={"GET"})
-     */
-    public function showBack(Events $event): Response
-    {
-        return $this->render('events/show_back.html.twig', [
-            'event' => $event,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="events_edit_back", methods={"GET", "POST"})
-     */
-    public function editBack(Request $request, Events $event, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(EventsType::class, $event);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('events_index_back', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('events/edit_back.html.twig', [
-            'event' => $event,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="events_delete_back", methods={"POST"})
-     */
-    public function deleteBack(Request $request, Events $event, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($event);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('events_index_back', [], Response::HTTP_SEE_OTHER);
-    }
 
 
 }

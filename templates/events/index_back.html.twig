@@ -108,7 +108,7 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Maximum Participants</th>
-                                        <th>Image</th>
+                                        <!-- <th>Image</th> -->
                                         <th>Description</th>
                                         <th>Date</th>
                                         <th>Address</th>
@@ -122,8 +122,9 @@
                                             <td align="center">{{ event.id }}</td>
                                             <td>{{ event.eventname }}</td>
                                             <td align="center">{{ event.nbrmaxpart }}</td>
-                                            <!--<td> <img src="{{ asset('event.imageevent') }}" > </td>-->
-                                            <td> <img src="{{ asset('pics/')~ event.imageevent ~''}}" > </td>
+                                            {# <td> <img src="{{ asset('event.imageevent') }}" > </td> #}
+                                            {# <td> <img src="{{ asset('pics/'~ event.imageevent) }}"
+                                                style="width: fit-content;"> </td>#}
                                             <td>{{ event.description }}</td>
                                             <td>{{ event.eventdate ? event.eventdate|date('Y-m-d') : '' }}</td>
                                             <td>{{ event.eventaddress }}</td>
