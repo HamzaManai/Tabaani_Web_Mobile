@@ -1,0 +1,24 @@
+{% extends'Front_Office/Header-Footer.html.twig' %}
+
+ {% block title %}
+     Trips
+ {% endblock %}
+
+
+    {% block Content %}
+        <br> <br><br><br> <br> <br>
+<h2 style="text-align:center" class="subtitle text-primary">Let's Book</h2>
+<section class="py-lg-5">
+    <div class="container">
+        <h1 class="h2 mb-5"> Informations       </h1>
+    {{ include('reservation/_form.html.twig') }}
+
+        <div class="col text-center text-sm-left"><a class="btn btn-link text-muted" href="{{ path('reservation_index') }}">
+                <i class="fa-chevron-left fa mr-2"></i> Cancel
+            </a>
+        </div>
+    </div>
+</section>
+
+        <br><br><br><br><br>
+{% endblock %}
