@@ -1,10 +1,4 @@
 {
-    "captcha-com/captcha": {
-        "version": "4.2.5"
-    },
-    "captcha-com/symfony-captcha-bundle": {
-        "version": "4.2.12"
-    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -91,12 +85,6 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
-    "gregwar/captcha": {
-        "version": "v1.1.9"
-    },
-    "imagine/imagine": {
-        "version": "1.2.4"
-    },
     "knplabs/knp-components": {
         "version": "v3.4.0"
     },
@@ -105,19 +93,6 @@
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
-    },
-    "liip/imagine-bundle": {
-        "version": "2.7",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.8",
-            "ref": "d1227d002b70d1a1f941d91845fcd7ac7fbfc929"
-        },
-        "files": [
-            "./config/packages/liip_imagine.yaml",
-            "./config/routes/liip_imagine.yaml"
-        ]
     },
     "monolog/monolog": {
         "version": "1.26.1"

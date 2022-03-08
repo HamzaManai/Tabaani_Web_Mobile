@@ -111,7 +111,6 @@ class Events
      */
     private $org;
 
-    protected $captchaCode;
 
 
     /*/**
@@ -323,15 +322,6 @@ class Events
         return $this;
     }
 
-    public function getCaptchaCode()
-    {
-        return $this->captchaCode;
-    }
-
-    public function setCaptchaCode($captchaCode)
-    {
-        $this->captchaCode = $captchaCode;
-    }
 
 
 

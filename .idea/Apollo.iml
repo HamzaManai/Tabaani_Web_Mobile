@@ -134,11 +134,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/apache-pack" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/captcha-com/captcha" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/captcha-com/symfony-captcha-bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/gregwar/captcha" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/imagine/imagine" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/liip/imagine-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
