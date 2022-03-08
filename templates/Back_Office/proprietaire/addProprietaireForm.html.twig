@@ -15,7 +15,7 @@
 
   <div class="card card-custom" >
   <!--begin::Form-->
-  {{ form_start (formProprietaire, {'attr' : {'novalidate' : 'novaliate ','width' : '600px'}})  }}
+  {{ form_start (formProprietaire, {'attr' : {'novalidate' : 'novaliate '}})  }}
   <form>
     <div class="card-body">
      <div class="form-group mb-8">
@@ -51,13 +51,32 @@
     </div>
 
     <div class="form-group">
-        <label>{{ form_label(formProprietaire.img_prop,"Image Proprietaire : ") }}</label>
-        <div></div>
-        <div class="custom-file">
-          {{ form_widget(formProprietaire.img_prop , {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
-        <label class="custom-file-label" for="customFile">Choose file</label>
-        </div>
-      </div>
+    <label>{{ form_label(formProprietaire.img_prop,"Image Proprietaire : ") }}</label>
+      <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: asset ('back-office/assets/media/users/blank.png')">
+      <div class="image-input-wrapper"></div>
+
+      <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+        <i class="fa fa-pen icon-sm text-muted"></i>
+        {{ form_widget(formProprietaire.img_prop,{'attr' : {'type': 'input', 'id' : 'kt_image5'}}) }}
+        <input type="hidden" name="profile_avatar_remove"/>
+      </label>
+
+      <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+        <i class="ki ki-bold-close icon-xs text-muted"></i>
+      </span>
+
+      <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+        <i class="ki ki-bold-close icon-xs text-muted"></i>
+      </span>
+      </div>  
+    </div>
+
+
+
+
+
+
+
 
 {% if not formProprietaire.vars.valid %}
             <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
@@ -104,6 +123,44 @@
   <!--end::Form-->
   </div>
 
+		<!--begin::Page Scripts(used by this page)-->
+        <script src="{{ asset ('back-office/assets/js/pages/crud/file-upload/image-input.js') }}"></script>
+
+		<!--end::Page Scripts-->
+<script>
+
+var avatar5 = new KTImageInput('kt_image_5');
+
+avatar5.on('cancel', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully changed !',
+  type: 'success',
+  buttonsStyling: false,
+  confirmButtonText: 'Awesome!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+
+avatar5.on('change', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully changed !',
+  type: 'success',
+  buttonsStyling: false,
+  confirmButtonText: 'Awesome!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+
+avatar5.on('remove', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully removed !',
+  type: 'error',
+  buttonsStyling: false,
+  confirmButtonText: 'Got it!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+</script>
 
 </div>
 

@@ -34,9 +34,15 @@ class Utilisateur
      */
     private $hebergements;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ReservationHebergement::class, mappedBy="utilisateur")
+     */
+    private $reservationHebergements;
+
     public function __construct()
     {
         $this->hebergements = new ArrayCollection();
+        $this->reservationHebergements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +98,36 @@ class Utilisateur
             // set the owning side to null (unless already changed)
             if ($hebergement->getUser() === $this) {
                 $hebergement->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ReservationHebergement[]
+     */
+    public function getReservationHebergements(): Collection
+    {
+        return $this->reservationHebergements;
+    }
+
+    public function addReservationHebergement(ReservationHebergement $reservationHebergement): self
+    {
+        if (!$this->reservationHebergements->contains($reservationHebergement)) {
+            $this->reservationHebergements[] = $reservationHebergement;
+            $reservationHebergement->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservationHebergement(ReservationHebergement $reservationHebergement): self
+    {
+        if ($this->reservationHebergements->removeElement($reservationHebergement)) {
+            // set the owning side to null (unless already changed)
+            if ($reservationHebergement->getUtilisateur() === $this) {
+                $reservationHebergement->setUtilisateur(null);
             }
         }
 

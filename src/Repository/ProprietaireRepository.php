@@ -47,4 +47,17 @@ class ProprietaireRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function SearchA($str){
+        $qb = $this->createQueryBuilder('p');
+        $qb->select('p')
+            ->where('p.nom_prop LIKE :str')
+            ->orWhere('p.prenom_prop LIKE :str')
+            ->setParameter('str', '%' .$str . '%');
+        return $qb->getQuery()->getResult();
+    }
+
+
+
 }

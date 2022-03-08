@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TypeHebergementRepository::class)
@@ -22,6 +23,7 @@ class TypeHebergement
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -34,11 +36,13 @@ class TypeHebergement
      *      minMessage = "'nom' must be at least {{ limit }} characters long",
      *      maxMessage = "'nom' cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("post:read")
      */
     private $nom_type_hbrg;
 
     /**
      * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="type_hbrg",cascade={"all"},orphanRemoval=true)
+     * @Groups("post:read")
      */
     private $hebergements;
 
@@ -74,6 +78,8 @@ class TypeHebergement
         return $this->hebergements;
     }
 
-
- 
+    public function __toString(): String
+    {
+        return $this->nom_type_hbrg;
+    }
 }

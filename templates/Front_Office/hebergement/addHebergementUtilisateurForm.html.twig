@@ -1,111 +1,165 @@
- {% extends'Front_Office/Header-Footer.html.twig' %}
+{% extends'Front_Office/Header-Footer.html.twig' %}
 
-  {% block title %}
-    Add HbrgUser
+{% block title %}
+	Add HbrgUser
 {% endblock %}
 
 
 {% block Content %}
-<div width="600 !important" >
-<div class="card card-custom">
- <!--begin::Form-->
- {{ form_start (formHebergement, {'attr' : {'novalidate' : 'novaliate '}}) }}
- <form>
-  <div class="card-body">
-   <div class="form-group mb-8">
-    <div class="alert alert-custom alert-default" role="alert">
-     <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
-     <div class="alert-text">
-      Fill the inputs with the accommodation details.
-     </div>
-    </div>
-   </div>
-   <div class="form-group">
-    <label>{{ form_label(formHebergement.nom_hbrg,"nom Hebergement : ") }}<span class="text-danger">*</span></label>
-    {{ form_widget(formHebergement.nom_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter nom hebergement','type':'text'}}) }}
-    <span class="form-text text-muted">nom hebergement.</span>
-   </div>
-
-      <div class="form-group">
-    <label>{{ form_label(formHebergement.adresse_hbrg,"adresse Hebergement : ") }}<span class="text-danger">*</span></label>
-    {{ form_widget(formHebergement.adresse_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Adresse Hebergement','type':'text'}}) }}
-    <span class="form-text text-muted">Adresse Hebergement.</span>
-   </div>
-
-         <div class="form-group">
-    <label>{{ form_label(formHebergement.nbr_place_hbrg,"Nombre place Disponible d'Hebergement : ") }}<span class="text-danger">*</span></label>
-    {{ form_widget(formHebergement.nbr_place_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Nombre de place Disponible Hebergement','type':'number'}}) }}
-    <span class="form-text text-muted">Nbr de place.</span>
-   </div>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
-          <div class="form-group">
-     <label>{{ form_label(formHebergement.prix_hbrg,"prix d'hebergement : ") }}<span class="text-danger">*</span></label>
-     {{ form_widget(formHebergement.prix_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Prix','type':'number'}}) }}
-     <span class="form-text text-muted">prix d'hebergement.</span>
-    </div>
+	<div class="container">
 
-    <div class="form-group">
-     <label>{{ form_label(formHebergement.date_hbrg,"date Hebergement : ")}} <span class="text-danger">*</span></label>
-     {{ form_widget(formHebergement.date_hbrg , {'attr' : {'type' : 'date' , 'id' : 'kt_datepicker_1_modal' }}) }}
-    </div>
+		<h1 class="hero-heading mb-4">
+			<i class="fa fa-plus"></i>
+			Add an accommodation
+		</h1>
 
 
-   <div class="form-group row">
-     <label>Type Hebergement :  <span class="text-danger">*</span></label>
-     <div class=" col-lg-4 col-md-9 col-sm-12">
-        {{ form_widget(formHebergement.type_hbrg) }}
-     </div>
-    </div>
+		<div style="text-align:right !important;">
+			<button class="btn btn-info" type="Submit">
+				<i class="fa fa-list"></i>
+				<a href="{{ url('hebergementUtilisateur',{'id': 1 } ) }}" style="color:white;">
+					your accommodations
+				</a>
+			</button>
+		</div>
+		<br>
+		<div
+			class="card card-custom">
+			<!--begin::Form-->
+			{{ form_start (formHebergement, {'attr' : {'novalidate' : 'novaliate '}}) }}
+			<form>
+				<div class="card-body">
+					<div class="form-group mb-8">
+						<div class="alert alert-custom alert-default" role="alert">
+							<div class="alert-icon">
+								<i class="flaticon-warning text-primary"></i>
+							</div>
+							<div class="alert-text">
+								Fill the inputs with the accommodation details.
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.nom_hbrg,"nom Hebergement : ") }}<span class="text-danger">*</span>
+						</label>
+						{{ form_widget(formHebergement.nom_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter nom hebergement','type':'text'}}) }}
+						<span class="form-text text-muted">nom hebergement.</span>
+					</div>
+
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.adresse_hbrg,"adresse Hebergement : ") }}<span class="text-danger">*</span>
+						</label>
+						{{ form_widget(formHebergement.adresse_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Adresse Hebergement','type':'text'}}) }}
+						<span class="form-text text-muted">Adresse Hebergement.</span>
+					</div>
+
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.nbr_place_hbrg,"Nombre place Disponible d'Hebergement : ") }}<span class="text-danger">*</span>
+						</label>
+						{{ form_widget(formHebergement.nbr_place_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Nombre de place Disponible Hebergement','type':'number'}}) }}
+						<span class="form-text text-muted">Nbr de place.</span>
+					</div>
 
 
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.prix_hbrg,"prix d'hebergement : ") }}<span class="text-danger">*</span>
+						</label>
+						{{ form_widget(formHebergement.prix_hbrg , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Prix','type':'number'}}) }}
+						<span class="form-text text-muted">prix d'hebergement.</span>
+					</div>
 
-   <div class="form-group">
-     <label>{{ form_label(formHebergement.img_hbrg,"Image Principale Hebergement : ") }}</label>
-     <div></div>
-      <div class="custom-file">
-         {{ form_widget(formHebergement.img_hbrg, {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
-         <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-    </div>
-
-   <div class="form-group">
-     <label>{{ form_label(formHebergement.images_hebergement,"Images Hebergement : ") }}</label>
-     <div></div>
-      <div class="custom-file">
-         {{ form_widget(formHebergement.images_hebergement, {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
-         <label class="custom-file-label" for="customFile">Choose files</label>
-      </div>
-    </div>
-
-   <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
-      <div class="alert-icon"><i class="flaticon-warning" hide="true"></i></div>
-      <div class="alert-text" >
-          {{ form_errors (formHebergement.nom_hbrg) }}
-          {{ form_errors (formHebergement.adresse_hbrg) }}
-          {{ form_errors (formHebergement.date_hbrg) }}
-          {{ form_errors (formHebergement.nbr_place_hbrg) }}
-          {{ form_errors (formHebergement.prix_hbrg) }}
-          {{ form_errors (formHebergement.type_hbrg) }}
-          {{ form_errors (formHebergement.img_hbrg) }}
-      </div>
-    <div class="alert-close">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="ki ki-close"></i></span>
-        </button>
-    </div>
-</div>
-
-  <div class="card-footer">
-   <button type="Submit" class="btn btn-primary mr-2">Submit</button>
-   <button type="reset" class="btn btn-secondary">Cancel</button>
-  </div>
- </form>
- {{ form_end (formHebergement) }}
- <!--end::Form-->
-</div>
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.date_hbrg,"date Hebergement : ")}}
+							<span class="text-danger">*</span>
+						</label>
+						{{ form_widget(formHebergement.date_hbrg , {'attr' : {'type' : 'date' , 'id' : 'kt_datepicker_1_modal' }}) }}
+					</div>
 
 
-</div>
+					<div class="form-group row">
+						<label>Type Hebergement :
+							<span class="text-danger">*</span>
+						</label>
+						<div class=" col-lg-4 col-md-9 col-sm-12">
+							{{ form_widget(formHebergement.type_hbrg) }}
+						</div>
+					</div>
 
+
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.img_hbrg,"Image Principale Hebergement : ") }}</label>
+						<div></div>
+						<div class="custom-file">
+							{{ form_widget(formHebergement.img_hbrg, {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
+							<label class="custom-file-label" for="customFile">Choose file</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.images_hebergement,"Images Hebergement : ") }}</label>
+						<div></div>
+						<div class="custom-file">
+							{{ form_widget(formHebergement.images_hebergement, {'attr' : {'class' : 'custom-file-input','type':'file'}}) }}
+							<label class="custom-file-label" for="customFile">Choose files</label>
+						</div>
+					</div>
+					<br><br>
+					<br>
+					<br>
+
+					<div class="form-group">
+						<label>{{ form_label(formHebergement.captchaCode,"Captcha Code : ") }}</label>
+						<div></div>
+						<div class="custom-file">
+							{{ form_widget(formHebergement.captchaCode) }}
+						</div>
+					</div>
+
+					<div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+						<div class="alert-icon">
+							<i class="flaticon-warning" hide="true"></i>
+						</div>
+						<div class="alert-text">
+							{{ form_errors (formHebergement.nom_hbrg) }}
+							{{ form_errors (formHebergement.adresse_hbrg) }}
+							{{ form_errors (formHebergement.date_hbrg) }}
+							{{ form_errors (formHebergement.nbr_place_hbrg) }}
+							{{ form_errors (formHebergement.prix_hbrg) }}
+							{{ form_errors (formHebergement.type_hbrg) }}
+							{{ form_errors (formHebergement.img_hbrg) }}
+							{{ form_errors (formHebergement.captchaCode) }}
+						</div>
+						<div class="alert-close">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">
+									<i class="ki ki-close"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="card-footer">
+						<button type="Submit" class="btn btn-primary mr-2">Submit</button>
+						<button type="reset" class="btn btn-secondary">Cancel</button>
+					</div>
+				</form>
+				{{ form_end (formHebergement) }}
+				<!--end::Form-->
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<br>
+	<br><br>
 {% endblock %}

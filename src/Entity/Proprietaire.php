@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ProprietaireRepository::class)
@@ -28,6 +28,7 @@ class Proprietaire
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -40,6 +41,7 @@ class Proprietaire
      *      minMessage = "'nom' must be at least {{ limit }} characters long",
      *      maxMessage = "'nom' cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("post:read")
      */
     private $nom_prop;
 
@@ -52,6 +54,7 @@ class Proprietaire
      *      minMessage = "'prenom' must be at least {{ limit }} characters long",
      *      maxMessage = "'prenom' cannot be longer than {{ limit }} characters"
      * )
+     *  @Groups("post:read")
      */
     private $prenom_prop;
 
@@ -61,6 +64,7 @@ class Proprietaire
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email."
      *  )
+     *  @Groups("post:read")
      */
     private $email_prop;
 
@@ -75,17 +79,20 @@ class Proprietaire
      *    minMessage = "'numero de telephone' must be at least {{ limit }} characters long",
      *    maxMessage = "'numero de telephone' cannot be longer than {{ limit }} characters"
      * )
+     *  @Groups("post:read")
      */
     private $num_tlf_prop;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Assert\NotBlank(message="Please upload image")
+     * @Groups("post:read")
      */
     private $img_prop;
 
     /**
      * @ORM\OneToMany(targetEntity=Hebergement::class, mappedBy="proprietaire")
+     *  @Groups("post:read")
      */
     private $hebergements;
 
@@ -187,6 +194,12 @@ class Proprietaire
         }
 
         return $this;
+    }
+
+
+    public function __toString():String
+    {
+       return $this->nom_prop;
     }
 
 }

@@ -1,0 +1,85 @@
+{% block body  %}
+
+
+<style>
+table {
+    border-left: 0.1em solid black;
+    border-right: 0.1em solid black;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    border-collapse: collapse;
+}
+table thead th {
+	background-color: #D3D3D3;
+}
+table td,
+table th {
+    border-left: 0.1em solid black;
+    border-right: 0.1em solid black;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+
+}
+</style>
+	<div class="fa fa-chevron-down">
+		<div class="dropdown-item">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header card-header-primary">
+							<h1 align="center">Liste des Hebergements</h1>
+
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="table" class="table table-bordered table-hover table-checkable">
+									<thead background-color="blue">
+										<tr>
+											<th>#</th>
+											<th>Nom Hebergement</th>
+											<th>Proprietaire Hebergement</th>
+											<th>Adresse Hebergement</th>
+											<th>Date Hebergement</th>
+											<th>Type Hebergement</th>
+											<th>NombrePlace Hebergement</th>
+											<th>Prix Hebergement</th>
+											<th>Image Hebergement</th>
+											<th>Images</th>
+
+										</tr>
+									</thead>
+									{% for h in hebergement %}
+										<tbody>
+											<tr>
+												<td>{{ h.getId() }}</td>
+												<td>
+													<a href="{{ path('DetailHebergementBack', { id: h.getId() } )}}">{{ h.getNomHbrg() }}</a>
+												</td>
+												<td>
+													{{ h.proprietaire is null? ' no proprietaire':  h.proprietaire.getNomProp()  }}
+												</td>
+												<td>{{ h.getAdresseHbrg() }}</td>
+												<td>{{ h.getDateHbrg()|date('d/m/Y') }}</td>
+												<td>{{ h.TypeHbrg.getNomTypeHbrg() }}
+												</td>
+												<td>{{ h.getNbrPlaceHbrg() }}</td>
+												<td>{{ h.getPrixHbrg() }}</td>
+												<td><img src="{{ asset('/uploads/hebergements/'~ h.getImgHbrg()) }}" alt="" width="150">
+												</td>
+												<td>
+													{% for image in h.imagesHebergements %}
+														<div>
+															<img src="{{ asset('/uploads/hebergements/'~ image.getNomImg()) }}" alt="" width="50">
+														</div>
+
+													{% endfor %}
+												</td>
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="10" align="center">Aucun Hebergement</td>
+											</tr>
+										</tbody>
+									{% endfor %}
+								</table>
+	{% endblock %}

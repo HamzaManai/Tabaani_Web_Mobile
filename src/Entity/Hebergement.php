@@ -9,7 +9,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints\DateTime;
 /**
  * @ORM\Entity(repositoryClass=HebergementRepository::class)
  */
@@ -19,6 +21,7 @@ class Hebergement
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -31,6 +34,8 @@ class Hebergement
      *      minMessage = "'nom' must be at least {{ limit }} characters long",
      *      maxMessage = "'nom' cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("post:read")
+
      */
     private $nom_hbrg;
 
@@ -42,6 +47,8 @@ class Hebergement
      *      minMessage = "'nom' must be at least {{ limit }} characters long",
      *      maxMessage = "'nom' cannot be longer than {{ limit }} characters"
      * )
+     * @Groups("post:read")
+    
      */
     private $adresse_hbrg;
 
@@ -51,13 +58,16 @@ class Hebergement
      * @Assert\NotEqualTo("0")
      * @Assert\GreaterThan("0")
      * @Assert\Positive(message="le numero de telephone doit etre positif")
+     * @Groups("post:read")
+     
      */
     private $nbr_place_hbrg;
 
-   /**
+    /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="la date doit etre au format jj/mm/aaaa")
-     * @Assert\GreaterThan("today")
+     * @Assert\GreaterThan("+1 minute")
+     * @Groups("post:read")
      */
     private $date_hbrg;
 
@@ -65,22 +75,28 @@ class Hebergement
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="image principal is required" )
+     * Groups("post:read")
      */
     private $img_hbrg;
 
     /**
      * @ORM\ManyToOne(targetEntity=proprietaire::class, inversedBy="hebergements")
+     * Groups("post:read")
      */
     private $proprietaire;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeHebergement::class, inversedBy="hebergements")
      * @Assert\NotBlank(message="type de Hebergement is required" )
+     * Groups("post:read")
+
      */
     private $type_hbrg;
 
     /**
      * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="hebergements")
+     * Groups("post:read")
+
      */
     private $user;
 
@@ -88,6 +104,8 @@ class Hebergement
      * @ORM\Column(type="integer", nullable=true)
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="prix is required" )
+     * Groups("post:read")
+
      */
     private $prix_hbrg;
 
@@ -96,9 +114,25 @@ class Hebergement
      */
     private $imagesHebergements;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ReservationHebergement::class, mappedBy="hebergement",cascade={"all"},orphanRemoval=true)
+     */
+    private $reservationHebergements;
+
+    protected $captchaCode;
+    public function getCaptchaCode()
+    {
+      return $this->captchaCode;
+    }
+
+    public function setCaptchaCode($captchaCode)
+    {
+      $this->captchaCode = $captchaCode;
+    }
     public function __construct()
     {
         $this->imagesHebergements = new ArrayCollection();
+        $this->reservationHebergements = new ArrayCollection();
     }
 
 
@@ -162,9 +196,8 @@ class Hebergement
 
     public function setDateHbrg(\DateTimeInterface $date_hbrg): self
     {
-            $this->date_hbrg  = $date_hbrg;
+        $this->date_hbrg  = $date_hbrg;
         return $this;
-
     }
 
     public function getProprietaire(): ?proprietaire
@@ -189,7 +222,6 @@ class Hebergement
         $this->type_hbrg = $type_hbrg;
 
         return $this;
-        
     }
 
     public function getUser(): ?Utilisateur
@@ -246,4 +278,44 @@ class Hebergement
         return $this;
     }
 
+    /**
+     * @return Collection|ReservationHebergement[]
+     */
+    public function getReservationHebergements(): Collection
+    {
+        return $this->reservationHebergements;
+    }
+
+    public function addReservationHebergement(ReservationHebergement $reservationHebergement): self
+    {
+        if (!$this->reservationHebergements->contains($reservationHebergement)) {
+            $this->reservationHebergements[] = $reservationHebergement;
+            $reservationHebergement->setHebergement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservationHebergement(ReservationHebergement $reservationHebergement): self
+    {
+        if ($this->reservationHebergements->removeElement($reservationHebergement)) {
+            // set the owning side to null (unless already changed)
+            if ($reservationHebergement->getHebergement() === $this) {
+                $reservationHebergement->setHebergement(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        //$newDate = DateTime::createFromFormat("l dS F Y", $this->date_hbrg);
+       // $newDate = $newDate->format('d/m/Y'); // for example
+       //$this->date_hbrg->setDateTime(\DateTime::createFromFormat('d-m-Y H:i', $date.' '.$time));
+
+        return $this->nom_hbrg . $this->adresse_hbrg  . $this->nbr_place_hbrg . $this->prix_hbrg 
+        . $this->type_hbrg . $this->user . $this->proprietaire;
+    }
 }
