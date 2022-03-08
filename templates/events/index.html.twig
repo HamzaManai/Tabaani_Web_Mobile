@@ -19,11 +19,10 @@
 
         <div class="container">
             <div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
-                <form id="searchForm" action="#">
+                <form action="#">
                     <div class="row">
                         <div class="col-lg-4 d-flex align-items-center form-group">
-                            <input class="form-control border-0 shadow-0" type="search" name="search" placeholder="Which event are you searching for?">
-
+                            <input class="form-control border-0 shadow-0" type="search" name="search" placeholder="What are do you want to do?">
                         </div>
                         <div class="col-lg-2 form-group mb-0">
                             <button class="btn btn-primary btn-block h-100" type="submit">Search </button>
@@ -83,15 +82,7 @@
                       <h2> No records found </h2>
                   {% endfor %}
 
-
               </div>
-              <nav aria-label="Page navigation example">
-                  <ul class="pagination pagination-template d-flex justify-content-center">
-                      <li class="page-item">
-                          {{ knp_pagination_render(events) }}
-                      </li>
-                  </ul>
-              </nav>
                   <!--<table class="table">
                 <thead>
                     <tr>
@@ -133,8 +124,4 @@
 
           </div>
         </section>
-
-
-
-
         {% endblock %}
