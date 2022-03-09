@@ -84,10 +84,25 @@ class CommentaireController extends AbstractController
      * Method({"GET", "POST"})
      */
 
-    public function new(Request $request, $id) {
+    public function new(Request $request, $id,\Swift_Mailer $mailer) {
      //   $g=$this->getDoctrine()->getRepository(Blog::class)->find($id);
         $i = $this->getDoctrine()->getRepository(Blog::class)->find($id);
         $i->setNbvue($i->getNbvue()+1);
+        //send mail
+        if(($i->getNbvue()) > 1){
+            $mail=$i->getCode()->getEmail();
+            $blognom=$i->getNom();
+            $influenceurnom=$i->getCode()->getNom();
+            $message = (new \Swift_Message('Princeps - ' . $i->getCode()->getNom()))
+                ->setFrom('ribd1920@gmail.com')
+                ->setTo( $mail)
+                ->setsubject('successful Blog')
+                ->setBody('Félicitation ' . $i->getCode()->getNom() . ' le nombre de vue pour le blog : ' . $i->getNom() . ' est ' . $i->getNbvue() )
+            ;
+
+            $mailer->send($message);
+        }
+        //finsend mail
         $this->getDoctrine()->getManager()->flush();
        // $i = $this->getDoctrine()->getRepository(Blog::class)->updateNbvu($id,($i->getNbvue($i))+1);
         $commentaire = new commentaire();

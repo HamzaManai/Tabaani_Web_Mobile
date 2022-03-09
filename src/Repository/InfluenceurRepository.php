@@ -112,7 +112,7 @@ class InfluenceurRepository extends ServiceEntityRepository
          }catch (NonUniqueResultException $e) {
         return null;
     }}
-    public function findEntitiesBycodeA($nom,$code): array
+    public function findEntitiesBycodeA($nom,$code): ?array
     {
         try {
             $qb=$this->createQueryBuilder('i');
@@ -129,7 +129,7 @@ class InfluenceurRepository extends ServiceEntityRepository
         
            
          }catch (NonUniqueResultException $e) {
-        return null;
+        return null ;
     }}
     public function findEntitiesBycode($nom,$code,$facebookPage,$instagramPage,$email)
     {

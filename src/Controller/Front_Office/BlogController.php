@@ -39,11 +39,12 @@ class BlogController extends AbstractController
      * @Route("/front-office/blog/list" , name="list_blog")
     */
 
-    public function listAll(Request $request)
+    public function listAll(Request $request,\Swift_Mailer $mailer)
     {
         //rÃŠcupÃŠrer tous les blogs de la table blog de la BD
         // et les mettre dans le tableau $blogs
         $blogs= $this->getDoctrine()->getRepository(Blog::class)->findAll();
+
         return  $this->render('Front_Office/blog/list.html.twig',['blogs' => $blogs]);
     }
 
@@ -51,8 +52,9 @@ class BlogController extends AbstractController
     /**
      * @Route("/front-office/blog/detaille/{id}", name="detaille_blog")
      */
-    public function detaille($id) {
+    public function detaille($id ) {
         $i = $this->getDoctrine()->getRepository(Blog::class)->find($id);
+
 
         return $this->render('Front_Office/blog/detaille.html.twig', array('i' => $i));
     }
