@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Events;
+use App\Entity\Themes;
 use App\Form\EventsType;
 use App\Repository\EventsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -210,15 +211,15 @@ class EventsController extends AbstractController
     }
 
     /**
-     * @Route("/filter/ThisMonth", name="event_ThisMonth")
+     * @Route("/filter/Today", name="event_Today")
      */
-    public function FilterThisMonth(Request $request)
+    public function FilterToday(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $query = $em->createQuery(
             'SELECT E FROM App\Entity\Events E 
-            WHERE DATE_DIFF(E.eventdate,CURRENT_DATE())<30 AND DATE_DIFF(E.eventdate,CURRENT_DATE())>0 '
+            WHERE DATE_DIFF(E.eventdate,CURRENT_DATE())=0'
         );
 
         $event = new Events();
@@ -239,6 +240,109 @@ class EventsController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route("/filter/HasPassed", name="event_HasPassed")
+     */
+    public function FilterHasPassed(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery(
+            'SELECT E FROM App\Entity\Events E 
+            WHERE DATE_DIFF(E.eventdate,CURRENT_DATE())<0'
+        );
+
+        $event = new Events();
+        $form = $this->createForm(EventsType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $event->upload();
+            $event->setNbrGoing($event->getNbrGoing());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+        }
+        $events = $query->getResult();
+
+        return $this->render('events/index.html.twig', [
+            'events' => $events,
+        ]);
+
+    }
+
+    /**
+     * @Route("/filter/ThisWeek", name="event_ThisWeek")
+     */
+    public function FilterThisWeek(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery(
+            'SELECT E FROM App\Entity\Events E 
+                WHERE DATE_DIFF(E.eventdate,CURRENT_DATE())<7 AND DATE_DIFF(E.eventdate,CURRENT_DATE())>0'
+        );
+
+        $event = new Events();
+        $form = $this->createForm(EventsType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $event->upload();
+            $event->setNbrGoing($event->getNbrGoing());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+        }
+        $events = $query->getResult();
+
+        return $this->render('events/index.html.twig', [
+            'events' => $events,
+        ]);
+
+    }
+
+    /*/**
+     * @Route("/TriCat/show", name="event_cat", methods={"POST"})
+     */
+    /*public function FindByCategorie(EntityManagerInterface $em,Request $request): Response
+    {
+        $data=$request->get('myText');
+        $queryBuilder = $em->getRepository(Events::class)->createQueryBuilder('E');
+        $queryBuilder->andWhere('E.eventthme = :cat');
+        $queryBuilder->setParameter('cat', $data);
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT E FROM App\Entity\Events E 
+            WHERE DATE_DIFF(E.eventdate,CURRENT_DATE())<0 ORDER BY E.nbr_going DESC'
+        );
+        $MostSuccesful = $query->getResult();
+        $event = new Events();
+        $form = $this->createForm(EventsType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $event->upload();
+            $event->setEventtheme($event->getNbrGoing());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+
+        }
+        $events = $queryBuilder->getQuery()->getResult();
+
+        $categories = $this->getDoctrine()
+            ->getRepository(Themes::class)
+            ->findAll();
+
+        return $this->render('event/index.html.twig', [
+            'events' => $events,
+            'themes' => $categories,'form' => $form->createView(),
+            'MostSuccesful' => $MostSuccesful,
+        ]);
+    }*/
 
 
     public function UpdateJoin(Events $event)

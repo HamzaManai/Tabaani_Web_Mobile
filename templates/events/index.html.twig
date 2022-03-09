@@ -41,6 +41,25 @@
                         <h2>What's new on Tabaani</h2>
                     </div>
 
+                    {# <form  id="CatForm" method="post" action="{{ path('event_cat')}}" >
+                        <select id="selectDo" class="form-control form-control-sm mb-3"   onchange="myFunction(event); this.form.submit(); "  >
+                            <option  value="" disabled selected>Choose genre..</option>
+                            {% for c in events %}
+                                <option   onclick="document.getElementById('CatForm').submit();" >{{ c.eventtheme}}</option>
+
+                            {% endfor %}
+
+                            <input  type="hidden" name="myText" id="myText" type="text" value="colors">
+
+
+
+                            <script>function myFunction(e) {
+                                    document.getElementById("myText").value = e.target.value
+                                } </script>
+
+                        </select>
+                    </form> #}
+
                     <div class="text-center">
                         <a class="btn btn-outline-primary btn-block" href="{{ path('events_new') }}">
                             <i class="far fa-paper-plane mr-2"></i>
@@ -67,10 +86,9 @@
                             Filter Events
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ path('event_Trending') }}">Has Passed</a>
-                            <a class="dropdown-item" href="{{ path('event_triAlphabetical') }}">Today</a>
-                            <a class="dropdown-item" href="{{ path('event_triDate') }}">This Week</a>
-                            <a class="dropdown-item" href="{{ path('event_ThisMonth') }}">This Month</a>
+                            <a class="dropdown-item" href="{{ path('event_HasPassed') }}">Has Passed</a>
+                            <a class="dropdown-item" href="{{ path('event_Today') }}">Today</a>
+                            <a class="dropdown-item" href="{{ path('event_ThisWeek') }}">This Week</a>
                             <a class="dropdown-item" href="{{ path('events_index') }}">Reset</a>
                         </div>
                     </div>
