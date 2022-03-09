@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="updates 16.0">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="Filtres &amp; Tri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +216,7 @@
       <workItem from="1646230993665" duration="30886000" />
       <workItem from="1646276597705" duration="374000" />
       <workItem from="1646746817217" duration="41079000" />
-      <workItem from="1646818065024" duration="10081000" />
+      <workItem from="1646818065024" duration="10421000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -380,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646828852060</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Filtres &amp; Tri">
+      <created>1646830596366</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1646830596366</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +429,7 @@
     <MESSAGE value="updates 14.1.0" />
     <MESSAGE value="updates 15.0" />
     <MESSAGE value="updates 16.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates 16.0" />
+    <MESSAGE value="Filtres &amp; Tri" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filtres &amp; Tri" />
   </component>
 </project>
