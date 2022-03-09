@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarteFidelite index{% endblock %}
+
+{% block body %}
+    <h1>CarteFidelite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NbrPoint</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carte_fidelite in carte_fidelites %}
+            <tr>
+                <td>{{ carte_fidelite.id }}</td>
+                <td>{{ carte_fidelite.nbrPoint }}</td>
+                <td>
+                    <a href="{{ path('carte_fidelite_show', {'id': carte_fidelite.id}) }}">show</a>
+                    <a href="{{ path('carte_fidelite_edit', {'id': carte_fidelite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('carte_fidelite_new') }}">Create new</a>
+{% endblock %}

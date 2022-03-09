@@ -1,0 +1,22 @@
+{% extends '/Front_Office/profile.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+{% block Entry %}
+
+<div class="container">
+    <table>
+        {{ include('users/_form.html.twig', {'button_label': 'Update'}) }}
+        {% if is_granted('ROLE_ADMIN') %} 
+            <a class="btn btn-primary  my-3 mx-1 btn-sm" href="{{ path('users_index') }}">Back to list</a>
+        {% else %}
+            <a class="btn btn-primary  my-3 mx-1 btn-sm" href="{{ path('home') }}">Go Back</a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %} 
+        {{ include('users/_delete_form.html.twig') }}
+        {% endif %}
+    </table 
+
+</div>
+
+{% endblock %}
