@@ -52,7 +52,7 @@ class ParticipateEvent
         return $this->user;
     }
 
-    public function setUser(int $user)
+    public function setUser(?User $user)
     {
         $this->user = $user;
 

@@ -96,18 +96,23 @@ class ParticipateEventController extends AbstractController
     }
 
     /**
-     * @Route("/newTrying/new", name="participate_event_newTrying", methods={"GET","POST"})
+     * @Route("/newTrying/new", name="participate_event_newTrying", methods={"POST"})
      */
     public function newTrying(Request $request,EventsController $eventsController,ParticipateEventRepository $participateEventRepository ,EventsRepository $eventsRepository, UserRepository $userRepository)
     {
         $event = new Events();
-        $data=$request->get('myEvent');
+        $data=$request->request->get('myEvent');
+//var_dump($data);
 
-        //$event = $eventsRepository->findOneBy(['eventname' => $data]);
-        $event = $this->getDoctrine()->getRepository(Events::class)->findOneBy(['eventname' => $data]);
+        $event = $eventsRepository->findOneBy([ 'id' => 15]);
+        $user= new User();
+        $user = $userRepository->findOneBy(['prenomUser' => 'Cyrine']);
+        /*var_dump($event);
+        die();*/
+        //$event = $this->getDoctrine()->getRepository(Events::class)->findOneBy(['id' => $data]);
         $participant = new ParticipateEvent();
         $participant->setEvent($event);
-        $participant->setUser(2);
+        $participant->setUser($user);
 
             $eventsController->UpdateJoin($event);
             $entityManager = $this->getDoctrine()->getManager();
@@ -115,7 +120,7 @@ class ParticipateEventController extends AbstractController
             $entityManager->flush();
 
         return $this->render('events/index.html.twig', [
-            'events' => $event,
+            'events' => $eventsRepository->findAll(),
         ]);
     }
 
