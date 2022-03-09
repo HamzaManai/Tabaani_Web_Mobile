@@ -1,0 +1,193 @@
+ {% extends'Back_Office/AdminMain.html.twig' %}
+
+ {% block title %}
+    Edit Hbrg
+{% endblock %}
+
+{% block menu %}
+	Edit Hebergement						
+{% endblock %}
+
+
+{% block Entry %}
+
+
+<div class="container">
+<div class="card card-custom">
+ <!--begin::Form-->
+ {{ form_start (formTypeHebergement, {'attr' : {'novalidate' : 'novaliate '}}) }}
+ <form>
+ <div class="card-body">
+   <div class="form-group mb-8">
+       <div class="alert alert-custom alert-default" role="alert">
+          <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
+              <div class="alert-text">
+                 Fill the inputs with the type of accommodation details.
+              </div>
+          </div>
+        </div>
+   <div class="form-group">
+    <label>{{ form_label(formTypeHebergement.nom_type_hbrg,"nom Type Hebergement : ") }}<span class="text-danger">*</span></label>
+    {{ form_widget(formTypeHebergement.nom_type_hbrg, {'attr' : {'class' : 'form-control','placeholder' : 'Enter type nom hebergement','type':'text'}}) }}
+    <span class="form-text text-muted">nom de type hebergement.</span>
+   </div>
+
+
+{% if not formTypeHebergement.vars.valid %}
+            <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning" hide="true"></i>
+                </div>
+                <div class="alert-text" >
+                    {{ form_errors (formTypeHebergement.nom_type_hbrg) }}
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                        </button>
+                    </div>
+                 </div>
+            </div>
+{% endif %}
+
+  <div class="card-footer">
+   <button type="Submit" class="btn btn-primary mr-2">Submit</button>
+   <button type="reset" class="btn btn-secondary">Cancel</button>
+  </div>
+ </form>
+ {{ form_end (formTypeHebergement) }}
+ <!--end::Form-->
+</div>
+</div>
+
+
+
+
+<script>
+// Class definition
+
+var KTBootstrapDatepicker = function () {
+
+ var arrows;
+ if (KTUtil.isRTL()) {
+  arrows = {
+   leftArrow: '<i class="la la-angle-right"></i>',
+   rightArrow: '<i class="la la-angle-left"></i>'
+  }
+ } else {
+  arrows = {
+   leftArrow: '<i class="la la-angle-left"></i>',
+   rightArrow: '<i class="la la-angle-right"></i>'
+  }
+ }
+
+ // Private functions
+ var demos = function () {
+  // minimum setup
+  $('#kt_datepicker_1').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+
+  // minimum setup for modal demo
+  $('#kt_datepicker_1_modal').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+
+  // input group layout
+  $('#kt_datepicker_2').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+
+  // input group layout for modal demo
+  $('#kt_datepicker_2_modal').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   orientation: "bottom left",
+   templates: arrows
+  });
+
+  // enable clear button
+  $('#kt_datepicker_3, #kt_datepicker_3_validate').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayBtn: "linked",
+   clearBtn: true,
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  // enable clear button for modal demo
+  $('#kt_datepicker_3_modal').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayBtn: "linked",
+   clearBtn: true,
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  // orientation
+  $('#kt_datepicker_4_1').datepicker({
+   rtl: KTUtil.isRTL(),
+   orientation: "top left",
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  $('#kt_datepicker_4_2').datepicker({
+   rtl: KTUtil.isRTL(),
+   orientation: "top right",
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  $('#kt_datepicker_4_3').datepicker({
+   rtl: KTUtil.isRTL(),
+   orientation: "bottom left",
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  $('#kt_datepicker_4_4').datepicker({
+   rtl: KTUtil.isRTL(),
+   orientation: "bottom right",
+   todayHighlight: true,
+   templates: arrows
+  });
+
+  // range picker
+  $('#kt_datepicker_5').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   templates: arrows
+  });
+
+   // inline picker
+  $('#kt_datepicker_6').datepicker({
+   rtl: KTUtil.isRTL(),
+   todayHighlight: true,
+   templates: arrows
+  });
+ }
+
+ return {
+  // public functions
+  init: function() {
+   demos();
+  }
+ };
+}();
+
+jQuery(document).ready(function() {
+ KTBootstrapDatepicker.init();
+});
+</script>
+
+
+
+{% endblock %}

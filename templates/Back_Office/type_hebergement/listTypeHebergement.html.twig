@@ -1,0 +1,213 @@
+{% extends'Back_Office/AdminMain.html.twig' %}
+
+{% block title %}
+	List Hbrgs
+{% endblock %}
+
+{% block menu %}
+	Liste des Types Hebergements
+{% endblock %}
+
+{% block Entry %}
+
+
+	<!-- Load Flashy default CSS -->
+	<link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+
+	{% for message in app.flashes('add') %}
+		<div class="alert alert-success">
+			{{ message }}
+			<button type="button" class="close" data-dismiss="alert alert-success" aria-label="Close">
+				<i aria-hidden="true" class="ki ki-close"></i>
+			</button>
+		</div>
+	{% endfor %}
+
+
+	{% for message in app.flashes('delete') %}
+		<div class="alert alert-success">
+			{{ message }}
+			<button type="button" class="close" data-dismiss="alert alert-success" aria-label="Close">
+				<i aria-hidden="true" class="ki ki-close"></i>
+			</button>
+		</div>
+	{% endfor %}
+
+
+	{% for message in app.flashes('edit') %}
+		<div class="alert alert-success">
+			{{ message }}
+			<button type="button" class="close" data-dismiss="alert alert-success" aria-label="Close">
+				<i aria-hidden="true" class="ki ki-close"></i>
+			</button>
+		</div>
+	{% endfor %}
+
+
+	<div class="container">
+		<div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
+			<div class="alert-icon">
+				<span
+					class="svg-icon svg-icon-primary svg-icon-xl">
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"/>
+							<path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3"/>
+							<path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero"/>
+						</g>
+					</svg>
+					<!--end::Svg Icon-->
+				</span>
+			</div>
+			<div class="alert-text">
+				Here is the list of all accomdation types
+			</div>
+		</div>
+
+		<div class="card card-custom">
+            <div class="card-header">
+			<div class="card-title">
+				<span class="card-icon">
+					<i class="flaticon-list-2 text-primary"></i>
+				</span>
+				<h3 class="card-label">List of accomadation types</h3>
+			</div>
+			</div>
+			<div class="card-body">
+				<table style="width : 100% !important;table-layout : fixed !important" class="table table-bordered table-hover table-checkable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nom Type Hebergement</th>
+							<th>Hebergements</th>
+							<th>Update</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for t in type_hebergement %}
+							<tr>
+								<td>{{ t.Id }}</td>
+								<td>{{ t.getNomTypeHbrg() }}</td>
+								<td>
+									{% for h in  t.getHebergements() %}
+										-
+										{{ h.getNomHbrg() }}
+										-
+									{% else %}
+										pas de hebergements
+									{% endfor %}
+								</td>
+								<td>
+									<!-- Button trigger modal-->
+									<button type="button" onclick="Update()" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+										<a style="color:white !important" href="{{ path('updateTHebergement',{'id':t.getId()}) }}">Modify</a>
+									</button>
+
+									<!-- Modal
+																												<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+																													<div class="modal-dialog" role="document">
+																														<div class="modal-content">
+																															<div class="modal-header">
+																																<h5 class="modal-title" id="exampleModalLabel">Are you sure ?
+																																</h5>
+																																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																																	<i aria-hidden="true" class="ki ki-close"></i>
+																																</button>
+																															</div>
+																															<div class="modal-footer">
+																																<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+																																<button type="button" class="btn btn-light-dark font-weight-bold">
+																																	<a href="{{ path( 'updateTHebergement' ,{'id': t.getId() }) }}">Update</a>
+																																</button>
+																															</div>
+																														</div>
+																													</div>
+																												</div>
+																						                        -->
+
+								</td>
+
+								<td>
+
+									<button type="button" class="btn btn-danger" onclick="Delete()" data-toggle="modal" data-target="#Delete">
+										<a style="color:white !important" href="{{ path('DeleteTypeHebergement',{'id':t.getId()}) }}">Delete</a>
+									</button>
+									<!-- Modal
+																												            
+																												
+																												
+																												            <div class="modal fade" id="Delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+																												                <div class="modal-dialog" role="document">
+																												                    <div class="modal-content">
+																												                        <div class="modal-header">
+																												                            <h5 class="modal-title" id="exampleModalLabel">Are you sure ? </h5>
+																												                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																												                                <i aria-hidden="true" class="ki ki-close"></i>
+																												                            </button>
+																												                        </div>
+																												                        <div class="modal-body">
+																												                        <h6 id="modal_body">sdvv</h6>
+																												
+																												                        </div>
+																												                        <div class="modal-footer">
+																												                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">
+																												                            Close
+																												                            </button>
+																												                            <button type="button"  id="deleteTrigger" class="btn btn-light-dark font-weight-bold">
+																												                                <a href="{{ path('DeleteTypeHebergement',{'id': t.getId()}) }}">Delete</a> 
+																												                            </button>
+																												                            
+																												                        </div>
+																												                    </div>
+																												                </div>
+																												            </div>
+																												
+																												            -->
+								</td>
+
+
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5" align="center">Pas de type hebergement</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script language="JavaScript" type="text/javascript" src="{{ asset ('/js/jquery-ui-personalized-1.5.2.packed.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ asset ('js/sprinkle.js') }}"></script>
+
+	<script src="//code.jquery.com/jquery.js"></script>
+	<!-- Load Flashy default JavaScript -->
+	<script src="{{ asset ('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+	<!-- Include Flashy default partial -->
+	{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+	<script type="text/javascript">
+		$("#deleteTrigger").click(function () {
+var id = $("#id").t.getId();
+console.log("id : " + id);
+console.log("------------------");
+var name = $("#name").val();
+var str = "You Have Entered " + "id: " + id;
+var text = "Are you sure you want to delete this record?";
+$("#modal_body").html(text);
+$("#modal_body").html(str);
+});
+	</script>
+
+	<script text="javascript">
+		function Delete() {
+confirm("Are you sure you want to delete ?");
+}
+
+function Update() {
+confirm("Are you sure you want to update ?");
+}
+	</script>
+
+{% endblock %}

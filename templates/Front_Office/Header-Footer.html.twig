@@ -40,7 +40,7 @@
       <!-- Navbar-->
       <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
         <div class="container-fluid">
-          <div class="d-flex align-items-center"><a class="navbar-brand py-3" href="index.html" >
+          <div class="d-flex align-items-center"><a class="navbar-brand py-3" href="{{ url('Front-home') }}" >
              <img alt="logo" src="{{ asset ('Tabaani Light bg.png') }}">
 
           </a>
@@ -56,7 +56,11 @@
               </div>
             </form>
             <ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
               <li class="nav-item"><a class="nav-link" href="">Home</a>
+=======
+              <li class="nav-item"><a class="nav-link" href="{{url ('Front-home')}}">Home</a>
+>>>>>>> GestionHebergement-Hamza
 
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" id="homeDropdownMenuLink" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Events</a>
@@ -76,7 +80,11 @@
            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" id="homeDropdownMenuLink" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Accomadations</a>
               <div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink">
+<<<<<<< HEAD
                 <a class="dropdown-item" href="">Accomadations</a> 
+=======
+                <a class="dropdown-item" href="{{ url('ListHebergementFront') }}">Accomadations</a>
+>>>>>>> GestionHebergement-Hamza
                 <a class="dropdown-item" href="">My Accomadations</a>
 
                </div>
@@ -106,6 +114,7 @@
 
         <!-- Begin : Block -->
 
+<br><br>
 
         {% block Content %}
 
@@ -197,7 +206,7 @@
     <!-- Bootstrap Select-->
 <script src="{{ asset ('front-office/vendor/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
     <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-    <script src="{{ asset('front-office/vendor/object-fit-images/ofi.min.js') }}"></script>
+    <script src="{{ asset ('front-office/vendor/object-fit-images/ofi.min.js') }}"></script>
     <!-- Swiper Carousel    -->
     <script src="{{ asset ('https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js') }}"></script>
     <script>

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "nouislider": "^15.5.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^1.8.1",
+    "webpack-notifier": "^1.15.0"
+  }
+}

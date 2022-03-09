@@ -1,0 +1,273 @@
+{% extends'Back_Office/AdminMain.html.twig' %}
+
+{% block title %}
+	List Props
+{% endblock %}
+
+{% block menu %}
+	Liste des Proprietaires
+{% endblock %}
+
+
+{% block Entry %}
+	<div class="container">
+		<div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
+			<div class="alert-icon">
+				<span
+					class="svg-icon svg-icon-primary svg-icon-xl">
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"/>
+							<path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3"/>
+							<path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero"/>
+						</g>
+					</svg>
+					<!--end::Svg Icon-->
+				</span>
+			</div>
+			<div class="alert-text">
+				Here is the list of all owners
+			</div>
+		</div>
+		<div class="card card-custom">
+			<div class="card-header">
+				<div class="card-title">
+					<span class="card-icon">
+						<i class="flaticon-list-2 text-primary"></i>
+					</span>
+					<h3 class="card-label">List of owners</h3>
+				</div>
+
+
+				<div class="sidebar-search" style="margin-top:15px !important; text-align:right !important;">
+
+					<div class="input-group custom-search-form">
+
+						<input type="text" id="search" class="form-control" placeholder="Search here">
+														<span class="input-group-text">
+															<span
+																class="svg-icon svg-icon-lg">
+																<!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg-->
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
+																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																		<rect x="0" y="0" width="24" height="24"/>
+																		<path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+																		<path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
+																	</g>
+																</svg>
+																<!--end::Svg Icon-->
+															</span>
+														</span>
+					</div>
+					<!-- /input-group -->
+				</div>
+
+
+
+
+			</div>
+			<div class="card-body">
+				<ul class="nav" id="side-menu">
+					<li>
+						<ul class="nav nav-second-level" id="entitiesNav"></ul>
+					</li>
+				</ul>
+
+				<table style="width : 100% !important;table-layout : fixed !important" class="table table-bordered table-hover table-checkable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Image Proprietaire</th>
+							<th>Nom Proprietaire</th>
+							<th>Prenom Proprietaire</th>
+							<th>Email Proprietaire</th>
+							<th>Numero Telephone Proprietaire</th>
+							<th>Hebergements</th>
+							<th>Update</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr {% for p in proprietaire %}>
+							<td>{{ p.getId() }}</td>
+							<td><img src="{{ asset('/uploads/proprietaires/'~ p.getImgProp()) }}" alt="" width="75"></td>
+							<td>{{ p.getNomProp() }}</td>
+							<td>{{ p.getPrenomProp() }}</td>
+							<td>{{ p.getEmailProp() }}</td>
+							<td>{{ p.getNumTlfProp() }}</td>
+							<td>
+								{% for h in  p.getHebergements() %}
+									-
+									{{ h.getNomHbrg() }}
+									-
+								{% else %}
+									pas de hebergements
+								{% endfor %}
+							</td>
+							<td>
+								<!-- Button trigger modal-->
+								<button type="button" onclick="UpdateProp()" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+									<a style="color:white !important" ref="{{ path('UpdateProp',{'id':p.getId()}) }}">
+										Modify
+									</a>
+								</button>
+								<!-- Modal
+																																																					<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+																																																						<div class="modal-dialog" role="document">
+																																																							<div class="modal-content">
+																																																								<div class="modal-header">
+																																																									<h5 class="modal-title" id="exampleModalLabel">Are you sure ?
+																																																									</h5>
+																																																									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																																																										<i aria-hidden="true" class="ki ki-close"></i>
+																																																									</button>
+																																																								</div>
+																																																								<div class="modal-footer">
+																																																									<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+																																																									<button type="button" class="btn btn-light-dark font-weight-bold">
+																																																										<a href="{{ path('UpdateProp',{'id':p.getId()}) }}">Update</a>
+																																																									</button>
+																																																
+																																																								</div>
+																																																							</div>
+																																																						</div>
+																																																					</div>
+																																																					-->
+							</td>
+
+							<td>
+								<button type="button" class="btn btn-danger" onclick="DeleteProp()" data-toggle="modal" data-target="#Delete">
+									<a style="color:white !important" href="{{ path('DeleteProprietaire',{'id':p.getId()}) }}">Delete</a>
+								</button>
+
+								<!-- Modal
+																																																					<div class="modal fade" id="Delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+																																																						<div class="modal-dialog" role="document">
+																																																							<div class="modal-content">
+																																																								<div class="modal-header">
+																																																									<h5 class="modal-title" id="exampleModalLabel">Are you sure ?
+																																																									</h5>
+																																																									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																																																										<i aria-hidden="true" class="ki ki-close"></i>
+																																																									</button>
+																																																								</div>
+																																																								<div class="modal-footer">
+																																																									<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">
+																																																										Close
+																																																									</button>
+																																																									<button type="button" class="btn btn-light-dark font-weight-bold">
+																																																										<a href="{{ path('DeleteProprietaire',{'id':p.getId()}) }}">Delete</a>
+																																																									</button>
+																																																
+																																																								</div>
+																																																							</div>
+																																																						</div>
+																																																					</div>
+																																																					-->
+							</td>
+						</tr>
+
+					{% else %}
+						<tr>
+							<td colspan="9" align="center">Pas de Proprietaire</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+<script src="{{asset ('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}"></script>
+<script src="{{asset (' https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js') }}"></script>
+<script >
+
+jQuery(document).ready(function() {
+        var searchRequest = null;
+        $("#search").keyup(function() {
+            var minlength = 2;
+            var that = this;
+            var value = $(this).val();
+            var entitySelector = $("#entitiesNav").html('');
+            if (value.length >= minlength ) {
+                if (searchRequest != null)
+                    searchRequest.abort();
+                searchRequest = $.ajax({
+                    type: "GET",
+                    url: "{{ path('ajax_search') }}",
+                    data: {
+                        'q' : value
+                    },
+                    dataType: "json",
+                    success: function(msg){
+                        console.log(Object.keys(msg))
+                        $('#eventsBody').empty()
+                        if(Object.keys(msg)[0] !== "message") {
+                            Object.keys(msg).forEach(i => {
+                                console.log(msg[i].Titre)
+                        $('#entitiesNav').append(
+                            `<div class="card mb-4">
+                <div class="container-fluid pt-5" style="display:flex; justify-content: flex-start;flex-wrap: wrap;">
+
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px; margin-right:-22px">
+
+                           <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img class="img-fluid" src="/uploads/proprietaires/${msg[i].img_prop }"
+                              style="width: 140px ; height: 140px"  alt="">
+                        </a>
+
+                    <h5 class="font-weight-semi-bold m-0">
+                        ${msg[i].nom_prop }  ${msg[i].prenom_prop }
+                        <hr>
+                    </h5>
+                    <p class="card-text"> <br>
+                        Email : ${msg[i].email_prop } <br>
+                        Tlf :  ${msg[i].num_tlf_prop }   </p>
+                </div>
+        </div>
+            </div>`
+                        )
+                    })
+                } else {
+                    $('#entitiesNav').html("<h3>Aucun props existant!</h3>")
+                }
+
+                //we need to check if the value is the same
+                /* if (value===$(that).val()) {
+                     var result = JSON.parse(msg);
+                     $.each(result, function(key, arr) {
+                         $.each(arr, function(id, value) {
+                             if (key === 'posts') {
+                                 if (id !== 'error') {
+                                     console.log(value[1]);
+                                     entitySelector.append('<li><b>'+value[1]+'</b><a href="/detailedpost/'+id+'">'+'<img src="/uploads/post/'+value[0]+'" style="width: 50px; height: 50px"/>'+'</a></li>');
+                                 } else {
+                                     entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                 }
+                             }
+                         });
+                     });
+                 }*/
+            }
+            });
+        }
+    });
+    });
+
+
+
+
+
+</script>
+
+<script src="{{asset ('//code.jquery.com/jquery.js') }} "></script>
+<script text="javascript">
+	function DeleteProp() {
+confirm("Are you sure you want to delete ?");
+}
+
+function UpdateProp() {
+confirm("Are you sure you want to update ?");
+}
+</script>{% endblock %}

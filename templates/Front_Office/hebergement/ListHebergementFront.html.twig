@@ -1,0 +1,182 @@
+{% extends'Front_Office/Header-Footer.html.twig' %}
+
+
+{% block title %}
+	List Hebergements
+{% endblock %}
+
+
+{% block Content %}
+
+	<br>
+	<br><br><br>
+	{{ encore_entry_script_tags('app') | replace({'src=' : 'defer src='}) | raw }}
+	<div class="container">
+		<div class="container-fluid pt-5 pb-3 border-bottom px-lg-5">
+			<div class="row">
+				<div class="col-xl-8">
+					<h1>Accomadations</h1>
+					<p class="lead text-muted">Down Here you can find the list of the Available Accomadation
+						<br>
+						we hope you find what suits you the most
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid py-5 px-lg-5">
+			<div class="row">
+				<div class="col-lg-3 pt-3">
+					{% include 'Front_Office/hebergement/hebergementFilter.html.twig' with {formSearch : formSearch} only %}
+				</div>
+
+
+				<div class="col-lg-9">
+					<div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
+						<div class="mr-3">
+							<p class="mb-3 mb-md-0">
+								<strong>{{ hebergement.getTotalItemCount}}</strong>
+								results found</p>
+						</div>
+						<div>
+							<label class="form-label mr-2" for="form_sort">Sort by</label>
+							<th {% if hebergement.isSorted('h.getNomHbrg()') %} class="sorted" {% endif %}>
+								{{ knp_pagination_sortable(hebergement, 'Name', 'h.nom_hbrg') }}
+							</th>
+							<th>{{ knp_pagination_sortable(hebergement, 'Price', 'h.prix_hbrg') }}</th>
+
+							<th>{{ knp_pagination_sortable(hebergement, 'Date', 'h.date_hbrg') }}</th>
+
+
+						</div>
+					</div>
+					<br>
+					<br><br>
+					<div
+						class="row">
+						<!-- place item-->
+						{% for h in hebergement %}
+							<div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+								<div class="card h-100 border-0 shadow">
+									<div class="card-img-top overflow-hidden gradient-overlay">
+										<img class="img-fluid" src="{{ asset('/uploads/hebergements/'~ h.getImgHbrg()) }}" alt="Hebergement Picture"/>
+										<a class="tile-link" href="{{ path('DetailHebergementFRONT',{'id':h.getId()}) }}"></a>
+
+										<div class="card-img-overlay-bottom z-index-20">
+											<div class="media text-white text-sm align-items-center">
+												{% if h.proprietaire is null %}
+													<img class="avatar avatar-border-white mr-2" src="{{ asset ('DefaultProp.png')}}" alt="John"/>
+												{% elseif h.proprietaire.getImgProp() is null %}
+													<img class="avatar avatar-border-white mr-2" src="{{ asset ('DefaultProp.png')}}" alt="John"/>
+												{% else %}
+													<img class="avatar avatar-border-white mr-2" src="{{ asset('/uploads/proprietaires/'~ h.proprietaire.getImgProp())}}" alt="Pamela"/>
+												{% endif %}
+												<div class="media-body">
+													{% if h.proprietaire is null %}
+														{{ h.user.getNomUtl ~ ' ' ~ h.user.getPrenomUtl }}
+													{% else %}
+														{{ h.proprietaire.getNomProp()  ~ ' ' ~ h.proprietaire.getPrenomProp() }}
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-body d-flex align-items-center">
+										<div class="w-100">
+											<h6 class="card-title">
+												<a class="text-decoration-none text-dark" href="{{ path('DetailHebergementFRONT',{'id':h.getId()}) }}">{{ h.getNomHbrg()}}
+												</a>
+											</h6>
+											<div class="d-flex card-subtitle mb-3">
+												<p class="flex-grow-1 mb-0 text-muted text-sm">{{h.TypeHbrg.getNomTypeHbrg() }}
+													<br>
+													{{ h.getAdresseHbrg() }}
+												</p>
+											</div>
+											<p class="card-text text-muted">
+												<span class="h4 text-danger">{{h.getNbrPlaceHbrg() }}
+													places still Available</p>
+											</p>
+											<p class="card-text text-muted">
+												<span class="h4 text-primary">{{h.getPrixHbrg()}}
+													TND</span>
+												per night</p>
+											<p class="card-text text-muted">
+												<span class="h4 text-warning">
+													Available on
+													{{h.getDateHbrg() | date('d/m/Y') }}</span>
+											</p>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% else %}
+						No Accomadation Available
+					{% endfor %}
+				</div>
+				<!-- Pagination -->
+				<nav aria-label="Page navigation example">
+					<ul class="pagination pagination-template d-flex justify-content-center">
+						{{ knp_pagination_render(hebergement) }}
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	// ------------------------------------------------------- //
+// Inject SVG Sprite -
+// see more here
+// https://css-tricks.com/ajaxing-svg-sprite/
+// ------------------------------------------------------ //
+function injectSvgSprite(path) {
+
+var ajax = new XMLHttpRequest();
+ajax.open("GET", path, true);
+ajax.send();
+ajax.onload = function (e) {
+var div = document.createElement("div");
+div.className = 'd-none';
+div.innerHTML = ajax.responseText;
+document.body.insertBefore(div, document.body.childNodes[0]);
+}
+}
+// to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
+// use your own URL in production, please :)
+// https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
+// - injectSvgSprite('${path}icons/orion-svg-sprite.svg');
+injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
+</script>
+
+
+<script>
+	var snapSlider = document.getElementById('slider-snap');
+
+noUiSlider.create(snapSlider, {
+start: [
+40, 110
+],
+snap: false,
+connect: true,
+step: 1,
+range: {
+'min': 40,
+'max': 110
+}
+});
+var snapValues = [document.getElementById('slider-snap-value-from'), document.getElementById('slider-snap-value-to')];
+var inputValues = [document.getElementById('slider-snap-input-from'), document.getElementById('slider-snap-input-to')];
+snapSlider.noUiSlider.on('update', function (values, handle) {
+snapValues[handle].innerHTML = values[handle];
+inputValues[handle].value = values[handle];
+})
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	var typetext = $("form_type option:selected").text();
+</script>{% endblock %}

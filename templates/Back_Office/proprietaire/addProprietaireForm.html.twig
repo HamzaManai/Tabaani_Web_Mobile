@@ -1,0 +1,169 @@
+ {% extends'Back_Office/AdminMain.html.twig' %}
+
+ {% block title %}
+    List Props
+{% endblock %}
+
+{% block menu %}
+	Add Proprietaire						
+{% endblock %}
+
+
+{% block Entry %}
+  <div class="container">
+
+
+  <div class="card card-custom" >
+  <!--begin::Form-->
+  {{ form_start (formProprietaire, {'attr' : {'novalidate' : 'novaliate '}})  }}
+  <form>
+    <div class="card-body">
+     <div class="form-group mb-8">
+      <div class="alert alert-custom alert-default" role="alert">
+        <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
+          <div class="alert-text">
+            Fill the inputs with the owner details.
+          </div>
+         </div>
+      </div>
+      <div class="form-group">
+        <label>{{ form_label(formProprietaire.nom_prop,"nom Proprietaire : ") }}<span class="text-danger">*</span></label>
+        {{ form_widget(formProprietaire.nom_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter nom prop','type':'text'}}) }}
+        <span class="form-text text-muted">nom propreteraire.</span>
+      </div>
+
+          <div class="form-group">
+            <label>{{ form_label(formProprietaire.prenom_prop,"prenom Proprietaire : ") }}<span class="text-danger">*</span></label>
+        {{ form_widget(formProprietaire.prenom_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter prenom prop','type':'text'}}) }}
+            <span class="form-text text-muted">prenom proprietaire.</span>
+           </div>
+
+        <div class="form-group">
+      <label>{{ form_label(formProprietaire.email_prop,"email Proprietaire : ") }}<span class="text-danger">*</span></label>
+      {{ form_widget(formProprietaire.email_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter email','type':'email'}}) }}
+      <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+    </div>
+
+    <div class="form-group">
+      <label>{{ form_label(formProprietaire.num_tlf_prop,"Phone Proprietaire : ") }}<span class="text-danger">*</span></label>
+      {{ form_widget(formProprietaire.num_tlf_prop , {'attr' : {'class' : 'form-control','placeholder' : 'Enter Phone number','type':'number'}}) }}
+      <span class="form-text text-muted">Phone Number.</span>
+    </div>
+
+    <div class="form-group">
+    <label>{{ form_label(formProprietaire.img_prop,"Image Proprietaire : ") }}</label>
+      <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: asset ('back-office/assets/media/users/blank.png')">
+      <div class="image-input-wrapper"></div>
+
+      <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+        <i class="fa fa-pen icon-sm text-muted"></i>
+        {{ form_widget(formProprietaire.img_prop,{'attr' : {'type': 'input', 'id' : 'kt_image5'}}) }}
+        <input type="hidden" name="profile_avatar_remove"/>
+      </label>
+
+      <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+        <i class="ki ki-bold-close icon-xs text-muted"></i>
+      </span>
+
+      <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+        <i class="ki ki-bold-close icon-xs text-muted"></i>
+      </span>
+      </div>  
+    </div>
+
+
+
+
+
+
+
+
+{% if not formProprietaire.vars.valid %}
+            <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning" hide="true"></i>
+                </div>
+                <div class="alert-text" >
+       {{form_errors (formProprietaire.nom_prop) }}
+        {{ form_errors (formProprietaire.prenom_prop) }}
+        {{ form_errors (formProprietaire.email_prop) }}
+        {{ form_errors (formProprietaire.num_tlf_prop) }}
+        {{ form_errors (formProprietaire.img_prop) }}
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                        </button>
+                    </div>
+                 </div>
+            </div>
+{% endif %}
+<!-- 
+    <div class="alert alert-custom alert-light-danger fade show mb-5" role="alert">
+        <div class="alert-icon"><i class="flaticon-warning" hide="true"></i></div>
+        <div class="alert-text" >
+       form_errors (formProprietaire.nom_prop) }}
+        { form_errors (formProprietaire.prenom_prop) }}
+        { form_errors (formProprietaire.email_prop) }}
+        { form_errors (formProprietaire.num_tlf_prop) }}
+        { form_errors (formProprietaire.img_prop) }}
+
+        </div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+            </button>
+        </div>
+    </div>
+-->
+      <div class="card-footer">
+      <button type="Submit" class="btn btn-primary mr-2">Submit</button>
+      <button type="reset" class="btn btn-secondary">Cancel</button>
+      </div>
+  </form>
+  {{ form_end (formProprietaire) }}
+  <!--end::Form-->
+  </div>
+
+		<!--begin::Page Scripts(used by this page)-->
+        <script src="{{ asset ('back-office/assets/js/pages/crud/file-upload/image-input.js') }}"></script>
+
+		<!--end::Page Scripts-->
+<script>
+
+var avatar5 = new KTImageInput('kt_image_5');
+
+avatar5.on('cancel', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully changed !',
+  type: 'success',
+  buttonsStyling: false,
+  confirmButtonText: 'Awesome!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+
+avatar5.on('change', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully changed !',
+  type: 'success',
+  buttonsStyling: false,
+  confirmButtonText: 'Awesome!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+
+avatar5.on('remove', function(imageInput) {
+ swal.fire({
+  title: 'Image successfully removed !',
+  type: 'error',
+  buttonsStyling: false,
+  confirmButtonText: 'Got it!',
+  confirmButtonClass: 'btn btn-primary font-weight-bold'
+ });
+});
+</script>
+
+</div>
+
+
+
+{% endblock %}

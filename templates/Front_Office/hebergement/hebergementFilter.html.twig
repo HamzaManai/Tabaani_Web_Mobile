@@ -1,0 +1,42 @@
+{{ form_start (formSearch ) }}
+
+{{ form_row(formSearch.q, {'attr':{'class':'form-control pr-4','type':'search','placeholder':'name'}}) }}
+{{form_row(formSearch.type_hbrg , {'attr':{'class':'selectpicker form-control','data-style':'btn-selectpicker'}}) }}
+{{ form_row(formSearch.nbr_place,{'attr':{'class':'form-control number','type':'number'}}) }}
+{{form_row(formSearch.proprietaire,{'attr':{'class':'selectpicker form-control','data-style':'btn-selectpicker'}}) }}
+{{form_row(formSearch.adresse_hbrg, {'attr':{'class':'form-control pr-4','type':'search','placeholder':'adresse'}}) }}
+{{form_row(formSearch.date_hbrg , {'attr': {'class': ' form-control input-group date','data-provide': 'datepicker'}}) }}
+<label class="form-label">Price range</label>
+{{form_row(formSearch.min,{'attr':{'class':'form-control number','type':'number'}}) }} TND
+{{form_row(formSearch.max, {'attr':{'class':'form-control number','type':'number'}}) }} TND
+
+<div id="price-slider">
+
+</div>
+<div class="mb-4">
+	<button class="btn btn-primary" type="submit">
+		<i class="fas fa-filter mr-1"></i>
+		Filter
+	</button>
+	<button class="btn btn-danger" type="reset">
+		Reset
+	</button>
+</div>
+
+
+<script>
+
+	var slider = document.getElementById('slider');
+
+noUiSlider.create(slider, {
+start: [
+20, 80
+],
+connect: true,
+range: {
+'min': 0,
+'max': 2000
+}
+});
+</script>
+{{ form_end(formSearch) }}

@@ -1,0 +1,176 @@
+{% extends'Front_Office/Header-Footer.html.twig' %}
+
+{% block title %}
+	My Accomadations
+{% endblock %}
+
+
+{% block Content %}
+
+	<br>
+	<br>
+	<br>
+	<section class="py-5">
+		<div class="container">
+
+			<h1 class="hero-heading mb-4">My accommodations</h1>
+
+
+			<div style="text-align:right !important;">
+				<button class="btn btn-success" type="Submit">
+				<i class="fa fa-plus"></i> 
+				<a href="{{ url('AddHebergementUtilisateur') }}" style="color:white;"> 
+				Add an Accomadation
+				</a>
+				</button>
+			</div>
+
+<br>
+			{% for h in hebergement %}
+		
+				<div class="col-xl-3 col-md-4 col-sm-6 mb-5" data-marker-id="59c0c8e33b1527bfe2abaf92">
+					<div class="card h-100 border-0 shadow">
+						<div class="card-img-top overflow-hidden">
+							<img class="img-fluid" src="{{ asset('/uploads/hebergements/'~ h.getImgHbrg()) }}" alt="Hebergement Picture"/>
+							<!--	<a class="tile-link" href="{{ path('DetailHebergementFRONT',{'id':h.getId()}) }}"></a> -->
+						</div>
+						<div class="card-body d-flex align-items-center">
+							<div class="w-100">
+								<h6 class="card-title">
+									<!-- <a class="text-decoration-none text-dark" href="{{ path('DetailHebergementFRONT',{'id':h.getId()}) }}"> -->
+									{{ h.getNomHbrg()}}
+									
+								</h6>
+								<div class="d-flex card-subtitle mb-3">
+									<p class="flex-grow-1 mb-0 text-muted text-sm">{{h.TypeHbrg.getNomTypeHbrg() }}
+										<br>
+										{{ h.getAdresseHbrg() }}
+									</p>
+								</div>
+								<p class="card-text text-muted">
+									<span class="h4 text-danger">{{h.getNbrPlaceHbrg() }}
+										places still Available</p>
+								</p>
+								<p class="card-text text-muted">
+									<span class="h4 text-primary">{{h.getPrixHbrg()}}
+										TND</span>
+									per night</p>
+							</div>
+						</div>
+					</div>
+				<tr>
+					<td>
+						<button class="btn btn-primary" type="submit" name="submit">
+							<i class="fas fa-edit"></i>
+							<a href="{{ path('UpdateHebergementUtilisateur',{'id':h.getId()}) }}"  style="color:white !important;"> 
+							modify
+							</a>
+						</button>
+					</td>
+					<td>
+						<button class="btn btn-danger">
+							<i class="fas fa-trash-alt"></i>
+							delete
+						</button>
+					</td>
+				</tr>
+				{% else %}
+					<p class="mb-6">
+					You have no accommodations.
+					</p>
+				{% endfor %}
+			</div>
+
+
+			<div class="container">
+				<h2 class="mb-5">Your Current Reservations</h2>
+				<div class="row">
+
+					{% for r in reservation %}
+                        {% if r.hebergement.getDateHbrg() > date() %}
+						<!-- place item-->
+						<div class="col-xl-3 col-md-4 col-sm-6 mb-5" data-marker-id="59c0c8e33b1527bfe2abaf92">
+							<div class="card h-100 border-0 shadow">
+								<div class="card-img-top overflow-hidden">
+									<img class="img-fluid" src="{{ asset('/uploads/hebergements/'~ r.hebergement.getImgHbrg()) }}" alt="Hebergement Picture"/>
+									<a class="tile-link" href="{{ path('DetailHebergementFRONT',{'id':r.hebergement.getId()}) }}"></a>
+								</div>
+								<div class="card-body d-flex align-items-center">
+									<div class="w-100">
+										<p class="subtitle font-weight-normal text-sm mb-2">{{r.getNumResrv()}}
+										</p>
+										<h6 class="card-title">
+											<a class="text-decoration-none text-dark" href="user-booking-detail.html">{{r.hebergement.getNomHbrg()}}</a>
+										</h6>
+										<p class="flex-grow-1 mb-0 text-muted text-sm">{{ r.hebergement.getAdresseHbrg() }}</p>
+										<p class="flex-grow-1 mb-0 text-muted text-sm">{{ r.hebergement.getDateHbrg() |date('d/m/Y') }}</p>
+
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-danger">
+								<i class="fas fa-trash-alt"></i>
+							<a href="{{ path('ReservationHebergementDelete',{'id':r.getId()}) }}"  style="color:white !important;"> 
+							Delete Reservations
+							</a>							
+							</button>
+						</div>
+                        {% endif %}
+					{% else %}
+						<p class="mb-6">You have no reservations yet.... </p>
+						<br><br>
+                        <p class="mb-6">
+							you should book an accommodation</p>
+					{% endfor %}
+
+
+				</div>
+			</div>
+
+		<br> <br>
+			<div class="container">
+				<h2 class="mb-5">Your Past Reservations</h2>
+				<div
+				<div class="row">
+
+					{% for r in reservation %}
+                        {% if r.hebergement.getDateHbrg() < date() %}
+						<!-- place item-->
+						<div class="col-xl-3 col-md-4 col-sm-6 mb-5" data-marker-id="59c0c8e33b1527bfe2abaf92">
+							<div class="card h-100 border-0 shadow">
+								<div class="card-img-top overflow-hidden">
+									<img class="img-fluid" src="{{ asset('/uploads/hebergements/'~ r.hebergement.getImgHbrg()) }}" alt="Hebergement Picture"/>
+									<a class="tile-link" href="{{ path('DetailHebergementFRONT',{'id':r.hebergement.getId()}) }}"></a>
+								</div>
+								<div class="card-body d-flex align-items-center">
+									<div class="w-100">
+										<p class="subtitle font-weight-normal text-sm mb-2">{{r.getNumResrv()}}
+										</p>
+										<h6 class="card-title">
+											<a class="text-decoration-none text-dark" href="user-booking-detail.html">{{r.hebergement.getNomHbrg()}}</a>
+										</h6>
+										<p class="flex-grow-1 mb-0 text-muted text-sm">{{ r.hebergement.getAdresseHbrg() }}</p>
+										<p class="flex-grow-1 mb-0 text-muted text-sm">{{ r.hebergement.getDateHbrg() |date('d/m/Y') }}</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+                        {% endif %}
+					{% else %}
+						<p class="mb-6">You had 0 reservations here ... </p>
+						<br><br>
+                        <p class="mb-6">
+							you should try to book an accommodation</p>
+					{% endfor %}
+
+
+				</div>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
