@@ -5,13 +5,14 @@ namespace App\Controller;
 use App\Entity\Events;
 use App\Form\EventsType;
 use App\Repository\EventsRepository;
-use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
-use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * @Route("/events/back")
@@ -22,11 +23,62 @@ class EventsControllerBack extends AbstractController
     /**
      * @Route("/", name="events_index_back", methods={"GET"})
      */
-    public function indexBack(EventsRepository $eventsRepository): Response
+    public function indexBack(Request $request, PaginatorInterface $paginator): Response
     {
+        $data = $this->getDoctrine()->getRepository(Events::class)->findBy([],
+            ["eventdate"=>'asc']);
+
+        $events = $paginator->paginate(
+            $data,
+            $request->query->getInt('page',1),
+            3
+        );
+
         return $this->render('events/index_back.html.twig', [
-            'events' => $eventsRepository->findAll(),
+            'events' => $events,
         ]);
+    }
+
+
+
+    /**
+     * @Route("/pdfEvents", name="events_pdf_back", methods={"GET"})
+     */
+    public function pdfBack(EventsRepository $eventsRepository): Response
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $events = $eventsRepository->findAll();
+
+        /*return $this->render('events/eventsPDF.html.twig', [
+            "events" => $events,
+        ]);*/
+        $html = $this->render('events/eventsPDF.html.twig', [
+            "events" => $events,
+        ]);
+
+        // Load HTML to Dompdf
+        //$html .= '<link type="text/css" href="/public/Front-Office/css/style.default.css/style.default.min.css" rel="stylesheet" />';
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A1', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("TabaaniEvents.pdf", [
+            "Attachment" => true
+        ]);
+
+
     }
 
     /**
@@ -42,16 +94,9 @@ class EventsControllerBack extends AbstractController
 
             $file=$event->getImageevent();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
-            $entityManager=$this->getDoctrine()->getManager();
-            try {
-                $file->move(
-                    $this->getParameter('images_directory'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
-            }
+            $file->move($this->getParameter('uploads_directory', $fileName));
             $event->setImageevent($fileName);
+            //$event->upload();
             $entityManager->persist($event);
             $entityManager->flush();
 
@@ -106,6 +151,7 @@ class EventsControllerBack extends AbstractController
 
         return $this->redirectToRoute('events_index_back', [], Response::HTTP_SEE_OTHER);
     }
+
 
 
 }

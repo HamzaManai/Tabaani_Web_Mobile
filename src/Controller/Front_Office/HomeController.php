@@ -3,6 +3,7 @@
 namespace App\Controller\Front_Office;
 
 use App\Entity\Events;
+use App\Controller\EventsController;
 use App\Repository\EventsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +14,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/front-office", name="home")
      */
-    public function index(EventsRepository $eventsRepository): Response
+    public function index(EventsRepository $eventsRepository, EventsController $controller): Response
     {
         $events=$eventsRepository->findAll();
 
@@ -29,6 +30,10 @@ class HomeController extends AbstractController
               'borderColor' => '#fd7e14',
               'textColor' => '#343a40',
               'allDay' => false,
+              /*'url' => $this->render('events/show.html.twig', [
+                  'event' => $event,
+              ])*/
+                  //$controller->show($event)
             ];
         }
 
