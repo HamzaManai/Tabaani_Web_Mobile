@@ -123,6 +123,15 @@ class EventsController extends AbstractController
         return $this->redirectToRoute('events_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    public function UpdateJoin(Events $event)
+    {
+        $part = $event->getNbrGoing();
+        $part = $part + 1 ;
+        $event->setNbrGoing($part);
 
+        $this->getDoctrine()->getManager()->flush();
+
+
+    }
 
 }

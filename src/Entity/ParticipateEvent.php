@@ -29,6 +29,7 @@ class ParticipateEvent
      */
     private $user;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,10 +52,11 @@ class ParticipateEvent
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(int $user)
     {
         $this->user = $user;
 
         return $this;
     }
+
 }

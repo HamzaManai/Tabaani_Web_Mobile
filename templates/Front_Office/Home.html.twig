@@ -4,6 +4,15 @@
 Home 
 {% endblock %}
 
+ {% block stylesheet %}
+   <style>
+     #calendrier{
+       width: 80%;
+       margin: auto;
+     }
+   </style>
+ {% endblock %}
+
 
 {% block Content %}
    <!-- Slider main container-->
@@ -310,8 +319,8 @@ Home
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-8">
-            <p class="subtitle text-primary">The latest events</p>
-            <h2>What's new on Tabaani</h2>
+            <p class="subtitle text-primary">What's new on Tabaani ?</p>
+            <h2>Check Out The Events Calendar</h2>
           </div>
           <div class="col-md-4 d-md-flex align-items-center justify-content-end">
             <a class="text-muted text-sm" href="{{ path('events_index') }}">
@@ -321,179 +330,27 @@ Home
         </div>
 
         <!-- ligne 1 events -->
-        <div class="row">
-          <!-- event name & picture -->
-          <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-            <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url({{ asset('Front-Office/img/photo/photo-1449034446853-66c86144b0ad.jpg') }}) no-repeat; background-size: cover; "><a class="tile-link" href="category.html"> </a>
-              <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                <h3 class="text-shadow text-uppercase mb-0">Hiking Fest</h3>
-              </div>
-            </div>
-            <!-- event top accessories -->
-            <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-              <div class="badge badge-transparent badge-pill px-3 py-2">
-                <svg class="svg-icon text-black">
-                  <use xlink:href="#pin-1"> </use>
-                </svg>
-                Offline Event
-              </div>
-              <a class="text-right z-index-40"> <!-- class="card-img-overlay-bottom position-relative z-index-40" href="javascript: void();"-->
-                <div >
-                  <img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}" alt="John"/>
-                </div>
-              </a>
-            </div>
-            <!-- event bottom accessories -->
-            <div class="card-img-overlay-bottom ml-3 z-index-40 ">
-              <h4 class="text-shadow text-white" >Tunis, Ariana</h4>
-              <p class="mb-2 ">
-                <time class="badge badge-secondary-light" datetime="2022-02-17T16:00:00Z[UTC]" title="Thu Feb 17 2022 16:00:00 GMT+0000 (Coordinated Universal Time)">
-                  <span> 17 févr. 2022 - </span>
-                  <span> 17:00 </span>
-                  <span> UTC+1 </span>
-                </time>
-              </p>
-            </div>
-          </div>
+        <div class="row" id="calendrier">
 
-          <!-- event name & picture -->
-          <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-            <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url({{ asset('front-office/img/photo/photo-1429554429301-1c7d5ae2d42e.jpg') }}) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-              <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                <h3 class="text-shadow text-uppercase mb-0">Anime Friends</h3>
-              </div>
-            </div>
-            <!-- event top accessories -->
-            <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-              <div class="badge badge-transparent badge-pill px-3 py-2">
-                <svg class="svg-icon text-black">
-                  <use xlink:href="#support-1"> </use>
-                </svg>
-                Online Event
-              </div>
-              <a class="text-right z-index-40"> <!-- class="card-img-overlay-bottom position-relative z-index-40" href="javascript: void();"-->
-                <div >
-                  <img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="John"/>
-                </div>
-              </a>
-            </div>
-            <!-- event bottom accessories -->
-            <div class="card-img-overlay-bottom ml-3 z-index-40 ">
-              <h4 class="text-shadow text-white" >Sousse</h4>
-              <p class="mb-2 ">
-                <time class="badge badge-secondary-light" datetime="2022-02-17T16:00:00Z[UTC]" title="Thu Feb 17 2022 16:00:00 GMT+0000 (Coordinated Universal Time)">
-                  <span> 17 févr. 2022 - </span>
-                  <span> 17:00 </span>
-                  <span> UTC+1 </span>
-                </time>
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <!-- ligne 2 events -->
-        <div class="row">
-          <!-- event name & picture -->
-          <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-            <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url({{ asset('Front-Office/img/photo/photo-1523430410476-0185cb1f6ff9.jpg') }}) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-              <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                <h3 class="text-shadow text-uppercase mb-0">Yoga of laughter</h3>
-              </div>
-              <!-- event top accessories -->
-              <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                <div class="badge badge-transparent badge-pill px-3 py-2">
-                  <svg class="svg-icon text-black">
-                    <use xlink:href="#support-1"> </use>
-                  </svg>
-                  Online Event
-                </div>
-                <a class="text-right z-index-40"> <!-- class="card-img-overlay-bottom position-relative z-index-40" href="javascript: void();"-->
-                  <div >
-                    <img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="John"/>
-                  </div>
-                </a>
-              </div>
-              <!-- event bottom accessories -->
-              <div class="card-img-overlay-bottom ml-3 z-index-40 ">
-                <h4 class="text-shadow text-white" >Sousse</h4>
-                <p class="mb-2 ">
-                  <time class="badge badge-secondary-light" datetime="2022-02-17T16:00:00Z[UTC]" title="Thu Feb 17 2022 16:00:00 GMT+0000 (Coordinated Universal Time)">
-                    <span> 17 févr. 2022 - </span>
-                    <span> 17:00 </span>
-                    <span> UTC+1 </span>
-                  </time>
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <!-- event name & picture -->
-          <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-            <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url({{ asset('Front-Office/img/photo/photo-1505245208761-ba872912fac0.jpg') }}) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-              <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                <h3 class="text-shadow text-uppercase mb-0">Set Free</h3>
-              </div>
-              <!-- event top accessories -->
-              <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                <div class="badge badge-transparent badge-pill px-3 py-2">
-                  <svg class="svg-icon text-black">
-                    <use xlink:href="#pin-1"> </use>
-                  </svg>
-                  Offline Event
-                </div>
-                <a class="text-right z-index-40"> <!-- class="card-img-overlay-bottom position-relative z-index-40" href="javascript: void();"-->
-                  <div >
-                    <img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="John"/>
-                  </div>
-                </a>
-              </div>
-              <!-- event bottom accessories -->
-              <div class="card-img-overlay-bottom ml-3 z-index-40 ">
-                <h4 class="text-shadow text-white" >Sousse</h4>
-                <p class="mb-2 ">
-                  <time class="badge badge-secondary-light" datetime="2022-02-17T16:00:00Z[UTC]" title="Thu Feb 17 2022 16:00:00 GMT+0000 (Coordinated Universal Time)">
-                    <span> 17 févr. 2022 - </span>
-                    <span> 17:00 </span>
-                    <span> UTC+1 </span>
-                  </time>
-                </p>
-              </div>
-            </div>
-          </div>
+          <script>
+            window.onload = () => {
+              let calendarElt = document.querySelector("#calendrier")
 
-          <!-- event name & picture -->
-          <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-            <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url({{ asset('Front-Office/img/photo/photo-1519867850-74775a87e783.jpg') }}) no-repeat; background-size: cover;"><a class="tile-link" href="category.html"> </a>
-              <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                <h3 class="text-shadow text-uppercase mb-0">Chess day</h3>
-              </div>
-              <!-- event top accessories -->
-              <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                <div class="badge badge-transparent badge-pill px-3 py-2">
-                  <svg class="svg-icon text-black">
-                    <use xlink:href="#pin-1"> </use>
-                  </svg>
-                  Offline Event
-                </div>
-                <a class="text-right z-index-40"> <!-- class="card-img-overlay-bottom position-relative z-index-40" href="javascript: void();"-->
-                  <div >
-                    <img class="avatar avatar-border-white mr-2" src="{{ asset ('front-office/img/avatar/avatar-7.jpg')}}"  alt="John"/>
-                  </div>
-                </a>
-              </div>
-              <!-- event bottom accessories -->
-              <div class="card-img-overlay-bottom ml-3 z-index-40 ">
-                <h4 class="text-shadow text-white" >Sousse</h4>
-                <p class="mb-2 ">
-                  <time class="badge badge-secondary-light" datetime="2022-02-17T16:00:00Z[UTC]" title="Thu Feb 17 2022 16:00:00 GMT+0000 (Coordinated Universal Time)">
-                    <span> 17 févr. 2022 - </span>
-                    <span> 17:00 </span>
-                    <span> UTC+1 </span>
-                  </time>
-                </p>
-              </div>
-            </div>
-          </div>
+              let calendar = new FullCalendar.Calendar(calendarElt,{
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                  start: 'prev,next today',
+                  center: 'title',
+                  end: 'dayGridMonth,timeGridWeek'
+                },
+                events: {{ data|raw }}
+              })
+
+              calendar.render()
+            }
+          </script>
         </div>
       </div>
     </section>
@@ -551,6 +408,5 @@ Home
           <div class="swiper-pagination"></div>
         </div>
     </section>
-
 
 {% endblock %}

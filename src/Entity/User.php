@@ -78,6 +78,7 @@ class User
         return $this->id;
     }
 
+
     public function getNomUser(): ?string
     {
         return $this->nomUser;

@@ -113,6 +113,7 @@ class Events
     private $nbr_dislikes=0;
 
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,59 +206,6 @@ class Events
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    /**
-     * @param mixed $file
-     */
-    public function setFile(UploadedFile $file)
-    {
-        $this->file = $file;
-    }
-
-    public function getUploadDir()
-    {
-        return 'imagesEvent';
-    }
-
-    public function getAbsolutRoot()
-    {
-        return $this->getUploadRoot().$this->imageevent ;
-    }
-
-    public function getWebPath()
-    {
-        return $this->getUploadDir().'/'.$this->imageevent;
-    }
-
-    public function getUploadRoot()
-    {
-        return __DIR__.'/../../public/'.$this->getUploadDir().'/';
-    }
-
-    public function upload()
-    {
-
-        if($this->file === null){
-            return;
-
-        }
-        $this->imageevent = $this->file->getClientOriginalName();
-        if(!is_dir($this->getUploadRoot()))
-        {
-            mkdir($this->getUploadRoot(),'0777',true);
-        }
-
-        $this->file->move($this->getUploadRoot(),$this->imageevent);
-        unset($this->file);
-    }
-
     public function getOrg(): ?User
     {
         return $this->org;
@@ -305,5 +253,10 @@ class Events
 
         return $this;
     }
+
+    public function __toString(): string {
+        return $this->eventname;
+    }
+
 
 }

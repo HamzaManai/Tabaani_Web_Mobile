@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Events;
 use App\Entity\ParticipateEvent;
+use App\Entity\User;
 use App\Form\ParticipateEventType;
+use App\Repository\EventsRepository;
 use App\Repository\ParticipateEventRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -90,4 +94,29 @@ class ParticipateEventController extends AbstractController
 
         return $this->redirectToRoute('participate_event_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/newTrying/new", name="participate_event_newTrying", methods={"GET","POST"})
+     */
+    public function newTrying(Request $request,EventsController $eventsController,ParticipateEventRepository $participateEventRepository ,EventsRepository $eventsRepository, UserRepository $userRepository)
+    {
+        $event = new Events();
+        $data=$request->get('myEvent');
+
+        //$event = $eventsRepository->findOneBy(['eventname' => $data]);
+        $event = $this->getDoctrine()->getRepository(Events::class)->findOneBy(['eventname' => $data]);
+        $participant = new ParticipateEvent();
+        $participant->setEvent($event);
+        $participant->setUser(2);
+
+            $eventsController->UpdateJoin($event);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($participant);
+            $entityManager->flush();
+
+        return $this->render('events/index.html.twig', [
+            'events' => $event,
+        ]);
+    }
+
 }
