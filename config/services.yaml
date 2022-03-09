@@ -4,12 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-<<<<<<< HEAD
     profile_upload_dir: '%kernel.project_dir%/public/profile_images'
-=======
     proprietaires_directory: '%kernel.project_dir%/public/uploads/proprietaires'
     hebergements_directory: '%kernel.project_dir%/public/uploads/hebergements'
->>>>>>> GestionHebergement-Hamza
 services:
     # default configuration for services in *this* file
     _defaults:
