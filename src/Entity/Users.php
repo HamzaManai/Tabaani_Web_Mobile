@@ -53,7 +53,6 @@ class Users implements UserInterface
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\Length(" ")
      */
     private $Birthday;
 
@@ -94,16 +93,14 @@ class Users implements UserInterface
      */
     private $email;
 
-    public function getId(): ?string
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
+
+    public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -113,7 +110,7 @@ class Users implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->id;
+        return (string) $this->username;
     }
 
     /**
@@ -175,7 +172,7 @@ class Users implements UserInterface
         return $this->FirstName;
     }
 
-    public function setFirstName(string $FirstName): self
+    public function setFirstName(?string $FirstName): self
     {
         $this->FirstName = $FirstName;
 
@@ -187,7 +184,7 @@ class Users implements UserInterface
         return $this->LastName;
     }
 
-    public function setLastName(string $LastName): self
+    public function setLastName(?string $LastName): self
     {
         $this->LastName = $LastName;
 
@@ -199,7 +196,7 @@ class Users implements UserInterface
         return $this->Birthday;
     }
 
-    public function setBirthday(\DateTimeInterface $Birthday): self
+    public function setBirthday(?\DateTimeInterface $Birthday): self
     {
         $this->Birthday = $Birthday;
 
@@ -223,14 +220,14 @@ class Users implements UserInterface
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(?string $username): self
     {
         $this->username = $username;
 
@@ -242,9 +239,21 @@ class Users implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

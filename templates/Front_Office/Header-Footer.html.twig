@@ -38,7 +38,7 @@
   <body style="padding-top: 0;">
     <header class="header header-absolute">
       <!-- Navbar-->
-      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-whitet">
+      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
         <div class="container-fluid">
           <div class="d-flex align-items-center"><a class="navbar-brand py-3" href="index.html" >
              <img alt="logo" src="{{ asset ('Tabaani Light bg.png') }}">
@@ -85,8 +85,15 @@
 
               <li class="nav-item"><a class="nav-link" href="">Contact</a>
               </li>
-              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary"  href="{{ path('app_login') }}"">Sign In</a></li>
-              <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="{{ path('app_register') }}">Sign Up</a></li>
+              {% if not app.user %}
+                <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary"  href="{{ path('app_login') }}">Sign In</a></li>
+                <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="{{ path('app_register') }}">Sign Up</a></li>
+              {% else %}
+                <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="{{ path('users_edit', {'id': app.user.id}) }}">Profile</a>
+                </li>
+                <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="{{ path('app_logout') }}">logout</a>
+                </li>
+              {% endif %}
             </ul>
           </div>
         </div>

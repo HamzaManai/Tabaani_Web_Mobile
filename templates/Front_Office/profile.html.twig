@@ -1,10 +1,13 @@
-{% extends '/Front_Office/profile.html.twig' %}
+{% extends'Front_Office/Header-Footer.html.twig' %}
 
-{% block title %}Edit User
-{% endblock %}
-{% block Entry %}
+ {% block title %}
+     User Profile
+ {% endblock %}
 
-<div class="container">
+
+    {% block Content %}
+<br></br><br></br><br></br><br></br>
+       <div class="container">
     <table>
         {{ include('users/_form.html.twig', {'button_label': 'Update'}) }}
         {% if is_granted('ROLE_ADMIN') %} 
@@ -18,5 +21,6 @@
     </table 
 
 </div>
-
+<br></br><br></br>
 {% endblock %}
+	

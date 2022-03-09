@@ -23,18 +23,27 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setIsActive(false);
+            if ($form['type']->getData() == "Normal User") {
+                $user->setRoles([]);
+            } else {
+                $user->setRoles(["ROLE_INFLUENCER"]);
+            }
+            $file = $form['image']->getData();
+            if ($file) {
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move($this->getParameter('profile_upload_dir'), $fileName);
+                $user->setImage($fileName);
+            }
             // encode the plain password
             $user->setPassword(
-            $userPasswordEncoder->encodePassword(
+                $userPasswordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
-
+                    $user->getPassword()
+                    )
+                );
+                $entityManager->persist($user);
+                $entityManager->flush();
             return $this->redirectToRoute('app_login');
         }
 
