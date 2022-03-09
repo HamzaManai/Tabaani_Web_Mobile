@@ -1,0 +1,22 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}ModifierInfluenceur{% endblock %}
+
+{% block Entry %}
+    <table id="influenceurs" class="table table-striped">
+        <tbody>
+        	<tr>
+				<br><br>
+				<td><h4> l'influenceur numero : {{id}} </h4></td>
+	    		<td><h4>
+		  	     <h2 style="color:red;">est supprimé avec succés</p></h2>
+				</td>
+			</tr>
+			<tr>
+		  	 <td><a href="/back-office/influenceur/list" class="btn-primary btn-sm">precédent</a> </td>
+	         <td><a href="/back-office/influenceur/list" class="btn-primary btn-sm">quitter</a> </td>
+        	
+			</tr>
+        </tbody>
+    </table>
+{% endblock %}

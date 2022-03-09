@@ -1,0 +1,48 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+{% block Content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+        <div class="container py-7">
+            <div class="overlay-content text-center text-white">
+            <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">Modifier Blog </h1>
+        </div>
+      </div>
+    </section>
+<section class="py-6">
+    <div class="container">
+        <table id="blogs" class="table table-striped">
+            <div class="container">
+                {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+                <tr><br><br>
+                <div class="form-group">
+                {{form_row(form.Nom,{ 'attr':{'class':'form-control'}}) }}
+                </div>
+                </tr>
+                <div class="form-group">
+                <br><br>  {{form_label(form.Image,'Image') }}
+                </div>
+                {{ form_widget(form.Image,{ 'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.Image) }}
+            
+                 <div class="form-group">
+                     <br><br>{{form_label(form.Description,'Description') }}
+                 </div>
+                    {{ form_widget(form.Description,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.Description) }}
+
+                <div class="form-group">
+                    <br><br>{{form_label(form.Type,'Type') }}
+                </div>
+                    {{ form_widget(form.Type,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.Type) }}
+            </div>
+            
+            <br>
+            <div class="alert alert-danger text-center" onclick="return confirm('Etes-vous sûr de vouloir modifier cet Blog?')" >{{form_rest(form)}}</div>
+            <div class="btn btn-primary text-center" onclick="history.go(-1)"><span class="fa fa-backward"></span> Retour</div>
+        </table>
+    </div>
+{% endblock %}

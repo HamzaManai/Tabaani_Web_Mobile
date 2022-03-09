@@ -1,0 +1,89 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+{% block Content %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+        <div class="container py-7">
+            <div class="overlay-content text-center text-white">
+            <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">Recherche Blog </h1>
+        </div>
+      </div>
+    </section>
+<section class="py-6">
+<div class="container">    
+    <table id="blogs" class="table table-striped"> 
+        <tbody>
+             {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+           <tr><td>  
+                <div class="form-group">
+                {{form_label(form.nom,'Le nom blogs') }}</div>
+                {{ form_widget(form.nom,{ 'attr':{'class':'form-control'}}) }}
+              
+                </div>  
+             </td> </tr>
+             <tr><td>   
+                <div class="form-group">
+                {{form_label(form.description,'description blog') }}</div>
+                {{ form_widget(form.description,{ 'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.description) }}
+                </div> 
+              </td> </tr>
+              <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.type,' type') }}</div>
+                    {{ form_widget(form.type,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.type) }}
+                    </div> 
+              </td> </tr>
+               <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.id,' identifiant blog') }}</div>
+                    {{ form_widget(form.id,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.id) }}
+                    </div> 
+              </td> </tr>
+
+           <tr><td>  <button type="submit" class="btn btn-success"><span class="fa fa-search"></span> Chercher</button></td> </tr>
+           <tr><td> {{ form_end(form) }}</td>  </tr>
+        </tbody>
+    
+   {% if blogs %}
+       <table id="blogs" class="table table-striped">
+            <thead>
+            <tr>
+               <th>Id</th>
+               <th>Nom</th>
+               <th>Date</th>
+               <th>Description</th>
+               <th>type</th>
+                <th>Actions</th>
+           </tr>
+            </thead>
+            <tbody>
+            {% for i in blogs %}
+                <tr>
+                     <td>{{ i.id }}</td>
+                    <td>{{ i.nom }}</td>
+                   <td>{{ i.createat|date("d-m-Y")}}</td>
+                     <td>{{ i.description }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>
+                       <a href="/front-office/blog/detaille/{{ i.id }}" class="btn btn-info" ><i class="fa fa-eye fa-lg"> </i> Editer</a>
+                         <a href="/front-office/blog/modifier/{{ i.id }}" class="btn btn-info" ><i class="fa fa-eye fa-lg"> </i> Modifier</a>
+                       <a href="/front-office/blog/supprimer/{{ i.id }}" class="btn btn-danger"
+                          onclick="return confirm('Etes-vous sûr de supprimer ce blog?');"><i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+                         </td>
+                </tr>
+            {% endfor %}
+           
+            </tbody>
+         </table>
+
+      {% endif %}
+    </table>
+    </div>
+    </section>
+{% endblock %}

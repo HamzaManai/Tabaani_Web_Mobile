@@ -1,0 +1,105 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+{% block Content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+        <div class="container py-7">
+            <div class="overlay-content text-center text-white">
+            <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">Recherche Blog </h1>
+        </div>
+      </div>
+    </section>
+<section class="py-6">
+<style>
+button.like{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	line-heigth: 50px;
+	border-radius: 50%;
+	color: rgba(0,150,136 ,1);
+	background-color:rgba(38,166,154 ,0.3);
+	border-color: rgba(0,150,136 ,1);
+	border-width: 1px;
+	font-size: 15px;
+}
+
+button.dislike{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	line-heigth: 50px;
+	border-radius: 50%;
+	color: rgba(255,82,82 ,1);
+	background-color: rgba(255,138,128 ,0.3);
+	border-color: rgba(255,82,82 ,1);
+	border-width: 1px;
+	font-size: 15px;
+}
+.cred {
+  font-size: 8pt;
+  color: #666464;;
+  text-decoration: none;
+  border-bottom: 1px solid #272727;
+  padding:10px 0px;
+}
+.outer {
+  font-size: 280%;
+  color: #8C8C8C;
+
+}
+
+follow-button {
+  color: #3399FF;
+  font-family: "Helvetica";
+  font-size: 10pt;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #3399FF;
+  border-radius: 3px;
+  width: 85px;
+  height: 30px;
+  position: absolute;	 
+  top: 50px;
+  left: 50px;	
+  cursor: hand;		    
+}
+</style>
+<section class="py-6">
+  <div class="container">         
+        <div class="card mb-5 ">
+          <div class="card-header">
+           <img class="avatar mr-2" src="{{asset ('Back-Office/assets/media/users/'~ i.code.avatar) }}" alt=""></a> Rediger par
+             <a class="font-weight-bold" href="#">{{i.code.nom}}</a>
+             <span class="mx-1">|</span>
+             {{ i.createat|date("F j, Y")}}
+           </div>
+          <div class="card-body">            
+             <img class="card-img" src="{{asset ('Front-Office/img/photo/'~ i.Image) }}"" alt="">
+             <h5 class="card-title text-center">{{ i.nom }}</h5>
+            <p class="card-text">{{i.Description}}.</p>
+            <a href="/front-office/commentaire/lists/{{i.id}}" class="btn btn-primary">Voir Commantaires</a>
+          </div>
+          <div class=""card-footer text-muted"">
+            <ul class="nav nav-pills card-footer-pills">
+              <li class="nav-item">
+                <a class="nav-link active" href="/front-office/blog/modifier/{{i.id}}">Modifier</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-danger"  href="/front-office/blog/lists/{{i.id}}">Supprimer</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-dark text-center" onclick="history.go(-1)" aria-disabled="true">retour</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+</div>
+
+</section>
+
+{% endblock %}

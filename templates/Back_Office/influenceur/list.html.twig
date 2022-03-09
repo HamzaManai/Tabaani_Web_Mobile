@@ -1,0 +1,50 @@
+{% extends 'Back_Office/template.html.twig' %}
+
+
+{% block Entry %}
+<div class="container">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+  <tr><td>   {% block title %} 
+             <h3><p style="color:blue;"  class="text-center"> List Influenceur </p></h3>
+          {% endblock %}</td> </tr>
+   <table id="influenceurs" class="table table-striped">
+            <thead>
+            <tr>
+               <th>Id</th>
+               <th>Nom</th>
+               <th>code</th>
+               <th>Facebook</th>
+               <th>Instagram</th>
+               <th>Adresse mail</th>
+               
+               <br><th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in influenceurs %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.code }}</td>
+                    <td>{{ i.FacebookPage }}</td>
+                    <td>{{ i.InstagramPage }}</td>
+                    <td>{{ i.Email }}</td>
+                    <td>
+                        <a href="/back-office/influenceur/detaille/{{ i.id }}" class="btn btn-info"><i class="fa fa-eye fa-lg"> </i> Editer</a>
+                        <a href="/back-office/influenceur/modifier/{{ i.id }}" class="btn btn-warning"><i class="fa fa-pencil fa-lg"> </i> Modifier</a>
+                        <a href="/back-office/influenceur/supprimer/{{ i.id }}" class="btn btn-danger"
+                          onclick="return confirm('Etes-vous sûr de supprimer cet influenceur?');"><i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+                         </td>
+                </tr>
+            {% endfor %}
+                       
+             </tbody>  
+             
+        </table>
+     <a href="/back-office/influenceur/pdf/" class="btn btn-danger"><i class="fa fa-file-pdf-o fa-lg"></i> Exporter PDF</a>
+</div>
+{% endblock %}

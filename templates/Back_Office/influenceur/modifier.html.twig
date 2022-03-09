@@ -1,0 +1,59 @@
+{% extends 'Back_Office/template.html.twig' %}
+
+{% block Entry %}
+  <div class="container">
+  <table id="influenceurs" class="table table-striped"> 
+  <head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+     
+      {% block title %}
+        <h3><p style="color:blue;"  class="text-center"> Modifier Influenceur </p></h3>
+      {% endblock %}
+    
+    </head>
+    <body
+      <div class="container">
+         {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+         <tr><br><br>
+         <div class="form-group">{{form_row(form.Nom,{ 'attr':{'class':'form-control'}}) }}</div>
+         </tr>
+         <div class="form-group">
+              {{form_label(form.code,'Le code influenceur') }}</div>
+              {{ form_widget(form.code,{ 'attr':{'class':'form-control'}}) }}
+              {{ form_errors(form.code) }}
+         </div>  
+         <div class="form-group">
+           <tr> <br><br>  {{form_label(form.facebookPage,'La page facebook') }}</div>
+              {{ form_widget(form.facebookPage,{ 'attr':{'class':'form-control'}}) }}
+              {{ form_errors(form.facebookPage) }}</tr>
+          </div>   
+           <div class="form-group">
+              <br><br>{{form_label(form.instagramPage,'La page instagram') }}</div>
+              {{ form_widget(form.instagramPage,{ 'attr':{'class':'form-control'}}) }}
+              {{ form_errors(form.instagramPage) }}
+            </div>
+            <div class="form-group">
+              <br><br>      {{form_label(form.email,'Adresse mail') }}</div>
+                    {{ form_widget(form.email,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.email) }}
+              </div> 
+          
+            <div class="form-group">
+               <br><br> {{form_label(form.avatar,'Avatar') }}</div>
+                    {{ form_widget(form.avatar,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.avatar) }}
+                    </div> 
+              
+        </div>
+        <br>
+         <div class="alert alert-danger text-center" onclick="return confirm('Etes-vous sûr de vouloir modifier cette influenceur?')" >{{form_rest(form)}}</div>
+         <div class="btn btn-primary text-center" onclick="history.go(-1)"><span class="fa fa-backward"></span> Retour</div>
+       
+       </body>
+    </table>
+  </div>
+{% endblock %}

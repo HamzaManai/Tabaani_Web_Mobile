@@ -1,0 +1,55 @@
+{% extends 'Back_Office/template.html.twig' %}
+{% block title %}détaille commentaire{% endblock %}
+
+{% block Entry %}
+  <table class="table  table-danger">
+    <thead>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+      <tr> <td><th>info Commentaire</th>   </td>
+       </tr>
+     </thead>
+     <tbody>
+     
+        <tr> 
+         <td>identifiant blog</td>
+        <td>{{ i.blog.id}}</td>
+        </tr>
+        <tr><td> Identifiant Commentaire: </td>
+        <td>{{ i.id }}</td>
+        </tr>
+        <tr>
+           <td> Date commentaire :</td>
+           <td> {{ i.datecomment|date("d-m-Y H:i:s")}}</td>
+        </tr>
+         <tr>
+          <td>Commentaire:</td>
+           <td>{{ i.comment }}</td>
+         </tr>
+        <tr> 
+          <td>nom:</td>
+            <td>{{ i.nom }}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+            <td>{{ i.mail }}</td>
+
+        </tr>
+          <td><a href="/back-office/commentaire/supprimer/{{ i.id }}" class="btn btn-danger"
+          onclick="return confirm('Etes-vous sûr de supprimer ce commentaire?')"><i class="fa fa-trash-o fa-lg"></i>Supprimer</a></td>
+         
+        <td> 
+          <button type="submit" class="btn btn-success" onclick="history.go(-1)"><span class="fa fa-backward"></span> Retour</button>
+           
+        </td>
+        </tr>
+
+        
+        </tbody>
+    
+
+</table>
+{% endblock %}

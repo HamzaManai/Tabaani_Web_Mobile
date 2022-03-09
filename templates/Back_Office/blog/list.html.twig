@@ -1,0 +1,46 @@
+{% extends 'Back_Office/template.html.twig' %}
+
+
+{% block Entry %}
+<div class="container">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+  <tr><td>   {% block title %} 
+             <h3><p style="color:blue;"  class="text-center"> List Blog </p></h3>
+          {% endblock %}</td> </tr>
+   <table id="blogs" class="table table-striped">
+            <thead>
+            <tr>
+               <th>Code Influenceur</th>
+               <th>Id Blog</th>
+               <th>Nom Blog</th>
+               <th>Description Blog</th>
+               <th>Type Blog</th>
+               <br><th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in blogs %}
+                <tr>
+                    <td>{{ i.code }}</td>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.description }}</td>
+                    <td>{{ i.type }}</td>
+                  
+                 
+                    <td>
+                        <a href="/back-office/blog/detaille/{{ i.id }}" class="btn btn-info"><i class="fa fa-eye fa-lg"> </i> Editer</a>
+                        <a href="/back-office/blog/supprimer/{{ i.id }}" class="btn btn-danger"
+                          onclick="return confirm('Etes-vous sûr de supprimer ce blog?');"><i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+                         </td>
+                </tr>
+            {% endfor %}
+             </tbody>
+        </table>
+ 
+</div>
+{% endblock %}

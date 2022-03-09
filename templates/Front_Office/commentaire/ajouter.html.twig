@@ -1,0 +1,88 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+
+{% block Content %}
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+   <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+      <div class="container py-7">
+        <div class="overlay-content text-center text-white">
+          <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">{{i.nom}}</h1>
+     <h1>   {{i.id}}</h1>
+        </div>
+      </div>
+    </section>
+   <section>
+    <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div class="row">
+             <div class="col-xl-8 col-lg-10 mx-auto">           
+             <p class="py-3 mb-5 text-muted text-center font-weight-light"><a href=""><img class="avatar mr-2" src="{{asset ('Front-Office/img/avatar/'~ i.code.avatar) }}" alt=""></a> Rediger par <a class="font-weight-bold" href="#">{{i.code.nom}}</a><span class="mx-1">|</span> date creation**<span class="mx-1">|</span><a class="text-muted" href="#">2 comments </a></p>
+              <p class="lead mb-5">{{i.Description}}. </p>
+            </div>
+           <div class="row">
+               <div class="col-xl-10 mx-auto">
+               <img class="img-fluid mb-5" src="{{asset ('Back-Office/img/photo/photo-1.jpg') }}" alt="">
+             <!--  <h6 style="width: 18rem;">
+               <button class="dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> </button>
+               <button class="like"><i class="fa fa-heart"></i></i> </button> </h6>-->
+               <h6 style="width: 9rem;">
+               <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Not Like</a>
+               <a href="#"><i class="fa fa-heart"></i></i> like</a> </h6>
+
+               <div class="second_line_header clearfix">
+			<div class="vote " id="vote" data-ref="ARTICLE" data-ref_id="1">
+				<div class="vote_btns">
+					<button class="vote_btn vote_like"><span id="like_count">0</span></button>
+					<button class="vote_btn vote_dislike"><span id="dislike_count">0</span></button>
+				</div>
+			</div>
+		</div>
+           </div>
+           
+           </div>
+    </div>
+   
+</section>
+
+            <!-- comment form-->
+            <div class="mb-5">
+             {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+              <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#PosterCommentaire" aria-expanded="false" aria-controls="PosterCommentaire">Poster Commentaire</button>
+              <div class="collapse mt-4" id="PosterCommentaire">
+                <h3 class="mb-4">Commentaire</h3>
+                 <div class="row">
+                    <div class="col-md-6">                           
+                      <div class="form-group">
+                       {{form_label(form.nom,'Nom') }} <span class="required">*</span>
+                    {{ form_widget(form.nom,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.nom) }}
+                      </div>
+                    </div>
+                    <div class="col-md-6">                                              
+                      <div class="form-group">
+                       {{form_label(form.mail,'Email') }} <span class="required">*</span>
+                    {{ form_widget(form.mail,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.mail) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mb-4">
+                    {{form_label(form.comment,'Commentaire') }} <span class="required">*</span>
+                    {{ form_widget(form.comment,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.comment) }}
+                  </div>
+                  <button class="btn btn-primary" type="submit"><i class="far fa-comment"></i> Commentaire </button>
+                  {{ form_end(form) }}
+
+             
+              </div>
+            </div>
+            <!-- /comment form-->
+
+              
+{% endblock %}
+
+ 

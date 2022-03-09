@@ -1,0 +1,95 @@
+{% extends 'Back_Office/template.html.twig' %}
+{% block Entry %}
+<div class="container">
+
+    <table id="blogs" class="table table-striped"> 
+       <thead> 
+           <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       <tr><td>   {% block title %} 
+             <h3><p style="color:blue;"  class="text-center"> Recherche Commentaire </p></h3>
+          {% endblock %}</td> </tr>
+       </thead>
+       <tbody>
+            <tr><td>  {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}</td> </tr>
+           <tr><td>  
+                <div class="form-group">
+                {{form_label(form.nom,'Nom user') }}</div>
+                {{ form_widget(form.nom,{ 'attr':{'class':'form-control'}}) }}
+              
+                </div>  
+             </td> </tr>
+              <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.mail,' Email user') }}</div>
+                    {{ form_widget(form.mail,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.mail) }}
+                    </div> 
+              </td> </tr>
+               <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.id,' identifiant Commentaire') }}</div>
+                    {{ form_widget(form.id,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.id) }}
+                    </div> 
+              </td> </tr>
+               <tr><td>   
+                <div class="form-group">
+                {{form_label(form.comment,'Commentaire ') }}</div>
+                {{ form_widget(form.comment,{ 'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.comment) }}
+                </div> 
+              </td> </tr>
+
+           <tr><td>  <button type="submit" class="btn btn-success"><span class="fa fa-search"></span> Chercher</button></td> </tr>
+           <tr><td> {{ form_end(form) }}</td>  </tr>
+        </tbody>
+    
+   {% if commentaires %}
+       <table id="commentaires" class="table table-striped">
+            <thead>
+            <tr>
+               <th>IdInfl</th>
+               <th>IdBlog</th>
+               <th>DateBlog</th>
+               <th>IdCommentaire</th>                        
+               <th>DateCommentaire</th>
+               <th>
+               <a href="/back-office/commentaire/lists" class="d-inline w-20 p-1 btn btn-danger"><i class="fa fa-sort-asc" aria-hidden="true"></i></a>
+               <a href="/back-office/commentaire/listsd" class="d-inline w-20 p-1 btn btn-success" ><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
+                </th> 
+                <th>Commentaire</th>
+               <th>Nom</th>
+               <th>Email</th>
+               <br><th>Action</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in commentaires %}
+                <tr>
+                    <td>{{ i.blog.code.id}}</td>
+                    <td>{{ i.blog.id}}</td>
+                    <td>{{ i.blog.createat|date("d-m-Y")}} </td>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.datecomment|date("d-m-Y H:i:s")}} </td>
+                    <td></td>
+                    <td>{{ i.comment }}</td>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.mail }}</td>
+                    <td>
+                        <a href="/back-office/commentaire/detailles/{{ i.id }}" class="btn btn-info"><i class="fa fa-eye fa-lg"> </i> Editer</a>
+                        <a href="/back-office/commentaire/supprime/{{ i.id }}" class="btn btn-danger"
+                          onclick="return confirm('Etes-vous sûr de supprimer ce commentaire?');"><i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+                         </td>
+                </tr>
+            {% endfor %}
+           
+            </tbody>
+         </table>
+
+      {% endif %}
+    </table>
+{% endblock %}
