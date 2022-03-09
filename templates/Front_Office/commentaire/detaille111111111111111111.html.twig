@@ -1,0 +1,56 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}détaille influenceur{% endblock %}
+
+{% block Entry %}
+  <table class="table  table-danger">
+    <thead>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+      <tr> <td><th>info influenceur</th>   </td>
+       </tr>
+     </thead>
+     <tbody>
+      <tr>
+      
+        <td> Identifiant influenceur: </td>
+        <td>{{ i.id }}</td>
+        </tr>
+        <tr>
+           <td> Code influenceur :</td>
+           <td> {{ i.code }}</td>
+        </tr>
+         <tr>
+          <td>Nom influenceur:</td>
+           <td>{{ i.nom }}</td>
+         </tr>
+        <tr> 
+          <td>Page facebook:</td>
+            <td>{{ i.FacebookPage }}</td>
+        </tr>
+        <tr>
+          <td>Page instagram:</td>
+            <td>{{ i.InstagramPage }}</td>
+
+        </tr>
+       
+        <tr>
+          <td><a href="/back-office/influenceur/modifier/{{ i.id }}" class="btn btn-warning"><i class="fa fa-pencil fa-lg"> </i>Modifier</a></td>
+          <td><a href="/back-office/influenceur/supprimer/{{ i.id }}" class="btn btn-danger"
+          onclick="return confirm('Etes-vous sûr de supprimer cet influenceur?')"><i class="fa fa-trash-o fa-lg"></i>Supprimer</a></td>
+         
+        <td> 
+          <button type="submit" class="btn btn-success" onclick="history.go(-1)"><span class="fa fa-backward"></span> Retour</button>
+           
+        </td>
+        </tr>
+
+        
+        </tbody>
+    
+
+</table>
+{% endblock %}

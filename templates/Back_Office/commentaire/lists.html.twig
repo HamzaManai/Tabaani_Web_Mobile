@@ -1,0 +1,59 @@
+{% extends 'Back_Office/template.html.twig' %}
+
+
+{% block Entry %}
+<div class="container">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+  <tr><td>   {% block title %} 
+             <h3><p style="color:blue;"  class="text-center"> List Commentaires </p></h3>
+          {% endblock %}</td> </tr>
+
+   <table id="commentaire" class="table table-striped">
+   
+            <thead>
+            <tr>
+               <th>IdInfl</th>
+               <th>IdBlog</th>
+               <th>DateBlog</th>
+               <th>IdCommentaire</th>                        
+               <th>DateCommentaire</th>
+               <th>
+               <a href="/back-office/commentaire/clist" class="d-inline w-20 p-1 btn btn-danger"><i class="fa fa-sort-asc" aria-hidden="true"></i></a>
+               <a href="/back-office/commentaire/listsd" class="d-inline w-20 p-1 btn btn-success" ><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
+                </th> 
+                <th>Commentaire</th>
+               <th>Nom</th>
+               <th>Email</th>
+               <br><th>Action</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in commentaires %}
+                <tr>
+                    <td>{{ i.blog.code.id}}</td>
+                    <td>{{ i.blog.id}}</td>
+                    <td>{{ i.blog.createat|date("d-m-Y")}} </td>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.datecomment|date("d-m-Y H:i:s")}} </td>
+                    <td></td>
+                    <td>{{ i.comment }}</td>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.mail }}</td>
+                    <td>
+                        <a href="/back-office/commentaire/detailles/{{ i.id }}" class="btn btn-info"><i class="fa fa-eye fa-lg"> </i> Editer</a>
+                        <a href="/back-office/commentaire/supprime/{{ i.id }}" class="btn btn-danger"
+                          onclick="return confirm('Etes-vous sûr de supprimer cet influenceur?');"><i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+                         </td>
+                </tr>
+            {% endfor %}
+                       
+             </tbody>  
+             
+        </table>
+     </div>
+{% endblock %}

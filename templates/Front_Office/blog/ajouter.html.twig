@@ -1,0 +1,68 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+{% block Content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+        <div class="container py-7">
+            <div class="overlay-content text-center text-white">
+            <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">Ajouter Blog </h1>
+        </div>
+      </div>
+    </section>
+<section class="py-6">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+ <div class="container">
+    <table id="blogs" class="table table-striped"> 
+       <tbody>
+            <tr><td>  {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}</td> </tr>
+              <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.code,'code influenceur') }}</div>
+                    {{ form_widget(form.code,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.code) }}
+                    </div> 
+              </td> </tr>
+           <tr><td>  
+                <div class="form-group">
+                {{form_label(form.description,'decription blog') }}</div>
+                {{ form_widget(form.description,{ 'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.description) }}
+                </div>  
+             </td> </tr>
+             <tr><td>   
+                <div class="form-group">
+                {{form_label(form.nom,'Le nom blog') }}</div>
+                {{ form_widget(form.nom,{ 'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.nom) }}
+                </div> 
+              </td> </tr>
+              <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.type,'type blog') }}</div>
+                    {{ form_widget(form.type,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.type) }}
+                    </div> 
+              </td> </tr>
+               <tr><td>  
+                    <div class="form-group">
+                    {{form_label(form.image,'image') }}</div>
+                    {{ form_widget(form.image,{ 'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.image) }}
+                    </div> 
+              </td> </tr>
+          
+            <tr><td>    <button type="submit" class="btn btn-success"  onclick="return confirm('Etes-vous sûr de vouloir Créer ce Blog?')" ><i class="fa fa-user-plus fa-lg"> </i> Créer</button></td> </tr>
+            <tr><td> {{ form_end(form) }}</td>  </tr>
+        </tbody>
+    </table>
+    </div>
+    </section>
+{% endblock %}
+
+ 

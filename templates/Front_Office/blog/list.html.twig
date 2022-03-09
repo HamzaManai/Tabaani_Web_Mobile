@@ -1,0 +1,38 @@
+{% extends 'Front_Office/Header-Footer.html.twig' %}
+{% block Content %}<?php
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="{{asset ('Front-Office/img/photo/photo-1.jpg') }}" alt="">
+        <div class="container py-7">
+            <div class="overlay-content text-center text-white">
+            <h1 class="display-3 text-serif font-weight-bold text-shadow mb-0">List Blog</h1>
+            </div>   
+        </div>
+    </section>
+   <li>  <a href="/front-office/blog/ajouter" class="btn btn-info" ><i class="fa fa-plus fa-lg"> </i> Ajouter Blog</a>
+    </li>
+    <section class="py-6">
+        <div class="container">          
+            <div class="row mb-5">
+               {% for i in blogs %}  
+                <!-- blog item-->            
+                <div class="col-lg-4 col-md-6 mb-4 hover-animate">
+                   <div class="card shadow border-0 h-100"><a><img style="height: 400px;width: 3(0px" class="img-fluid card-img-top" src="{{asset ('Front-Office/img/photo/'~ i.Image) }}" alt="..."/></a>
+                    <i class="my-2 text-dark font-weight-bold text-sm text-right" > {{ i.nbvue }}<img src="https://img.icons8.com/ios-filled/50/000000/eyes-cartoon.png"  width="20" height="20"/></i>
+                        <div class="card-body">
+                            <a class="text-uppercase text-muted text-sm letter-spacing-2">{{ i.type }}</a>
+                            <h5 class="my-2"><a class="text-dark">{{ i.nom }}</a></h5>
+                            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>{{ i.createat|date("d-m-Y")}}</p>
+                            <p class="my-2 text-muted text-sm">{{ i.description }}</p><a class="btn btn-link pl-0" href="/front-office/commentaire/lists/{{ i.id }}">Plus de détaille</a>
+                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>                
+        </div>
+    </section>
+ 
+{% endblock %}

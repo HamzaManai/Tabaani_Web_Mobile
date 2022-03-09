@@ -1,0 +1,31 @@
+{% extends 'Back_Office/template.html.twig' %}
+{% block title%} Liste des Blogs{% endblock %}
+
+{% block Entry %}
+    <table id="blogs" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in blogs %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.titre }}</td>
+                <td>{{ i.image }}</td>
+                <td>{{ i.description }}</td>
+
+                <td>
+                    <a href="/Blog/{{ i.id }}" class="btn btn-dark">Détails</a>
+                    <a href="/Blog/edit/{{ i.id }}" class="btn btn-dark">Modifier</a>
+                    <a href="/Blog/delete/{{ i.id }}" class="btn btn-danger"
+                       onclick="return confirm('Etes-vous sûr de supprimer cet blog?');">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
