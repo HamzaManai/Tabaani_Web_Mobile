@@ -100,17 +100,17 @@ class Events
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbr_going=0;
+    private $nbrGoing=0;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbr_likes=0;
+    private $nbrLikes=0;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbr_dislikes=0;
+    private $nbrDislikes=0;
 
 
 
@@ -220,36 +220,36 @@ class Events
 
     public function getNbrGoing(): ?int
     {
-        return $this->nbr_going;
+        return $this->nbrGoing;
     }
 
-    public function setNbrGoing(?int $nbr_going): self
+    public function setNbrGoing(?int $nbrGoing): self
     {
-        $this->nbr_going = $nbr_going;
+        $this->nbrGoing = $nbrGoing;
 
         return $this;
     }
 
     public function getNbrLikes(): ?int
     {
-        return $this->nbr_likes;
+        return $this->nbrLikes;
     }
 
-    public function setNbrLikes(?int $nbr_likes): self
+    public function setNbrLikes(?int $nbrLikes): self
     {
-        $this->nbr_likes = $nbr_likes;
+        $this->nbrLikes = $nbrLikes;
 
         return $this;
     }
 
     public function getNbrDislikes(): ?int
     {
-        return $this->nbr_dislikes;
+        return $this->nbrDislikes;
     }
 
-    public function setNbrDislikes(?int $nbr_dislikes): self
+    public function setNbrDislikes(?int $nbrDislikes): self
     {
-        $this->nbr_dislikes = $nbr_dislikes;
+        $this->nbrDislikes = $nbrDislikes;
 
         return $this;
     }

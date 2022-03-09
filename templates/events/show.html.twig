@@ -24,13 +24,14 @@
                             Hosted By :
                         <div >
                             <img class="avatar avatar-border-white mr-2" src="{{ asset('pics/avatar-10.jpg') }}" alt="John"/>
+                                <div class="media-body">{{ event.org }}</div>
                         </div>
                         </p>
                     </div>
                     <div class="calltoactions">
                         <a class="btn btn-primary">Participate</a>
                         <form  id="JoinForm" method="post" action="{{ path('participate_event_newTrying')}}" >
-                            <input disabled name="myEvent" value={{ event.id }}>
+                            <input type="hidden" name="myEvent" value={{ event.id }}>
                             <img id="reloader" onclick="document.getElementById('JoinForm').submit();" src="{{ asset('pics/14.png') }}" class="img-fluid" alt="Join">
 
 
@@ -47,6 +48,11 @@
                         <div class="text-block">
                             <h3 class="mb-3">About</h3>
                             <p class="text-muted"> {{ event.description }} </p>
+                        </div>
+
+                        <div class="text-block">
+                            <h3 class="mb-3">Places Left</h3>
+                            <h4 class="text-black-50"> {{ (event.nbrmaxpart - event.nbrGoing) }} </h4>
                         </div>
 
                         <div class="text-block">
@@ -85,15 +91,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-unstyled mb-4">
-                                        <li class="mb-2"> <a class="text-gray-00 text-sm text-decoration-none" href="#"><i class="fa fa-phone mr-3"></i><span class="text-muted">(020) 123 456 789</span></a></li>
-                                        <li class="mb-2"> <a class=" text-sm text-decoration-none" href="#"><i class="fa fa-envelope mr-3"></i><span class="text-muted">info@example.com</span></a></li>
+                                        <li class="mb-2"> <a class="text-gray-00 text-sm text-decoration-none" href="#"><i class="fa fa-phone mr-3"></i><span class="text-muted">{{ event.org.numUser }}</span></a></li>
+                                        <li class="mb-2"> <a class=" text-sm text-decoration-none" href="#"><i class="fa fa-envelope mr-3"></i><span class="text-muted">{{ event.org.emailUser }}</span></a></li>
                                     </ul>
-                                    <div class="text-center">
-                                        <a class="btn btn-outline-primary btn-block" href="#">
-                                            <i class="far fa-paper-plane mr-2"></i>
-                                            Boost User
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +114,6 @@
 
 
 
-    <a href="{{ path('events_index') }}">Back to events list</a>
+    {# <a href="{{ path('events_index') }}">Back to events list</a> #}
 
 {% endblock %}

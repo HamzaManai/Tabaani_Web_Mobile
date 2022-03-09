@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="Index Events Update">
+    <list default="true" id="2b2e2213-50ea-4a93-b6a9-264360b901de" name="Changes" comment="participate event">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20220309134148.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back-Office/assets/css/style.bundle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ParticipateEventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ParticipateEventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ParticipateEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ParticipateEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Front_Office/Home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/events/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +218,7 @@
       <workItem from="1646230993665" duration="30886000" />
       <workItem from="1646276597705" duration="374000" />
       <workItem from="1646746817217" duration="41079000" />
-      <workItem from="1646818065024" duration="14068000" />
+      <workItem from="1646818065024" duration="15356000" />
     </task>
     <task id="LOCAL-00001" summary="Modif">
       <created>1645449425018</created>
@@ -396,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646830895131</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="participate event">
+      <created>1646834767996</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1646834767996</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +422,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Modif" />
     <MESSAGE value="Adding Entity and Repository folders" />
     <MESSAGE value="created entities" />
     <MESSAGE value="entities" />
@@ -441,6 +446,7 @@
     <MESSAGE value="updates 16.0" />
     <MESSAGE value="Filtres &amp; Tri" />
     <MESSAGE value="Index Events Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Index Events Update" />
+    <MESSAGE value="participate event" />
+    <option name="LAST_COMMIT_MESSAGE" value="participate event" />
   </component>
 </project>
