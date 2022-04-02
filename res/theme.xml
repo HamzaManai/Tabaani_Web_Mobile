@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="TabaaniLogo.png" type="multi"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+        <val key="SideCommand.align" value="1" />
+        <val key="SideCommand.bgColor" value="5369ec" />
+        <border key="SideCommand.border" type="empty" />
+        <val key="SideCommand.fgColor" value="ffffff" />
+        <font key="SideCommand.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="4.0" />
+        <val key="SideCommand.margin" value="0.0,1.0,0.0,0.0" />
+        <val key="SideCommand.padUnit" value="2,2,2,2" />
+        <val key="SideCommand.padding" value="3.0,3.0,3.0,3.0" />
+        <val key="SideCommand.press#bgColor" value="885" />
+        <val key="SideCommand.press#derive" value="SideCommand" />
+        <val key="SideCommand.sel#bgColor" value="885" />
+        <val key="SideCommand.sel#derive" value="SideCommand" />
+        <val key="SideCommand.textDecoration" value="0" />
+        <val key="SideCommand.transparency" value="255" />
+        <val key="SideMenuTagline.derive" value="SideCommand" />
+        <font key="SideMenuTagline.font" type="ttf" face="0" style="0" size="0" name="native:ItalicRegular" family="native:ItalicRegular" sizeSettings="3" actualSize="2.5" />
+        <val key="SideMenuTagline.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="SideMenuTagline.padding" value="1.0,0.0,0.0,0.0" />
+        <val key="SideMenuTagline.textDecoration" value="0" />
+        <val key="SideNavigationPanel.bgColor" value="ffffff" />
+        <val key="SideNavigationPanel.transparency" value="255" />
+        <val key="StatusBarSideMenu.padding" value="0.0,0.0,0.0,0.0" />
+    </theme>
+</resource>
